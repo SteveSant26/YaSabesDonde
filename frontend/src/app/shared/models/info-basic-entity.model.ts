@@ -3,5 +3,6 @@ export interface InfoBasicEntity {
   documentId ?: string;
   createdAt?: Date;
   updatedAt?: Date;
+  publishedAt?: Date;
 }
 
