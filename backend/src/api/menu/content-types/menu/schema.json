@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menus",
+  "info": {
+    "singularName": "menu",
+    "pluralName": "menus",
+    "displayName": "Menu"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "menu"
+    },
+    "name": {
+      "type": "string"
+    },
+    "branch": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::branch.branch",
+      "mappedBy": "menu"
+    }
+  }
+}

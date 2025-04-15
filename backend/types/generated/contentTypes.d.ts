@@ -369,6 +369,38 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiBranchBranch extends Struct.CollectionTypeSchema {
+  collectionName: 'branches';
+  info: {
+    description: '';
+    displayName: 'branch';
+    pluralName: 'branches';
+    singularName: 'branch';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Schema.Attribute.String & Schema.Attribute.Required;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::branch.branch'
+    > &
+      Schema.Attribute.Private;
+    menu: Schema.Attribute.Relation<'oneToOne', 'api::menu.menu'>;
+    name: Schema.Attribute.String & Schema.Attribute.Required;
+    phone: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
@@ -392,6 +424,33 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
+    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiMenuMenu extends Struct.CollectionTypeSchema {
+  collectionName: 'menus';
+  info: {
+    displayName: 'Menu';
+    pluralName: 'menus';
+    singularName: 'menu';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    branch: Schema.Attribute.Relation<'oneToOne', 'api::branch.branch'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::menu.menu'> &
+      Schema.Attribute.Private;
+    name: Schema.Attribute.String;
     products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -459,6 +518,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       'api::product.product'
     > &
       Schema.Attribute.Private;
+    menu: Schema.Attribute.Relation<'manyToOne', 'api::menu.menu'>;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     price: Schema.Attribute.Relation<'oneToOne', 'api::price.price'>;
     publishedAt: Schema.Attribute.DateTime;
@@ -977,7 +1037,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
+      'api::branch.branch': ApiBranchBranch;
       'api::category.category': ApiCategoryCategory;
+      'api::menu.menu': ApiMenuMenu;
       'api::price.price': ApiPricePrice;
       'api::product.product': ApiProductProduct;
       'plugin::content-releases.release': PluginContentReleasesRelease;

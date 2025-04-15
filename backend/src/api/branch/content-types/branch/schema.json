@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "branches",
+  "info": {
+    "singularName": "branch",
+    "pluralName": "branches",
+    "displayName": "branch",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string"
+    },
+    "menu": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::menu.menu",
+      "inversedBy": "branch"
+    }
+  }
+}
