@@ -8,5 +8,8 @@ import { Product } from '../../models';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardProductsComponent {
-  product = input.required<Product>();
+  product = input<Product>();
+  constructor() { 
+    console.log(this.product());
+  }
 }

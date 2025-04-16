@@ -13,8 +13,6 @@ export class GlobalClientGetService {
   getDataClient<T>(url: string, adapter: (data: any) => T) {
     return this.http.get<T>(this.baseUrl + url).pipe(
       map((data) => {
-        console.log("data", data);
-        console.log("adapter", adapter(data));
         return adapter(data)
       }),
       catchError((err) => throwError(() => err))

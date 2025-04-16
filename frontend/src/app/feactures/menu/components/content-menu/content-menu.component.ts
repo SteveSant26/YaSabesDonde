@@ -17,6 +17,7 @@ export class ContentMenuComponent implements OnInit {
   ngOnInit() {
     this.useClientMenu.getMenuByBranch(this.branchId() as number).subscribe({
       next: (menu: MenuResponse) => {
+        console.log("menu", menu);
         this.menu.set(menu);
       }
     });

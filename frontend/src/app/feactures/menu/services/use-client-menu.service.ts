@@ -15,10 +15,9 @@ export class UseClientMenuService {
     return this.globalClientGetService.getDataClient<Menu>(`${this.url}/${documentId}`, menuAdapter);
   }
 
-
   getMenuByBranch(branchId: number) {
     return this.globalClientGetService.getDataClient<MenuResponse>(`${this.url}?${createFilterId(
       { id: branchId, name: "branch" }
-    )}&${createPopulate(['products'])}`, menuResponseAdapter);
+    )}&${createPopulate(['products'])}&populate[products][populate]=price`, menuResponseAdapter);
   }
 }
