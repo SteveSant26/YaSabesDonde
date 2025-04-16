@@ -2,10 +2,11 @@ import { ChangeDetectionStrategy, Component, inject, input, OnInit, signal, Sign
 import { toSignal } from '@angular/core/rxjs-interop';
 import { UseClientBranchService } from '../../services';
 import { Branch } from '../../models';
+import { ContentMenuComponent } from "../../../menu/components/content-menu/content-menu.component";
 
 @Component({
   selector: 'app-single-branch-card',
-  imports: [],
+  imports: [ContentMenuComponent],
   templateUrl: './single-branch-card.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
