@@ -1,0 +1,20 @@
+@let menuLocal = menu();
+@defer (when menuLocal) {
+  @if (menuLocal) {
+    @if (menuLocal.data.length > 0) {
+      @for (menu of menuLocal.data; track menu.id) {
+        <div>
+          <h3>{{ menu.name }}</h3>
+          <p>{{ menu.description }}</p>
+          @if (menu.products) {
+              @for (product of menu.products; track product.id) {
+                  <app-card-products [product]="product"></app-card-products>
+              }
+          }
+        </div>
+      }
+    }
+  }
+} @placeholder {
+  <div class="row h-10"></div>
+}

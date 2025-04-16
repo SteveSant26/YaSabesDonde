@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "prices",
+  "info": {
+    "singularName": "price",
+    "pluralName": "prices",
+    "displayName": "Price",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "price": {
+      "type": "decimal",
+      "required": true,
+      "max": 100000000000000000000,
+      "min": 0.1
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

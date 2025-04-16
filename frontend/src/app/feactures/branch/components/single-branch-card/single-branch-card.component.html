@@ -1,0 +1,14 @@
+@let branchLocal = branch();
+@defer (when branchLocal) {
+  @if (branchLocal) {
+    <div class="card">
+      <img [src]="branchLocal.image[0].url" alt="branch-image" class="w-100">
+      <h3>{{ branchLocal.name }}</h3>
+      <p>{{ branchLocal.description }}</p>
+    </div>
+    {{branchLocal?.id}}
+    <app-content-menu [branchId]="branchLocal?.id"></app-content-menu>
+  }
+} @placeholder {
+  <div class="row h-10"></div>
+}

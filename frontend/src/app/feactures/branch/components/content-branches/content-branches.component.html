@@ -1,0 +1,16 @@
+@let branchesLocal = branches();
+@defer (when branchesLocal) {
+  @if (branchesLocal) {
+    @if (branchesLocal.data.length > 0) {
+      @for (branch of branchesLocal.data; track branch.id) {
+        <a [routerLink]="['/branches', branch.documentId]">
+          <img [src]="branch.image[0].url" alt="branch-image" class="w-100">
+          <h3>{{ branch.name }}</h3>
+          <p>{{ branch.description }}</p>
+        </a>
+      }
+    }
+  }
+} @placeholder {
+  <div class="row h-10"></div>
+}
