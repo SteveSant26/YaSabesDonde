@@ -1,7 +1,8 @@
-import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, input, OnInit, signal, Signal } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { UseClientMenuService } from '../../services';
 import { CardProductsComponent } from "../../../product/components";
+import { MenuResponse } from '../../models';
 
 @Component({
   selector: 'app-content-menu',
@@ -9,8 +10,15 @@ import { CardProductsComponent } from "../../../product/components";
   templateUrl: './content-menu.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ContentMenuComponent {
+export class ContentMenuComponent implements OnInit {
   branchId = input<number>();
   private useClientMenu = inject(UseClientMenuService);
-  protected menu = toSignal(this.useClientMenu.getMenus(this.branchId() as number));
+  protected menu = signal<MenuResponse | undefined>(undefined);
+  ngOnInit() {
+    this.useClientMenu.getMenuByBranch(this.branchId() as number).subscribe({
+      next: (menu: MenuResponse) => {
+        this.menu.set(menu);
+      }
+    });
+  }
 }

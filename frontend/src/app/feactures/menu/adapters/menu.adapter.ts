@@ -1,4 +1,4 @@
-import { Menu } from "../models";
+import { Menu, MenuResponse } from "../models";
 
 export const menuAdapter = (dataClient: any): Menu => {
     const data = dataClient.data || dataClient;
@@ -12,4 +12,12 @@ export const menuAdapter = (dataClient: any): Menu => {
         updatedAt: data.updated_at,
         publishedAt: data.published_at,
     };
+};
+
+
+export const menuResponseAdapter = (dataClient: any): MenuResponse => {
+    return {
+        data: dataClient.data.map(menuAdapter),
+        meta: dataClient.meta,
+    }
 };

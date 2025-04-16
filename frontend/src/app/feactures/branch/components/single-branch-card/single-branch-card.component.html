@@ -6,6 +6,7 @@
       <h3>{{ branchLocal.name }}</h3>
       <p>{{ branchLocal.description }}</p>
     </div>
+    {{branchLocal?.id}}
     <app-content-menu [branchId]="branchLocal?.id"></app-content-menu>
   }
 } @placeholder {

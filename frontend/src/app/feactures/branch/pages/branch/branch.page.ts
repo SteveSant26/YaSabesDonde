@@ -1,5 +1,4 @@
 import { Component, input } from "@angular/core";
-import { CardBrachComponent } from "../../components/content-branches/card-brach/card-brach.component";
 import { SingleBranchCardComponent } from "../../components/single-branch-card/single-branch-card.component";
 
 @Component({
