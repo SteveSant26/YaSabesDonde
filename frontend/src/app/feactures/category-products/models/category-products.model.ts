@@ -1,5 +1,5 @@
 import { InfoBasicEntity, Meta } from "@shared/models";
-import { Product } from "app/feactures/product/models";
+import { Product } from "@feactures/product/models";
 
 export interface CategoryProducts extends InfoBasicEntity {
     name: string;

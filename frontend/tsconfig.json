@@ -7,7 +7,7 @@
     "paths": {
       "@site/*": ["app/site/*"],
       "@shared/*": ["app/shared/*"],
-      "@features/*": ["app/features/*"],
+      "@feactures/*": ["app/feactures/*"],
       "@environment/*": ["environments/*"]
     },
     "outDir": "./dist/out-tsc",
@@ -32,3 +32,4 @@
     "strictTemplates": true
   }
 }
+// frontend/src/app//site/index.ts
