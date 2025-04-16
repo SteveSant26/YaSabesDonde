@@ -3,7 +3,7 @@ import { GlobalClientGetService } from '@shared/services';
 import { branchAdapter, branchesAdapter } from '../adapters';
 import { Branch, Branches } from '../models';
 import { Observable } from 'rxjs';
-import { createPopulate } from '@shared/utils/magene-url';
+import { createPopulate } from '@shared/utils/img-url';
 
 @Injectable({
   providedIn: 'root'

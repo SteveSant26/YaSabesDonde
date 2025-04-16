@@ -1,4 +1,3 @@
-import { RoutesConfig } from "@shared/types";
 
 export const branchRoutesConfig = {
     base : {

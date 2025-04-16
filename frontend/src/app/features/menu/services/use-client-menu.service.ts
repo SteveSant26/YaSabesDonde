@@ -2,7 +2,7 @@ import { inject, Injectable } from '@angular/core';
 import { GlobalClientGetService } from '@shared/services';
 import { Menu, MenuResponse } from '../models/menu.model';
 import { menuAdapter, menuResponseAdapter } from '../adapters';
-import { createFilterId, createPopulate } from '@shared/utils/magene-url';
+import { createFilterId, createPopulate } from '@shared/utils/img-url';
 
 @Injectable({
   providedIn: 'root'

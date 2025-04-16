@@ -4,7 +4,3 @@ export interface RouteConfig {
   label: string;
 }
 
-export interface RoutesConfig {
-  base: RouteConfig;
-  children: any;
-}
