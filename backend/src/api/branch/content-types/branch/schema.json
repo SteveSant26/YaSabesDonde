@@ -27,6 +27,14 @@
       "relation": "oneToOne",
       "target": "api::menu.menu",
       "inversedBy": "branch"
+    },
+    "image": {
+      "allowedTypes": [
+        "images",
+        "files"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

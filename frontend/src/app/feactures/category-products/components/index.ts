@@ -1,0 +1,1 @@
+export * from "./card-cartegory-products/card-cartegory-products.component";
