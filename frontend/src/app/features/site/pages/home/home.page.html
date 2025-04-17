@@ -1,16 +1,32 @@
-<header id="home" class="relative h-[80vh] bg-cover bg-center bg-fixed bg-no-repeat"
-    style="background-image: url('https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png');">
-    <div class="absolute inset-0 bg-black opacity-50"></div>
-    <div class="relative flex items-center justify-center h-full">
-        <div class="text-center text-white px-4">
-            <h1 class="text-5xl md:text-6xl font-bold mb-4">Food Hut</h1>
-            <h2 class="text-2xl md:text-4xl mb-8">Always fresh &amp; Delightful</h2>
-            <a href="#gallary" class="bg-red-500 hover:bg-red-600 text-white py-3 px-6 rounded-full transition">
-                View Our Gallary
-            </a>
-        </div>
+@let homeLocal = home();
+@defer (when home) {
+    @if (homeLocal) {
+        @if (homeLocal.hero) {
+            <header id="home" class="relative h-[80vh] bg-cover bg-center bg-fixed bg-no-repeat"
+                style="background-image: url('https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png');">
+                <div class="absolute inset-0 bg-black opacity-50"></div>
+                    <div class="relative flex items-center justify-center h-full">
+                    <div class="text-center text-white px-4">
+                        <h1 class="text-5xl md:text-6xl font-bold mb-4">{{homeLocal.hero.title}}</h1>
+                        <h2 class="text-2xl md:text-4xl mb-8">{{homeLocal.hero.description}}</h2>
+                        <a href="#gallary" class="bg-red-500 hover:bg-red-600 text-white py-3 px-6 rounded-full transition">
+                            {{homeLocal.hero.btnText}}
+                        </a>
+                    </div>
+                </div>
+            </header>
+        } @else {
+            <div>
+                <h1>Error</h1>
+            </div>
+        }
+    }
+} @placeholder {
+    <div>
+        <h1>Loading...</h1>
     </div>
-</header>
+}
+
 
 
 <section id="about" class=" bg-primary">
