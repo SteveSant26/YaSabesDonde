@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { Branch } from '@features/branch/models';
 
 @Component({
   selector: 'app-card-brach',
@@ -7,5 +8,5 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CardBrachComponent {
-
+  branch = input<Branch>();
 }

@@ -2,10 +2,11 @@ import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/cor
 import { toSignal } from '@angular/core/rxjs-interop'; 
 import { UseClientBranchService } from '../../services';
 import { RouterLink } from '@angular/router';
+import { CardBrachComponent } from "./card-brach/card-brach.component";
 
 @Component({
   selector: 'app-content-branches',
-  imports: [RouterLink],
+  imports: [RouterLink, CardBrachComponent],
   templateUrl: './content-branches.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

@@ -3,120 +3,32 @@
   @if (menuLocal) {
     @if (menuLocal.data.length > 0) {
       @for (menu of menuLocal.data; track menu.id) {
-        <div>
-          <h3>{{ menu.name }}</h3>
-          <p>{{ menu.description }}</p>
-          @if (menu.products) {
-              @for (product of menu.products; track product.id) {
-                  <app-card-products [product]="product"></app-card-products>
-              }
-          }
-        </div>
+        <section class="bg-cover bg-center py-16" style="background-image: url('ruta/a/tu-imagen.jpg')">
+          <div class="container mx-auto px-4">
+          <h6 class="text-center text-lg text-gray-700 uppercase tracking-wider">{{ menu.name }}</h6>
+          <h3 class="text-center text-3xl md:text-4xl font-bold mb-12 text-gray-900">{{ menu.name }}</h3>
+          <div class="bg-gray-100 rounded-lg shadow-md">
+            <div class="p-6 text-center">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+                @if (menu.products && menu.products.length > 0) {
+                    @for (product of menu.products; track product.id) {
+                        <app-card-products [product]="product"></app-card-products>
+                    }
+                } @else {
+                    <div class="row h-10">
+                        <div class="col-span-12">
+                            <h6 class="text-center text-lg text-gray-700 uppercase tracking-wider">No hay un menu</h6>
+                        </div>
+                    </div>
+                }
+              </div>
+            </div>
+          </div>
+          </div>
+        </section>
       }
     }
   }
 } @placeholder {
   <div class="row h-10"></div>
 }
-
-
-
-
-
-<section class="bg-cover bg-center py-16" style="background-image: url('ruta/a/tu-imagen.jpg')">
-  <div class="container mx-auto px-4">
-    <h6 class="text-center text-lg text-gray-700 uppercase tracking-wider">Great Food</h6>
-    <h3 class="text-center text-3xl md:text-4xl font-bold mb-12 text-gray-900">Main Menu</h3>
-
-    <div class="bg-gray-100 rounded-lg shadow-md">
-      <div class="p-6 text-center">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-          
-          <!-- Item -->
-          <div>
-            <a href="#" class="block border-b border-gray-300 pb-3 px-4 text-gray-800 hover:text-red-500 transition">
-              <div class="flex justify-between">
-                <div>
-                  <p class="font-medium">Dolorem Exmaiores</p>
-                  <p class="text-sm text-gray-600 mt-1">Numquam dolor dolores molestiae maiores quidem.</p>
-                </div>
-                <h6 class="text-primary text-red-500 font-semibold">$12</h6>
-              </div>
-            </a>
-          </div>
-
-          <!-- Item -->
-          <div>
-            <a href="#" class="block border-b border-gray-300 pb-3 px-4 text-gray-800 hover:text-red-500 transition">
-              <div class="flex justify-between">
-                <div>
-                  <p class="font-medium">Aperiam incidunt dicta</p>
-                  <p class="text-sm text-gray-600 mt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-                <h6 class="text-red-500 font-semibold">$23</h6>
-              </div>
-            </a>
-          </div>
-
-          <!-- Item -->
-          <div>
-            <a href="#" class="block border-b border-gray-300 pb-3 px-4 text-gray-800 hover:text-red-500 transition">
-              <div class="flex justify-between">
-                <div>
-                  <p class="font-medium">Animi repellat labore</p>
-                  <p class="text-sm text-gray-600 mt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-                <h6 class="text-red-500 font-semibold">$32</h6>
-              </div>
-            </a>
-          </div>
-
-          <!-- Item -->
-          <div>
-            <a href="#" class="block border-b border-gray-300 pb-3 px-4 text-gray-800 hover:text-red-500 transition">
-              <div class="flex justify-between">
-                <div>
-                  <p class="font-medium">Quo ipsum similique</p>
-                  <p class="text-sm text-gray-600 mt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-                <h6 class="text-red-500 font-semibold">$17</h6>
-              </div>
-            </a>
-          </div>
-
-          <!-- Item -->
-          <div>
-            <a href="#" class="block border-b border-gray-300 pb-3 px-4 text-gray-800 hover:text-red-500 transition">
-              <div class="flex justify-between">
-                <div>
-                  <p class="font-medium">Est nam tempore</p>
-                  <p class="text-sm text-gray-600 mt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-                <h6 class="text-red-500 font-semibold">$21</h6>
-              </div>
-            </a>
-          </div>
-
-          <!-- Item -->
-          <div>
-            <a href="#" class="block border-b border-gray-300 pb-3 px-4 text-gray-800 hover:text-red-500 transition">
-              <div class="flex justify-between">
-                <div>
-                  <p class="font-medium">Nesciunt ab veniam</p>
-                  <p class="text-sm text-gray-600 mt-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                </div>
-                <h6 class="text-red-500 font-semibold">$10</h6>
-              </div>
-            </a>
-          </div>
-
-        </div>
-
-        <a href="#book-table" class="inline-block mt-8 bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-full transition duration-300">
-          Book A Table
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-

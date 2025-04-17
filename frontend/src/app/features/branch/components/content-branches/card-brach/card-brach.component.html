@@ -1,1 +1,20 @@
-<p>card-brach works!</p>
+@let branchLocal = branch();
+@defer (when branchLocal) {
+@if (branchLocal) {
+<div class="bg-primary border border-gray-700 rounded-xl">
+    <img [src]="branchLocal.image[0].url" alt="Blog 1" class="w-full object-cover h-50">
+    <div class="p-4">
+
+        <h4 class="py-2 text-white">{{branchLocal.name}}</h4>
+        @if (branchLocal.address) {
+        <p class="text-sm text-gray-300 mt-2">
+            {{branchLocal.address}}
+        </p>
+        }
+    </div>
+</div>
+}
+} @placeholder {
+<div class="bg-primary border border-gray-700 rounded">
+</div>
+}

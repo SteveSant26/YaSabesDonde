@@ -2,13 +2,13 @@
 @defer (when branchesLocal) {
   @if (branchesLocal) {
     @if (branchesLocal.data.length > 0) {
-      @for (branch of branchesLocal.data; track branch.id) {
-        <a [routerLink]="['/branches', branch.documentId]">
-          <img [src]="branch.image[0].url" alt="branch-image" class="w-100">
-          <h3>{{ branch.name }}</h3>
-          <p>{{ branch.description }}</p>
-        </a>
-      }
+      <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+        @for (branch of branchesLocal.data; track branch.id) {
+          <a [routerLink]="['/branches', branch.documentId]">
+            <app-card-brach [branch]="branch"></app-card-brach>
+          </a>
+        }
+      </div>
     }
   }
 } @placeholder {

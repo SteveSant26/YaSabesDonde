@@ -1,0 +1,9 @@
+@let productLocal = product();
+<div class="relative group">
+    <img [src]="productLocal?.images?.[0]?.url || 'https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png'"
+        alt="Gallery 1" class="w-full h-auto">
+    <a href="#"
+        class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-75 transition">
+        <mat-icon>favorite</mat-icon>
+    </a>
+</div>

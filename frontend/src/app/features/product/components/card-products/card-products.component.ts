@@ -9,7 +9,5 @@ import { Product } from '../../models';
 })
 export class CardProductsComponent {
   product = input<Product>();
-  constructor() { 
-    console.log(this.product());
-  }
+
 }

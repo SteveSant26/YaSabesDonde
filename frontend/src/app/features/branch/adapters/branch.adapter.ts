@@ -7,6 +7,7 @@ export const branchAdapter = (dataClient: any): Branch => {
         id: data.id,
         documentId: data.documentId,
         name: data.name,
+        address: data.address,
         description: data.description,
         phone: data.phone,
         image: data.image && data.image.map((img: any) => imageAdapter(img)),

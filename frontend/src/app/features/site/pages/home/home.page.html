@@ -3,7 +3,7 @@
     @if (homeLocal) {
         @if (homeLocal.hero) {
             <header id="home" class="relative h-[80vh] bg-cover bg-center bg-fixed bg-no-repeat"
-                style="background-image: url('https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png');">
+                [style]="`background-image: url('${homeLocal.hero.image.url}');`">
                 <div class="absolute inset-0 bg-black opacity-50"></div>
                     <div class="relative flex items-center justify-center h-full">
                     <div class="text-center text-white px-4">
@@ -41,7 +41,7 @@
                 <div class="mx-auto flex flex-col md:flex-row text-white">
                     <!-- Imagen a la izquierda -->
                     <div class="md:w-1/2 bg-cover bg-center min-h-[60vh]"
-                        style="background-image: url('https://crehana-blog.imgix.net/media/filer_public/10/2f/102f002f-8fb1-4dea-9748-1d90d21cddc9/1_el_negocio_de_las_hamburguesas.jpg?auto=format&q=50');">
+                    [style]="`background-image: url('${aboutUsLocal.hero.image.url}');`">
                         <!-- Opcional: agregar contenido superpuesto o dejar solo imagen -->
                     </div>
                     <!-- Texto a la derecha -->
@@ -69,110 +69,25 @@
 
 
 
-
-
-<section id="gallary" class="py-16 bg-primary text-white text-center">
-    <h2 class="text-3xl font-bold mb-8">OUR MENU</h2>
-    <div class="  grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4">
-        <!-- Repetir cada item de gallary -->
-        <div class="relative group">
-            <img src="https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png"
-                alt="Gallery 1" class="w-full h-auto">
-            <a href="#"
-                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-75 transition">
-                <mat-icon>favorite</mat-icon>
-            </a>
-        </div>
-        <div class="relative group">
-            <img src="https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png"
-                alt="Gallery 2" class="w-full h-auto">
-            <a href="#"
-                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-75 transition">
-                <mat-icon>favorite</mat-icon>
-            </a>
-        </div>
-        <div class="relative group">
-            <img src="https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png"
-                alt="Gallery 3" class="w-full h-auto">
-            <a href="#"
-                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-75 transition">
-                <mat-icon>favorite</mat-icon>
-            </a>
-        </div>
-        <div class="relative group">
-            <img src="https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png"
-                alt="Gallery 4" class="w-full h-auto">
-            <a href="#"
-                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-75 transition">
-                <mat-icon>favorite</mat-icon>
-            </a>
-        </div>
-        <div class="relative group">
-            <img src="https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png"
-                alt="Gallery 5" class="w-full h-auto">
-            <a href="#"
-                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-75 transition">
-                <mat-icon>favorite</mat-icon>
-            </a>
-        </div>
-        <div class="relative group">
-            <img src="https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png"
-                alt="Gallery 6" class="w-full h-auto">
-            <a href="#"
-                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-75 transition">
-                <mat-icon>favorite</mat-icon>
-            </a>
-        </div>
-        <div class="relative group">
-            <img src="https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png"
-                alt="Gallery 7" class="w-full h-auto">
-            <a href="#"
-                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-75 transition">
-                <mat-icon>favorite</mat-icon>
-            </a>
-        </div>
-        <div class="relative group">
-            <img src="https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png"
-                alt="Gallery 8" class="w-full h-auto">
-            <a href="#"
-                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-75 transition">
-                <mat-icon>favorite</mat-icon>
-            </a>
-        </div>
-        <div class="relative group">
-            <img src="https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png"
-                alt="Gallery 9" class="w-full h-auto">
-            <a href="#"
-                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-75 transition">
-                <mat-icon>favorite</mat-icon>
-            </a>
-        </div>
-        <div class="relative group">
-            <img src="https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png"
-                alt="Gallery 10" class="w-full h-auto">
-            <a href="#"
-                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-75 transition">
-                <mat-icon>favorite</mat-icon>
-            </a>
-        </div>
-        <div class="relative group">
-            <img src="https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png"
-                alt="Gallery 11" class="w-full h-auto">
-            <a href="#"
-                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-75 transition">
-                <mat-icon>favorite</mat-icon>
-            </a>
-        </div>
-        <div class="relative group">
-            <img src="https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png"
-                alt="Gallery 12" class="w-full h-auto">
-            <a href="#"
-                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-75 transition">
-                <mat-icon>favorite</mat-icon>
-            </a>
-        </div>
-    </div>
-</section>
+@let productsLocal = products();   
+@defer (when productsLocal) {
+    @if (productsLocal) {
+        @if (productsLocal.data.length > 0) {
+            <section id="gallary" class="py-16 bg-primary text-white text-center">
+                <h2 class="text-3xl font-bold mb-8">OUR MENU</h2>
+                <div class="container mx-auto px-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+                    @for (product of productsLocal.data; track product.id) {
+                        <app-gallary-image-product-card [product]="product" class="col-span-12"></app-gallary-image-product-card>
+                    }
+                </div>
+            </section>
+        } @else {
+            <div>
+                <h1>Error</h1>
+            </div>
+        }
+    }
+}
 
 
 <section id="blog" class="py-16 bg-primary text-white">

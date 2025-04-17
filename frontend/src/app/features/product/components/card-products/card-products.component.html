@@ -1,5 +1,12 @@
+
 <div>
-    {{ product()?.name }} - 
-    {{ product()?.description }} -
-    {{ product()?.price?.price }}
-</div>
+    <a href="#" class="block border-b border-gray-300 pb-3 px-4 text-gray-800 hover:text-red-500 transition">
+      <div class="flex justify-between">
+        <div>
+          <p class="font-medium">{{ product()?.name }}</p>
+          <p class="text-sm text-gray-600 mt-1">{{ product()?.description }}</p>
+        </div>
+        <h6 class=" text-red-500 font-semibold">${{ product()?.price?.price }}</h6>
+      </div>
+    </a>
+  </div>
