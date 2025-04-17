@@ -1,2 +1,53 @@
+<nav class="fixed top-0 left-0 right-0 bg-gray-900 text-white shadow z-50">
+  <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+    <button class="md:hidden focus:outline-none hover:text-red-400" (click)="toggleMenu()">
+      <mat-icon [@toggleIcon]="toggleIconState">
+        @if (menuOpen) {
+        menu
+        } @else {
+        close
+        }
+      </mat-icon>
+    </button>
 
-<p class="bg-amber-500">Navbar works</p>
+    @if (!menuOpen) {
+    <div class="md:hidden bg-gray-800 transition-all duration-300 ease-in-out transform origin-top" [@menuAnimation]>
+      <ul class="flex flex-col space-y-2 p-4">
+        @for (link of narBarLinks; track $index){
+        <li><a class="hover:text-red-400 transition" [routerLink]="[link.href]">{{link.label}}</a></li>
+
+        }
+        <li>
+          <a href="components.html" class="bg-red-500 hover:bg-red-600 text-white py-1 px-4 rounded transition">
+            Components
+          </a>
+        </li>
+      </ul>
+    </div>
+    }
+
+    <ul class="hidden md:flex space-x-6">
+      @for (link of narBarLinks.slice(0,3); track $index){
+        <li><a class="hover:text-red-400 transition" [routerLink]="[link.href]">{{link.label}}</a></li>
+
+        }
+        <li>
+    </ul>
+    <a href="#" class="mx-auto flex items-center space-x-2">
+      <img src="assets/imgs/logo.svg" alt="Logo" class="h-8 w-auto" />
+      <span class="font-bold text-3xl">YaSabesDonde</span>
+    </a>
+    <ul id="nav-right" class="hidden md:flex space-x-6">
+      @for (link of narBarLinks.slice(3); track $index){
+        <li><a class="hover:text-red-400 transition" [routerLink]="[link.href]">{{link.label}}</a></li>
+
+        }
+        <li>
+      <li>
+        <a href="components.html" class="bg-red-500 hover:bg-red-600 text-white py-1 px-4 rounded transition">
+          Components
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
