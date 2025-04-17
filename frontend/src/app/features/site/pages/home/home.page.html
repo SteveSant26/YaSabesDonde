@@ -45,7 +45,7 @@
                         <!-- Opcional: agregar contenido superpuesto o dejar solo imagen -->
                     </div>
                     <!-- Texto a la derecha -->
-                    <div class="md:w-1/2 flex items-center p-10 ">
+                    <div class="md:w-1/2 flex items-center p-2 md:p-10 ">
                         <div class="p-8">
                             <h2 class="text-3xl font-bold mb-4">{{aboutUsLocal.hero.title}}</h2>
                             <p class="mb-4">
@@ -77,7 +77,7 @@
                 <h2 class="text-3xl font-bold mb-8">OUR MENU</h2>
                 <div class="container mx-auto px-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                     @for (product of productsLocal.data; track product.id) {
-                        <app-gallary-image-product-card [product]="product" class="col-span-12"></app-gallary-image-product-card>
+                        <app-gallary-image-product-card [product]="product"></app-gallary-image-product-card>
                     }
                 </div>
             </section>
@@ -90,89 +90,27 @@
 }
 
 
-<section id="blog" class="py-16 bg-primary text-white">
-    <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold py-5">EVENTS AT THE FOOD HUT</h2>
-        <!-- Tabs -->
-        <div class="max-w-md mx-auto mb-8">
-            <div class="flex justify-around border-b border-gray-700">
-                <button id="tab-foods" class="py-2 px-4 border-b-2 border-red-500 focus:outline-none">Foods</button>
-                <button id="tab-juices"
-                    class="py-2 px-4 border-b-2 border-transparent hover:border-red-500 focus:outline-none">Juices</button>
-            </div>
-        </div>
-        <!-- Contenido de Tabs -->
-        <div id="tab-content-foods" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-primary border border-gray-700 rounded">
-                <img src="https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png"
-                    alt="Blog 1" class="w-full object-cover">
-                <div class="p-4">
-                    <h1 class="text-center text-red-500 font-bold text-2xl mb-4">
-                        <a href="#">$5</a>
-                    </h1>
-                    <h4 class="py-2">Reiciendis Laborum</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa provident illum officiis fugit
-                        laudantium voluptatem sit iste delectus qui ex.</p>
+@let categoryProductsLocal = categoryProducts();
+@defer (when categoryProductsLocal) {
+    @if (categoryProductsLocal) {
+        @if (categoryProductsLocal.data.length > 0) {
+            <section id="blog" class="py-16 bg-primary text-white">
+                <div class="container mx-auto px-4 text-center">
+                    <h2 class="text-3xl font-bold py-5 mb-10">Category Products</h2>
+            
+                    <!-- Contenido de Tabs tab-content-f-->
+                    <div id="oods" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        @for (categoryProducts of categoryProductsLocal.data; track categoryProducts.id) {
+                            <app-card-cartegory-products [categoryProducts]="categoryProducts"></app-card-cartegory-products>
+                        }
+                    </div>
                 </div>
+            </section>
+        } @else {
+            <div>
+                <h1>Error</h1>
             </div>
-            <div class="bg-primary border border-gray-700 rounded">
-                <img src="https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png"
-                    alt="Blog 2" class="w-full object-cover">
-                <div class="p-4">
-                    <h1 class="text-center text-red-500 font-bold text-2xl mb-4">
-                        <a href="#">$12</a>
-                    </h1>
-                    <h4 class="py-2">Adipisci Totam</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa provident illum officiis fugit
-                        laudantium voluptatem sit iste delectus qui ex.</p>
-                </div>
-            </div>
-            <div class="bg-primary border border-gray-700 rounded">
-                <img src="https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png" alt="Blog 3" class="w-full object-cover">
-                <div class="p-4">
-                    <h1 class="text-center text-red-500 font-bold text-2xl mb-4">
-                        <a href="#">$8</a>
-                    </h1>
-                    <h4 class="py-2">Dicta Deserunt</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa provident illum officiis fugit
-                        laudantium voluptatem sit iste delectus qui ex.</p>
-                </div>
-            </div>
-        </div>
-        <div id="tab-content-juices" class="hidden grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-primary border border-gray-700 rounded">
-                <img src="assets/imgs/blog-4.jpg" alt="Blog 4" class="w-full object-cover">
-                <div class="p-4">
-                    <h1 class="text-center text-red-500 font-bold text-2xl mb-4">
-                        <a href="#">$15</a>
-                    </h1>
-                    <h4 class="py-2">Consectetur Adipisicing Elit</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa provident illum officiis fugit
-                        laudantium voluptatem sit iste delectus qui ex.</p>
-                </div>
-            </div>
-            <div class="bg-primary border border-gray-700 rounded">
-                <img src="assets/imgs/blog-5.jpg" alt="Blog 5" class="w-full object-cover">
-                <div class="p-4">
-                    <h1 class="text-center text-red-500 font-bold text-2xl mb-4">
-                        <a href="#">$29</a>
-                    </h1>
-                    <h4 class="py-2">Ullam Laboriosam</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa provident illum officiis fugit
-                        laudantium voluptatem sit iste delectus qui ex.</p>
-                </div>
-            </div>
-            <div class="bg-primary border border-gray-700 rounded">
-                <img src="assets/imgs/blog-6.jpg" alt="Blog 6" class="w-full object-cover">
-                <div class="p-4">
-                    <h1 class="text-center text-red-500 font-bold text-2xl mb-4">
-                        <a href="#">$3</a>
-                    </h1>
-                    <h4 class="py-2">Fugit Ipsam</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa provident illum officiis fugit
-                        laudantium voluptatem sit iste delectus qui ex.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+        }
+    }
+}
+

@@ -8,9 +8,7 @@ import { Product } from '@features/product/models';
   templateUrl: './gallary-image-product-card.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GallaryImageProductCardComponent implements OnInit {
+export class GallaryImageProductCardComponent {
   product = input<Product>();
-  ngOnInit(): void {
-    console.log(this.product());
-  }
+
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, OnInit } from '@angular/core';
 import { CategoryProducts } from '../../models';
 
 @Component({
@@ -7,6 +7,9 @@ import { CategoryProducts } from '../../models';
   templateUrl: './card-cartegory-products.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CardCartegoryProductsComponent {
+export class CardCartegoryProductsComponent implements OnInit {
   categoryProducts = input.required<CategoryProducts>();
+  ngOnInit(): void {
+    console.log(this.categoryProducts());
+  }
 }

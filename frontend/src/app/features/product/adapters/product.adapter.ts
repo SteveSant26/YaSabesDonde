@@ -1,3 +1,5 @@
+import { imageAdapter } from "@shared/adapters";
+
 export const productAdapter = (dataClient: any): any => {
     const data = dataClient.data || dataClient;
     return {
@@ -6,7 +8,7 @@ export const productAdapter = (dataClient: any): any => {
         name: data.name,
         description: data.description,
         price: data.price,
-        images: data.images,
+        images: data.images && data.images.map((img: any) => imageAdapter(img)),
         createdAt: data.created_at,
         updatedAt: data.updated_at,
         publishedAt: data.published_at,
@@ -14,6 +16,7 @@ export const productAdapter = (dataClient: any): any => {
 };
 
 export const productResponseAdapter = (dataClient: any): any => {
+    console.log("dataClient", dataClient);
     return {
         data: dataClient.data.map(productAdapter),
         meta: dataClient.meta
