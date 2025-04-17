@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_site_heroes",
+  "info": {
+    "displayName": "Hero",
+    "icon": "monitor"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "files",
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "btnText": {
+      "type": "string"
+    }
+  }
+}
