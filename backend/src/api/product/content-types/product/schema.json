@@ -30,8 +30,9 @@
     },
     "price": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::price.price"
+      "relation": "manyToOne",
+      "target": "api::price.price",
+      "inversedBy": "products"
     },
     "category": {
       "type": "relation",
