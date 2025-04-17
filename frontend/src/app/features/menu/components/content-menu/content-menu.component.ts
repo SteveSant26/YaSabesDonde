@@ -1,5 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, input, OnInit, signal, Signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { ChangeDetectionStrategy, Component, inject, input, OnInit, signal } from '@angular/core';
 import { UseClientMenuService } from '../../services';
 import { CardProductsComponent } from "../../../product/components";
 import { MenuResponse } from '../../models';

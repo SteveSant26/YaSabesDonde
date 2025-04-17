@@ -1,4 +1,4 @@
-import { CategoryProducts, CategorysProducts } from "../models";
+import { CategoryProducts, CategoryProductsResponse } from "../models";
 
 export const categoryProductsAdapter = (dataClient: any): CategoryProducts => {
     const data = dataClient.data || dataClient;
@@ -14,7 +14,7 @@ export const categoryProductsAdapter = (dataClient: any): CategoryProducts => {
     };
 };
 
-export const categoryProductsAdapterArray = (dataClient: any): CategorysProducts => {
+export const categoryProductsAdapterArray = (dataClient: any): CategoryProductsResponse => {
     return {
         data: dataClient.data.map(categoryProductsAdapter),
         meta: dataClient.meta,

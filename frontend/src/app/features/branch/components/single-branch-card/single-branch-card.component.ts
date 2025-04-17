@@ -1,8 +1,7 @@
-import { ChangeDetectionStrategy, Component, inject, input, OnInit, signal, Signal } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { ChangeDetectionStrategy, Component, inject, input, OnInit, signal } from '@angular/core';
 import { UseClientBranchService } from '../../services';
 import { Branch } from '../../models';
-import { ContentMenuComponent } from "../../../menu/components/content-menu/content-menu.component";
+import { ContentMenuComponent } from "@features/menu/components/content-menu/content-menu.component";
 
 @Component({
   selector: 'app-single-branch-card',
