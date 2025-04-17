@@ -71,13 +71,6 @@ $RECYCLE.BIN/
 # Misc.
 ############################
 
-*#
-ssl
-.idea
-nbproject
-.tsbuildinfo
-.eslintcache
-
 ############################
 # Node.js
 ############################
