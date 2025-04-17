@@ -406,7 +406,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
   collectionName: 'categories';
   info: {
     description: '';
-    displayName: 'Category-Products';
+    displayName: 'Category';
     pluralName: 'categories';
     singularName: 'category';
   };

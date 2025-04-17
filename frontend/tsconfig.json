@@ -5,6 +5,7 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
+      "@site/*": ["app/site/*"],
       "@shared/*": ["app/shared/*"],
       "@features/*": ["app/features/*"],
       "@environment/*": ["environments/*"]
@@ -31,3 +32,4 @@
     "strictTemplates": true
   }
 }
+// frontend/src/app//site/index.ts
