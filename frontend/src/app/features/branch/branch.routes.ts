@@ -9,7 +9,7 @@ export const branchRoutes: Routes = [
         component: BranchLayout,
         children: [
             {
-                path: branchRoutesConfig.children.list.path,
+                path: '',
                 component: BranchesPage
             },
             {
