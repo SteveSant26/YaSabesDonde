@@ -16,6 +16,7 @@ export class UseClientSiteService {
   }
 
   getAboutUs() {
-    return this.globalClientGetService.getDataClient<AboutUs>(`${this.url}/about-us`, aboutUsAdapter);
+    const url = `${this.url}/about-us`;
+    return this.globalClientGetService.getDataClient<AboutUs>(`${url}?populate[hero][populate]=*`, aboutUsAdapter);
   }
 }
