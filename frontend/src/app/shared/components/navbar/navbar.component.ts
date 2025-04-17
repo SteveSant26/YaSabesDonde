@@ -9,6 +9,7 @@ import {
   animate,
   state,
 } from '@angular/animations';
+import { branchRoutesConfig } from '@features/branch/config';
 
 @Component({
   selector: 'app-navbar',
@@ -34,11 +35,11 @@ import {
 })
 export class NavBarComponent {
   readonly siteRouteConfig = siteRoutesConfig;
+  readonly branchRouteConfig = branchRoutesConfig;
 
   readonly narBarLinks = [
     { 'label': siteRoutesConfig.base.label, 'href': siteRoutesConfig.base.url },
-    { 'label': 'Gallary', 'href': '#gallary' },
-    { 'label': 'Book-Table', 'href': '#book-table' },
+    { 'label': branchRoutesConfig.base.label, 'href': branchRoutesConfig.base.url },
     { 'label': 'Blog', 'href': '#blog' },
     { 'label': 'Reviews', 'href': '#testmonial' },
     { 'label': 'Contact Us', 'href': '#contact' }
