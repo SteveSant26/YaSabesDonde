@@ -11,10 +11,12 @@ export class UseClientSiteService {
   private globalClientGetService = inject(GlobalClientGetService);
 
   getHome() {
-    return this.globalClientGetService.getDataClient<Home>(`${this.url}/home`, homeAdapter);
+    const url = `${this.url}/home`;
+    return this.globalClientGetService.getDataClient<Home>(`${url}?populate[hero][populate]=*`, homeAdapter);
   }
 
   getAboutUs() {
-    return this.globalClientGetService.getDataClient<AboutUs>(`${this.url}/about-us`, aboutUsAdapter);
+    const url = `${this.url}/about-us`;
+    return this.globalClientGetService.getDataClient<AboutUs>(`${url}?populate[hero][populate]=*`, aboutUsAdapter);
   }
 }

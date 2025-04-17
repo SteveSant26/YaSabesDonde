@@ -1,7 +1,8 @@
 import { imageAdapter } from "@shared/adapters"
 import { Home } from "../models"
 
-export const homeAdapter = (data: any): Home => {
+export const homeAdapter = (dataClient: any): Home => {
+    const data = dataClient.data || dataClient;
     return {
         createdAt: data.createdAt,
         updatedAt: data.updatedAt,
