@@ -569,11 +569,13 @@ export interface ApiPricePrice extends Struct.CollectionTypeSchema {
       Schema.Attribute.Required &
       Schema.Attribute.SetMinMax<
         {
-          max: 100000000000000000000;
+          max: 100;
           min: 0.1;
         },
         number
-      >;
+      > &
+      Schema.Attribute.DefaultTo<1>;
+    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -607,7 +609,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     menu: Schema.Attribute.Relation<'manyToOne', 'api::menu.menu'>;
     name: Schema.Attribute.String & Schema.Attribute.Required;
-    price: Schema.Attribute.Relation<'oneToOne', 'api::price.price'>;
+    price: Schema.Attribute.Relation<'manyToOne', 'api::price.price'>;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
