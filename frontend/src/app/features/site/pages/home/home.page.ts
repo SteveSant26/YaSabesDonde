@@ -10,4 +10,5 @@ import { UseClientSiteService } from "../../services";
 export class HomePage {
     private useClientSiteService = inject(UseClientSiteService);
     readonly home = toSignal(this.useClientSiteService.getHome());
+    readonly aboutUs = toSignal(this.useClientSiteService.getAboutUs());
 }

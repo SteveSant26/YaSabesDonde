@@ -1,5 +1,5 @@
 @let homeLocal = home();
-@defer (when home) {
+@defer (when homeLocal) {
     @if (homeLocal) {
         @if (homeLocal.hero) {
             <header id="home" class="relative h-[80vh] bg-cover bg-center bg-fixed bg-no-repeat"
@@ -22,45 +22,53 @@
         }
     }
 } @placeholder {
+    <header id="home" class="relative h-[80vh] bg-cover bg-center bg-fixed bg-no-repeat"
+                style="background-image: url('https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png');">
+            <div class="absolute inset-0 bg-black opacity-50"></div>
+                <div class="relative flex items-center justify-center h-full">
+                <div class="text-center text-white px-4">
+                   
+                </div>
+            </div>
+        </header>
+}
+
+@let aboutUsLocal = aboutUs();
+@defer (when aboutUsLocal) {
+    @if (aboutUsLocal) {
+        @if (aboutUsLocal.hero) {
+            <section id="about" class=" bg-primary">
+                <div class="mx-auto flex flex-col md:flex-row text-white">
+                    <!-- Imagen a la izquierda -->
+                    <div class="md:w-1/2 bg-cover bg-center min-h-[60vh]"
+                        style="background-image: url('https://crehana-blog.imgix.net/media/filer_public/10/2f/102f002f-8fb1-4dea-9748-1d90d21cddc9/1_el_negocio_de_las_hamburguesas.jpg?auto=format&q=50');">
+                        <!-- Opcional: agregar contenido superpuesto o dejar solo imagen -->
+                    </div>
+                    <!-- Texto a la derecha -->
+                    <div class="md:w-1/2 flex items-center p-10 ">
+                        <div class="p-8">
+                            <h2 class="text-3xl font-bold mb-4">{{aboutUsLocal.hero.title}}</h2>
+                            <p class="mb-4">
+                                {{aboutUsLocal.hero.description}}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        }
+    } @else {
+        <div>
+            <h1>Error</h1>
+        </div>
+    }
+} @placeholder {
     <div>
-        <h1>Loading...</h1>
+        <h1>Error</h1>
     </div>
 }
 
 
 
-<section id="about" class=" bg-primary">
-    <div class="mx-auto flex flex-col md:flex-row text-white">
-        <!-- Imagen a la izquierda -->
-        <div class="md:w-1/2 bg-cover bg-center min-h-[60vh]"
-            style="background-image: url('https://crehana-blog.imgix.net/media/filer_public/10/2f/102f002f-8fb1-4dea-9748-1d90d21cddc9/1_el_negocio_de_las_hamburguesas.jpg?auto=format&q=50');">
-            <!-- Opcional: agregar contenido superpuesto o dejar solo imagen -->
-        </div>
-        <!-- Texto a la derecha -->
-        <div class="md:w-1/2 flex items-center p-10 ">
-            <div class="p-8">
-                <h2 class="text-3xl font-bold mb-4">About Us</h2>
-                <p class="mb-4">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, quisquam accusantium nostrum
-                    modi, nemo, officia veritatis ipsum facere maxime assumenda voluptatum enim! Labore maiores placeat
-                    impedit, vero sed est voluptas!
-                    <br><br>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita alias dicta autem, maiores
-                    doloremque quo perferendis, ut obcaecati harum.
-                </p>
-                <p class="font-semibold mb-4">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis aspernatur, ratione dolore vero
-                    asperiores explicabo.
-                </p>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos ab itaque modi, reprehenderit fugit
-                    soluta, molestias optio repellat incidunt iure sed deserunt nemo magnam rem explicabo vitae. Cum,
-                    nostrum, quidem.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
 
 
 <section id="gallary" class="py-16 bg-primary text-white text-center">

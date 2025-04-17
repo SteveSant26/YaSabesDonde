@@ -11,7 +11,8 @@ export class UseClientSiteService {
   private globalClientGetService = inject(GlobalClientGetService);
 
   getHome() {
-    return this.globalClientGetService.getDataClient<Home>(`${this.url}/home`, homeAdapter);
+    const url = `${this.url}/home`;
+    return this.globalClientGetService.getDataClient<Home>(`${url}?populate[hero][populate]=*`, homeAdapter);
   }
 
   getAboutUs() {
