@@ -2,3 +2,7 @@
 @import "tailwindcss";
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+@theme {
+    --color-primary: #343a40;
+}
