@@ -14,7 +14,7 @@ export const productAdapter = (dataClient: any): Product => {
         createdAt: data.created_at,
         updatedAt: data.updated_at,
         publishedAt: data.published_at,
-        categoryProducts: categoryProductsAdapter(data.category)
+        categoryProducts:  data.category && categoryProductsAdapter(data.category)
     };
 };
 

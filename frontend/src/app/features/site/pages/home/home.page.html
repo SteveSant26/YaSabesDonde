@@ -2,7 +2,7 @@
 @defer (when homeLocal) {
     @if (homeLocal) {
         @if (homeLocal.hero) {
-            <header id="home" class="relative h-[80vh] bg-cover bg-center bg-fixed bg-no-repeat"
+            <header viewTransitionName="card" id="home" class="font-primary relative h-[80vh] bg-cover bg-center bg-fixed bg-no-repeat"
                 [style]="`background-image: url('${homeLocal.hero.image.url}');`">
                 <div class="absolute inset-0 bg-black opacity-50"></div>
                     <div class="relative flex items-center justify-center h-full">

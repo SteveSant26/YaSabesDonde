@@ -1,18 +1,30 @@
 @let branchLocal = branch();
 @defer (when branchLocal) {
 @if (branchLocal) {
-<div class="bg-primary border border-gray-700 rounded-xl">
-    <img [src]="branchLocal.image[0].url" alt="Blog 1" class="w-full object-cover h-50">
-    <div class="p-4">
 
-        <h4 class="py-2 text-white">{{branchLocal.name}}</h4>
-        @if (branchLocal.address) {
-        <p class="text-sm text-gray-300 mt-2">
-            {{branchLocal.address}}
-        </p>
-        }
+<dl class="relative h-[40vh] w-full max-w-[70vh] overflow-hidden shadow transition-shadow duration-300 ease-out bg-cover bg-center"
+    [style]="'background-image: url(' + branchLocal.image[0].url + ')'">
+    <div class="absolute inset-0 bg-black opacity-50 z-10"></div>
+    <!-- Número de fondo -->
+    <div class="relative z-20 p-4 text-white top-0 left-0 w-full h-full">
+        <div
+            class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 text-[60vh] font-bold text-gray-100 pointer-events-none select-none">
+            {{ branchLocal.id }}
+        </div>
+        <dd class="flex items-center h-full max-w-[45%] ml-[55%] p-1  text-[2.3vh]">
+            <div>
+                <h4 class="text-center text-secondary font-bold text-4xl mb-4">
+                    {{ branchLocal.name }}
+                </h4>
+                <br>
+                <p>
+                    {{branchLocal.address}}
+                </p>
+            </div>
+        </dd>
     </div>
-</div>
+</dl>
+
 }
 } @placeholder {
 <div class="bg-primary border border-gray-700 rounded">

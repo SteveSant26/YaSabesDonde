@@ -4,7 +4,7 @@ import { ChangeDetectionStrategy, Component, input } from '@angular/core';
   selector: 'app-show-name-category',
   imports: [],
   template: `
-    <h6 class="font-bold text-2xl inline p-4 mb-10  border-2 rounded-2xl">{{ categoryName() }}</h6> 
+    <h6 class="font-bold font-primary text-2xl inline p-4 mb-10  border-2 rounded-2xl">{{ categoryName() }}</h6> 
     `,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
