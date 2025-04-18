@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, OnInit } from '@angular/core';
 import { Product } from '../../models';
 
 @Component({
@@ -7,7 +7,7 @@ import { Product } from '../../models';
   templateUrl: './card-products.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CardProductsComponent {
+export class CardProductsComponent  {
   product = input<Product>();
 
 }

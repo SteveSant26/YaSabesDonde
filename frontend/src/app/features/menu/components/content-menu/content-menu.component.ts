@@ -1,11 +1,13 @@
-import { ChangeDetectionStrategy, Component, inject, input, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, input, OnInit, signal } from '@angular/core';
 import { UseClientMenuService } from '../../services';
 import { CardProductsComponent } from "../../../product/components";
 import { MenuResponse } from '../../models';
+import { separateProductsByCategory } from '@features/category-products/utils';
+import { ShowNameCategoryComponent } from "../../../category-products/components/show-name-category/show-name-category.component";
 
 @Component({
   selector: 'app-content-menu',
-  imports: [CardProductsComponent],
+  imports: [CardProductsComponent, ShowNameCategoryComponent],
   templateUrl: './content-menu.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
@@ -13,11 +15,12 @@ export class ContentMenuComponent implements OnInit {
   branchId = input<number>();
   private useClientMenu = inject(UseClientMenuService);
   protected menu = signal<MenuResponse | undefined>(undefined);
+  protected categories = computed(() => separateProductsByCategory(this.menu()?.data[0]?.products));
   ngOnInit() {
     this.useClientMenu.getMenuByBranch(this.branchId() as number).subscribe({
       next: (menu: MenuResponse) => {
-        console.log("menu", menu);
         this.menu.set(menu);
+        console.log("menu", this.categories());
       }
     });
   }

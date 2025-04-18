@@ -5,7 +5,7 @@ export interface CategoryProducts extends InfoBasicEntity {
     name: string;
     description: string;
     products?: Product[];
-    image: Image;
+    image?: Image;
 }
 
 export interface CategoryProductsResponse {

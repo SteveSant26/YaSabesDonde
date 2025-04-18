@@ -1,6 +1,8 @@
+import { categoryProductsAdapter } from "@features/category-products/adapters";
 import { imageAdapter } from "@shared/adapters";
+import { Product, ProductResponse } from "../models";
 
-export const productAdapter = (dataClient: any): any => {
+export const productAdapter = (dataClient: any): Product => {
     const data = dataClient.data || dataClient;
     return {
         id: data.id,
@@ -12,10 +14,11 @@ export const productAdapter = (dataClient: any): any => {
         createdAt: data.created_at,
         updatedAt: data.updated_at,
         publishedAt: data.published_at,
+        categoryProducts: categoryProductsAdapter(data.category)
     };
 };
 
-export const productResponseAdapter = (dataClient: any): any => {
+export const productResponseAdapter = (dataClient: any): ProductResponse => {
     console.log("dataClient", dataClient);
     return {
         data: dataClient.data.map(productAdapter),

@@ -1,3 +1,4 @@
+import { productAdapter } from "@features/product/adapters";
 import { Menu, MenuResponse } from "../models";
 
 export const menuAdapter = (dataClient: any): Menu => {
@@ -7,7 +8,7 @@ export const menuAdapter = (dataClient: any): Menu => {
         documentId: data.document_id,
         name: data.name,
         description: data.description,
-        products: data.products,
+        products: data.products.map((product: any) => productAdapter(product)),
         createdAt: data.created_at,
         updatedAt: data.updated_at,
         publishedAt: data.published_at,

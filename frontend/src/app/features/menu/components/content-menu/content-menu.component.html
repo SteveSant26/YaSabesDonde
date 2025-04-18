@@ -1,34 +1,40 @@
+@let categoriesLocal = categories();
 @let menuLocal = menu();
 @defer (when menuLocal) {
-  @if (menuLocal) {
-    @if (menuLocal.data.length > 0) {
-      @for (menu of menuLocal.data; track menu.id) {
-        <section class="bg-cover bg-center py-16" style="background-image: url('ruta/a/tu-imagen.jpg')">
-          <div class="container mx-auto px-4">
-          <h6 class="text-center text-lg text-gray-700 uppercase tracking-wider">{{ menu.name }}</h6>
-          <h3 class="text-center text-3xl md:text-4xl font-bold mb-12 text-gray-900">{{ menu.name }}</h3>
-          <div class="bg-gray-100 rounded-lg shadow-md">
-            <div class="p-6 text-center">
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-                @if (menu.products && menu.products.length > 0) {
-                    @for (product of menu.products; track product.id) {
-                        <app-card-products [product]="product"></app-card-products>
+@if (menuLocal) {
+@if (menuLocal.data.length > 0) {
+@for (menu of menuLocal.data; track menu.id) {
+<section class=" bg-cover bg-center py-16" style="background-image: url('ruta/a/tu-imagen.jpg')">
+  <div class="container mx-auto px-4 flex flex-col items-center justify-center gap-3">
+    <div class="bg-secondary p-4 md:p-10 rounded-lg shadow-md w-full">
+      <div style="background: url(assets/wave-haikei.svg);" class="bg-cover bg-center h-[50px]">
+      </div>
+      
+      <div class="pb-10 pt-8  bg-white text-center">
+        <h6 class="text-center text-lg text-gray-700 uppercase tracking-wider">{{ menu.description }}</h6>
+        <h3 class="text-center text-3xl md:text-4xl font-bold mb-12 text-gray-900">{{ menu.name }}</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+          @defer (when categoriesLocal) {
+            @for (category of categoriesLocal; track $index) {
+                <div class="p-4 md:p-10 w-full">
+                  <app-show-name-category [categoryName]="category[0]"></app-show-name-category>
+                  <div class="h-10"></div>
+                    @for (item of category[1]; track item.id) {
+                    <app-card-products [product]="item"></app-card-products>
                     }
-                } @else {
-                    <div class="row h-10">
-                        <div class="col-span-12">
-                            <h6 class="text-center text-lg text-gray-700 uppercase tracking-wider">No hay un menu</h6>
-                        </div>
-                    </div>
-                }
-              </div>
-            </div>
-          </div>
-          </div>
-        </section>
-      }
-    }
-  }
+                </div>
+            }
+          }
+        </div>
+      </div>
+      <div style="background: url(assets/wave-haikei.svg);" class="bg-cover bg-center h-[50px] rotate-180">
+      </div>
+    </div>
+  </div>
+</section>
+}
+}
+}
 } @placeholder {
-  <div class="row h-10"></div>
+<div class="row h-10"></div>
 }

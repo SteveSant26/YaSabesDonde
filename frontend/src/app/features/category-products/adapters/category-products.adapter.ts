@@ -12,7 +12,7 @@ export const categoryProductsAdapter = (dataClient: any): CategoryProducts => {
         createdAt: data.created_at,
         updatedAt: data.updated_at,
         publishedAt: data.published_at,
-        image: imageAdapter(data.image)
+        image: data && data.image && imageAdapter(data.image)
     };
 };
 

@@ -5,4 +5,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @theme {
     --color-primary: #343a40;
+    --color-secondary: #e8a600;
 }
