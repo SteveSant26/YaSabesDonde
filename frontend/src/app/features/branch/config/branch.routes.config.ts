@@ -3,18 +3,18 @@ export const branchRoutesConfig = {
     base : {
         url : '/branches',
         path : 'branches',
-        label : 'Branches'
+        label : 'Sucursales'
     },
     children : {
         list : {
             url : '/branches',
             path : 'branches',
-            label : 'Branches List'
+            label : 'Lista de sucursales'
         },
         detail : {
             url : '/branches',
             path : ':documentId',
-            label : 'Branch Detail'
+            label : 'Detalle de sucursal'
         }
     }
 } 
