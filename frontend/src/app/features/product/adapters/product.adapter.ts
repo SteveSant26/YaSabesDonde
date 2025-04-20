@@ -6,7 +6,7 @@ export const productAdapter = (dataClient: any): Product => {
     const data = dataClient.data || dataClient;
     return {
         id: data.id,
-        documentId: data.document_id,
+        documentId: data.documentId,
         name: data.name,
         description: data.description,
         price: data.price,

@@ -16,7 +16,7 @@ export class UseClientProductService {
   }
 
   getProduct(documentId: string) {
-    return this.globalClientGetService.getDataClient<Product>(`${this.url}/${documentId}`, productAdapter);
+    return this.globalClientGetService.getDataClient<Product>(`${this.url}/${documentId}?${createPopulate(['images'])}`, productAdapter);
   }
 
   getFavoriteProducts() {

@@ -2,15 +2,19 @@ import { ChangeDetectionStrategy, Component, inject, input, OnInit, signal } fro
 import { UseClientBranchService } from '../../services';
 import { Branch } from '../../models';
 import { ContentMenuComponent } from "@features/menu/components/content-menu/content-menu.component";
+import { MatIcon } from '@angular/material/icon';
+import { RouterLink } from '@angular/router';
+import { menuRoutesConfig } from '@features/menu/config';
 
 @Component({
   selector: 'app-single-branch-card',
-  imports: [ContentMenuComponent],
+  imports: [MatIcon, RouterLink],
   templateUrl: './single-branch-card.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SingleBranchCardComponent implements OnInit {
   documentId = input<string>();
+  protected menuRouteConfig = menuRoutesConfig;
   private useClientBranch = inject(UseClientBranchService);
   protected branch = signal<Branch | undefined>(undefined);
   ngOnInit(): void {
