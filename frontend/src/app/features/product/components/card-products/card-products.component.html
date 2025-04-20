@@ -1,14 +1,15 @@
 @let productLocal = product();
 <div class="my-2">
-  <a href="#" class="block border-b border-gray-300 pb-3 px-4 text-gray-800 hover:text-red-500 transition">
+  <a [routerLink]="[productRouteConfig.children.detail.url, productLocal?.id]"
+    class="block border-b border-gray-300 pb-3 px-4 text-gray-800 hover:text-red-500 transition">
     <div class="flex justify-between gap-4">
       <img [src]="productLocal?.images?.[0]?.url" alt="Blog 1" class=" object-cover h-20 w-20">
       <div class="flex justify-between flex-1">
         <div>
-          <p class=" text-secondary font-bold font-primary">{{ product()?.name }}</p>
+          <p class=" text-secondary-color font-bold font-primary">{{ product()?.name }}</p>
           <p class="text-sm text-gray-600 mt-1">{{ product()?.description }}</p>
         </div>
-        <h6 class=" font-bold">${{ product()?.price?.price }}</h6>
+        <h6 class="font-bold">${{ product()?.price?.price }}</h6>
       </div>
     </div>
   </a>

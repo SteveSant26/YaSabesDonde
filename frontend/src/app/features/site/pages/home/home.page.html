@@ -2,9 +2,9 @@
 @defer (when homeLocal) {
     @if (homeLocal) {
         @if (homeLocal.hero) {
-            <header viewTransitionName="card" id="home" class="font-primary relative h-[80vh] bg-cover bg-center bg-fixed bg-no-repeat"
+            <header viewTransitionName="card" id="home" class="font-primary-color relative h-[80vh] bg-cover bg-center bg-fixed bg-no-repeat"
                 [style]="`background-image: url('${homeLocal.hero.image.url}');`">
-                <div class="absolute inset-0 bg-black opacity-50"></div>
+                <div class="absolute inset-0 bg-black opacity-50 z-0"></div>
                     <div class="relative flex items-center justify-center h-full">
                     <div class="text-center text-white px-4">
                         <h1 class="text-5xl md:text-6xl font-bold mb-4">{{homeLocal.hero.title}}</h1>
@@ -37,7 +37,7 @@
 @defer (when aboutUsLocal) {
     @if (aboutUsLocal) {
         @if (aboutUsLocal.hero) {
-            <section id="about" class=" bg-primary">
+            <section id="about" class=" bg-primary-color">
                 <div class="mx-auto flex flex-col md:flex-row text-white">
                     <!-- Imagen a la izquierda -->
                     <div class="md:w-1/2 bg-cover bg-center min-h-[60vh]"
@@ -73,7 +73,7 @@
 @defer (when productsLocal) {
     @if (productsLocal) {
         @if (productsLocal.data.length > 0) {
-            <section id="gallary" class="py-16 bg-primary text-white text-center">
+            <section id="gallary" class="py-16 bg-primary-color text-white text-center">
                 <h2 class="text-3xl font-bold mb-8">OUR MENU</h2>
                 <div class="container mx-auto px-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                     @for (product of productsLocal.data; track product.id) {
@@ -94,7 +94,7 @@
 @defer (when categoryProductsLocal) {
     @if (categoryProductsLocal) {
         @if (categoryProductsLocal.data.length > 0) {
-            <section id="blog" class="py-16 bg-primary text-white">
+            <section id="blog" class="py-16 bg-primary-color text-white">
                 <div class="container mx-auto px-4 text-center">
                     <h2 class="text-3xl font-bold py-5 mb-10">Category Products</h2>
             

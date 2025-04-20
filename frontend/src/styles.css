@@ -1,11 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 @import "tailwindcss";
+@plugin "daisyui";
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @theme {
-    --color-primary: #343a40;
-    --color-secondary: #e8a600;
+    --color-primary-color: #1d1d1d;
+    --color-secondary-color: #e8a600;
     --font-primary: "Potta One", system-ui;
 }

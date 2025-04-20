@@ -1,9 +1,12 @@
 @let branchLocal = branch();
 @defer (when branchLocal) {
-  @if (branchLocal) {
+@if (branchLocal) {
 
-    <app-content-menu [branchId]="branchLocal?.id"></app-content-menu>
-  }
+<div class="bg-primary-color">
+
+  <app-content-menu [branchId]="branchLocal?.id"></app-content-menu>
+</div>
+}
 } @placeholder {
-  <div class="row h-10"></div>
+<div class="row h-10"></div>
 }
