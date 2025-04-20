@@ -5,8 +5,31 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+
+@font-face {
+    font-family: 'Heavitas';
+    src: url('./app/assets/fonts/Heavitas.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Feelin';
+    src: url('./app/assets/fonts/Feelin_Teachy_TTF.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.font-primary {
+    font-family: 'Heavitas', sans-serif;
+}
+
+.font-secondary {
+    font-family: 'Feelin', sans-serif;
+}
+
 @theme {
     --color-primary-color: #1d1d1d;
     --color-secondary-color: #eca500;
-    --font-primary: "Potta One", system-ui;
+    --font-feelin:  url('./app/assets/fonts/Feelin_Teachy_TTF.woff2') format('woff2'), 'Feelin', sans-serif;
 }
