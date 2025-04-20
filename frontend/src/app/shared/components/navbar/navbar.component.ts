@@ -10,6 +10,7 @@ import {
   state,
 } from '@angular/animations';
 import { branchRoutesConfig } from '@features/branch/config';
+import { menuRoutesConfig } from '@features/menu/config';
 
 @Component({
   selector: 'app-navbar',
@@ -39,8 +40,8 @@ export class NavBarComponent {
 
   readonly narBarLinks = [
     { 'label': siteRoutesConfig.base.label, 'href': siteRoutesConfig.base.url },
+    { 'label': menuRoutesConfig.base.label, 'href':  menuRoutesConfig.base.url },
     { 'label': branchRoutesConfig.base.label, 'href': branchRoutesConfig.base.url },
-    { 'label': 'Blog', 'href': '#blog' },
     { 'label': 'Reviews', 'href': '#testmonial' },
     { 'label': 'Contact Us', 'href': '#contact' }
   ];

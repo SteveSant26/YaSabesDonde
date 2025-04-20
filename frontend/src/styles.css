@@ -7,6 +7,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @theme {
     --color-primary-color: #1d1d1d;
-    --color-secondary-color: #e8a600;
+    --color-secondary-color: #eca500;
     --font-primary: "Potta One", system-ui;
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { Product } from '../../models';
 import { RouterLink } from '@angular/router';
 import { productRoutesConfig } from '@features/product/config';
