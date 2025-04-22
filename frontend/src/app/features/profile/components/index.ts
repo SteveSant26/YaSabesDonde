@@ -1,0 +1,1 @@
+export * from './view-location/view-location.component';
