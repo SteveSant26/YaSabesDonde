@@ -11,10 +11,11 @@ import {
 } from '@angular/animations';
 import { branchRoutesConfig } from '@features/branch/config';
 import { menuRoutesConfig } from '@features/menu/config';
+import { ViewLocationComponent } from "../../../features/profile/components/view-location/view-location.component";
 
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, MatIconModule],
+  imports: [RouterLink, MatIconModule, ViewLocationComponent],
   templateUrl: './navbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
