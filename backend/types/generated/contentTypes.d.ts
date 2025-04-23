@@ -467,7 +467,8 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
 export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   collectionName: 'globals';
   info: {
-    displayName: 'Global';
+    description: '';
+    displayName: 'GlobalData';
     pluralName: 'globals';
     singularName: 'global';
   };
@@ -486,6 +487,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
       'api::global.global'
     > &
       Schema.Attribute.Private;
+    logoSite: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
     publishedAt: Schema.Attribute.DateTime;
     siteName: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
