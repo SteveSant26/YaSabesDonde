@@ -1,56 +1,97 @@
-<footer class="bg-cyan-950 text-white pt-16 pb-10">
-    <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+<footer class="bg-primary-color text-footer-text pt-16 pb-10">
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Sección principal: listas + redes -->
+    <div class="flex flex-col md:flex-row md:justify-between">
+      
+      <!-- Grid de 4 columnas -->
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 flex-1">
+        
         <!-- Logo y Descripción -->
-        <div class="col-span-1 lg:col-span-2">
+        <div>
           <a href="#" class="inline-block mb-4">
-            <img src="/img/logo-hamburgueseria.svg" alt="Logo Hamburguesería" class="h-12">
+            <img src="/img/logo-hamburgueseria.svg" alt="YA SABES DONDE" class="h-12">
           </a>
-          <p class="text-sm text-gray-100">
-            En <strong>GrillBurger</strong> servimos las hamburguesas más jugosas con ingredientes 100% frescos y pan artesanal. ¡Ven y disfruta del sabor auténtico!
+          <p class="text-sm">
+            En <strong>Ya Sabes Donde</strong> servimos las hamburguesas más jugosas con ingredientes 100% frescos y pan artesanal. ¡Ven y disfruta del sabor auténtico!
           </p>
-          <div class="mt-4 flex space-x-4">
-            <a href="https://www.instagram.com/yasabesdonde.ec/" aria-label="Instagram" class="hover:text-gray-200 transition">
-              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M7 2C4.8 2 3 3.8 3 6v12c0 2.2 1.8 4 4 4h10c2.2 0 4-1.8 4-4V6c0-2.2-1.8-4-4-4H7zm0 2h10c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm5 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.5-.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>
-            </a>
-          </div>
         </div>
-  
+        
         <!-- Menú -->
         <div>
           <h4 class="text-base font-semibold mb-4">Menú</h4>
           <ul class="space-y-2 text-sm">
-            <li><a href="#" class="hover:text-gray-200">Nuestras Hamburguesas</a></li>
-            <li><a href="#" class="hover:text-gray-200">Combos</a></li>
-            <li><a href="#" class="hover:text-gray-200">Bebidas</a></li>
-            <li><a href="#" class="hover:text-gray-200">Postres</a></li>
+            <li><a href="#" class="hover:text-secondary-color">Nuestras Hamburguesas</a></li>
+            <li><a href="#" class="hover:text-secondary-color">Combos</a></li>
+            <li><a href="#" class="hover:text-secondary-color">Bebidas</a></li>
+            <li><a href="#" class="hover:text-secondary-color">Postres</a></li>
           </ul>
         </div>
-  
+        
         <!-- Sobre Nosotros -->
         <div>
           <h4 class="text-base font-semibold mb-4">Sobre Nosotros</h4>
           <ul class="space-y-2 text-sm">
-            <li><a href="#" class="hover:text-gray-200">Nuestra Historia</a></li>
-            <li><a href="#" class="hover:text-gray-200">Ubicaciones</a></li>
-            <li><a href="#" class="hover:text-gray-200">Franquicias</a></li>
-            <li><a href="#" class="hover:text-gray-200">Trayectoria</a></li>
+            <li><a href="#" class="hover:text-secondary-color">Nuestra Historia</a></li>
+            <li><a href="#" class="hover:text-secondary-color">Ubicaciones</a></li>
+            <li><a href="#" class="hover:text-secondary-color">Franquicias</a></li>
+            <li><a href="#" class="hover:text-secondary-color">Trayectoria</a></li>
           </ul>
         </div>
-  
-        <!-- Contacto -->
+        
+        <!-- Contacto & Horarios -->
         <div>
           <h4 class="text-base font-semibold mb-4">Contacto & Horarios</h4>
           <ul class="space-y-2 text-sm">
-            <li class="flex items-center"><svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg> <a href="tel:+01234567890" class="hover:text-gray-200">+01 234 567 890</a></li>
-            <li class="flex items-center"><svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24"><path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"/></svg> Av. 26, Manta</li>
-            <li class="flex items-center"><svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14l7-3l7 3V5c0-1.1-.9-2-2-2z"/></svg> Lun-Dom: 16:30pm - 12:00pm</li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24">
+                <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+              </svg>
+              <a href="tel:+01234567890" class="hover:text-secondary-color">+01 234 567 890</a>
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24">
+                <path d="M12 2C8.1 2 5 5.1 5 9c0 5.3 7 13 7 13s7-7.7 7-13c0-3.9-3.1-7-7-7zm0 9.5c-1.4 0-2.5-1.1-2.5-2.5S10.6 6.5 12 6.5s2.5 1.1 2.5 2.5S13.4 11.5 12 11.5z"/>
+              </svg>
+              Av. 26, Manta
+            </li>
+            <li class="flex items-center">
+              <svg class="w-4 h-4 mr-2 fill-current" viewBox="0 0 24 24">
+                <path d="M19 3H5c-1.1 0-2 .9-2 2v14l7-3l7 3V5c0-1.1-.9-2-2-2z"/>
+              </svg>
+              Lun-Dom: 16:30 – 00:00
+            </li>
           </ul>
         </div>
       </div>
-  
-      <div class="mt-10 border-t border-red-500 pt-6 text-sm text-center text-gray-200">
-        <p>&copy; 2025 YaSabesDonde. Todos los derechos reservados.</p>
+      
+      <!-- Redes Sociales -->
+      <div class="mt-8 md:mt-0 flex space-x-4">
+        <a href="https://www.instagram.com/yasabesdonde.ec/" aria-label="Instagram" class="hover:text-secondary-color transition">
+          <!-- icono Instagram -->
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <path d="M7 2C4.8 2 3 3.8 3 6v12c0 2.2 1.8 4 4 4h10c2.2 0 4-1.8 4-4V6c0-2.2-1.8-4-4-4H7zm0 2h10c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H7c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2zm5 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm4.5-.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="Twitter" class="hover:text-secondary-color transition">
+          <!-- icono Twitter -->
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <!-- tu path de Twitter -->
+          </svg>
+        </a>
+        <a href="#" aria-label="Facebook" class="hover:text-secondary-color transition">
+          <!-- icono Facebook -->
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <!-- tu path de Facebook -->
+          </svg>
+        </a>
       </div>
     </div>
-  </footer>
+
+    <!-- Línea divisoria y pie -->
+    <div class="mt-10 border-t border-footer-border pt-6">
+      <p class="text-footer-text-secondary text-sm text-center">
+        &copy; 2025 YaSabesDonde. Todos los derechos reservados.
+      </p>
+    </div>
+  </div>
+</footer>
