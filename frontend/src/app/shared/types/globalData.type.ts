@@ -1,7 +1,9 @@
+import { Image } from "@shared/models";
+
 export interface GlobalData {
     siteName: string;
-    iconSite:any;
-    logoSite:any;
+    iconSite?: Image;
+    logoSite?: Image;
     description: string;
     defaultSeo?: {
         metaTitle: string;

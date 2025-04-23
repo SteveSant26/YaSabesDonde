@@ -5,6 +5,7 @@ import { environment } from '@environment/environment.development';
 import { GlobalData } from '@shared/types/globalData.type';
 import { GlobalDataAdapter } from '@shared/adapters';
 import { createPopulate } from '@shared/utils/img-url';
+import { GlobalClientGetService } from './global-client-get.service';
 
 
 interface ManyData<T> {
@@ -18,19 +19,11 @@ interface ManyData<T> {
 export class GlobalDataService {
   private baseUrl = environment.baseApiUrl;
   private http = inject(HttpClient);
+  private globalClientGetService = inject(GlobalClientGetService)
 
   getGlobalData(): Observable<GlobalData> {
-    return this.http
-      // .get<GlobalData>(`${this.baseUrl}/api/global?populate=iconSite,logoSite`)
-      .get<GlobalData>(`${this.baseUrl}/api/global`)
-      .pipe(map((data) => { console.log(data); return GlobalDataAdapter(data) }));
-  }
-
-
-
-  getManyData<T>(data: ManyData<T>): Observable<T> {
-    return this.http
-      .get<T>(`${this.baseUrl}${data.url}`)
-      .pipe(map((respoinse) => data.adapter(respoinse)));
+    const url = this.baseUrl + "/api/global"
+    return this.globalClientGetService.getDataClient<GlobalData>(`${url}?${createPopulate(
+      ["iconSite", "logoSite"])}`,GlobalDataAdapter)
   }
 }
