@@ -15,6 +15,14 @@
       "type": "component",
       "repeatable": false,
       "component": "site.hero"
+    },
+    "video": {
+      "allowedTypes": [
+        "files",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
