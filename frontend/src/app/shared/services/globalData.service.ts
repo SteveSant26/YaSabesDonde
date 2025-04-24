@@ -18,7 +18,6 @@ interface ManyData<T> {
 })
 export class GlobalDataService {
   private baseUrl = environment.baseApiUrl;
-  private http = inject(HttpClient);
   private globalClientGetService = inject(GlobalClientGetService)
 
   getGlobalData(): Observable<GlobalData> {
