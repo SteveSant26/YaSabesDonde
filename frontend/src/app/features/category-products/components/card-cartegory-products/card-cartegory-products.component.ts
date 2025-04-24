@@ -10,6 +10,5 @@ import { CategoryProducts } from '../../models';
 export class CardCartegoryProductsComponent implements OnInit {
   categoryProducts = input.required<CategoryProducts>();
   ngOnInit(): void {
-    console.log(this.categoryProducts());
   }
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { siteRoutesConfig } from '@features/site';
@@ -12,10 +12,10 @@ import {
 import { branchRoutesConfig } from '@features/branch/config';
 import { menuRoutesConfig } from '@features/menu/config';
 import { ViewLocationComponent } from "../../../features/profile/components/view-location/view-location.component";
-
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, MatIconModule, ViewLocationComponent],
+  imports: [RouterLink, FormsModule, MatIconModule, ViewLocationComponent],
   templateUrl: './navbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
@@ -41,7 +41,7 @@ export class NavBarComponent {
 
   readonly narBarLinks = [
     { 'label': siteRoutesConfig.base.label, 'href': siteRoutesConfig.base.url },
-    { 'label': menuRoutesConfig.base.label, 'href':  menuRoutesConfig.base.url },
+    { 'label': menuRoutesConfig.base.label, 'href': menuRoutesConfig.base.url },
     { 'label': branchRoutesConfig.base.label, 'href': branchRoutesConfig.base.url },
     { 'label': 'Reviews', 'href': '#testmonial' },
     { 'label': 'Contact Us', 'href': '#contact' }
@@ -51,11 +51,21 @@ export class NavBarComponent {
   menuOpen = false;
 
   toggleMenu() {
+    console.log(this.menuOpen)
     this.menuOpen = !this.menuOpen;
+
   }
 
   get toggleIconState(): string {
     return this.menuOpen ? 'close' : 'menu';
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event) {
+    const clickedInside = (event.target as HTMLElement).closest('.dropdown');
+    if (!clickedInside) {
+      this.menuOpen = false;
+    }
   }
 
 }
