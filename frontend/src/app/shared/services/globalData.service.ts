@@ -17,11 +17,10 @@ interface ManyData<T> {
   providedIn: 'root',
 })
 export class GlobalDataService {
-  private baseUrl = environment.baseApiUrl;
   private globalClientGetService = inject(GlobalClientGetService)
 
   getGlobalData(): Observable<GlobalData> {
-    const url = this.baseUrl + "/api/global"
+    const url =  "/api/global"
     return this.globalClientGetService.getDataClient<GlobalData>(`${url}?${createPopulate(
       ["iconSite", "logoSite"])}`,GlobalDataAdapter)
   }
