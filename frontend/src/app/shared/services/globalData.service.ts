@@ -20,7 +20,7 @@ export class GlobalDataService {
   private globalClientGetService = inject(GlobalClientGetService)
 
   getGlobalData(): Observable<GlobalData> {
-    const url = "/api/global"
+    const url =  "/api/global"
     return this.globalClientGetService.getDataClient<GlobalData>(`${url}?${createPopulate(
       ["iconSite", "logoSite"])}`,GlobalDataAdapter)
   }

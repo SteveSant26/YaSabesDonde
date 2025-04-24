@@ -6,7 +6,8 @@
     <div class="flex font-sans text-white max-w-xl">
         <div class="flex-none w-48 relative">
             <img [src]="productLocal?.images?.[0]?.url" alt="" class="absolute inset-0 w-full h-full object-cover"
-                loading="lazy" />
+                loading="lazy"
+                alt="" [style]="'view-transition-name: img-product;'" />
         </div>
         <form class="flex-auto p-6">
             <div class="flex flex-wrap">

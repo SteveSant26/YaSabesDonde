@@ -1,4 +1,4 @@
-import { imageAdapter } from "@shared/adapters"
+import { imageAdapter, VideoAdapter } from "@shared/adapters"
 import { Home } from "../models"
 
 export const homeAdapter = (dataClient: any): Home => {
@@ -14,6 +14,7 @@ export const homeAdapter = (dataClient: any): Home => {
             description: data.hero.description,
             image: imageAdapter(data.hero.image),
             btnText: data.hero.btnText
-        }
+        },
+        video: VideoAdapter(data.video)
     }
 }

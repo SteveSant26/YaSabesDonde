@@ -1,0 +1,16 @@
+@let heroLocal = hero();
+<header viewTransitionName="card" id="home"
+    class="font-feelin text font-primary-color relative h-[80vh] bg-cover bg-center bg-fixed bg-no-repeat"
+    [style]="`background-image: url('${heroLocal.image.url}');`">
+    <div class="absolute inset-0 bg-black opacity-50 z-0"></div>
+    <div class="relative flex items-center justify-center h-full">
+        <div class="text-center text-white px-4">
+            <h1 class="text-5xl md:text-6xl font-bold mb-4">{{heroLocal.title}}</h1>
+            <h2 class="text-2xl md:text-4xl mb-8">{{heroLocal.description}}</h2>
+            <a href="#gallary"
+                class="bg-secondary-color hover:bg-orange-500 text-white py-3 px-6 rounded-full transition">
+                {{heroLocal.btnText}}
+            </a>
+        </div>
+    </div>
+</header>

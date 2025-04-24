@@ -37,3 +37,24 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     
     --font-feelin:  url('./app/assets/fonts/Feelin_Teachy_TTF.woff2') format('woff2'), 'Feelin', sans-serif;
 }
+
+
+::view-transition-old(root){
+    animation: fade-out 0.4s ease;
+}
+@keyframes fade-out {
+  from { 
+    left: 0;
+   }
+  to { left: 100%; }
+}
+::view-transition-new(root) {
+  animation: fade-in 0.4s ease;
+}
+
+@keyframes fade-in {
+  from { 
+    left: -100%;
+   }
+  to { left: 0; }
+}

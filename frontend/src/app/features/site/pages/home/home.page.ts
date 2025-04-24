@@ -5,11 +5,12 @@ import { UseClientSiteService } from "../../services";
 import { UseClientProductService } from "@features/product/services";
 import { GallaryImageProductCardComponent } from "@features/product/components";
 import { UseClientCategoryProductsService } from "@features/category-products/services";
-import { CardCartegoryProductsComponent } from "@features/category-products/components"; 
+import { CardCartegoryProductsComponent } from "@features/category-products/components";
+import { HeroComponent } from "../../../../shared/components/hero/hero.component"; 
 @Component({
     selector: "home-page",
     templateUrl: "./home.page.html",
-    imports: [GallaryImageProductCardComponent, CardCartegoryProductsComponent],
+    imports: [GallaryImageProductCardComponent, CardCartegoryProductsComponent, HeroComponent],
 })
 export class HomePage {
     private useClientSiteService = inject(UseClientSiteService);
@@ -19,4 +20,5 @@ export class HomePage {
     readonly aboutUs = toSignal(this.useClientSiteService.getAboutUs());
     readonly products = toSignal(this.useClientProductService.getFavoriteProducts());
     readonly categoryProducts = toSignal(this.useClientCategoryProductsService.getCategoryProducts());
+    
 }

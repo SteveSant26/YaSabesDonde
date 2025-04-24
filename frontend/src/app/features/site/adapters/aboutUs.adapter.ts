@@ -1,7 +1,7 @@
 import { imageAdapter } from "@shared/adapters"
-import { Home } from "../models"
+import { AboutUs } from "../models"
 
-export const aboutUsAdapter = (dataClient: any): Home => {
+export const aboutUsAdapter = (dataClient: any): AboutUs => {
     const data = dataClient.data || dataClient;
     return {
         createdAt: data.createdAt,
