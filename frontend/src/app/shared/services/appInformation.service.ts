@@ -43,4 +43,10 @@ export class AppInformationService {
   setMeta(name: string, content: string): void {
     this.metaService.updateTag({ name, content });
   }
+
+  getIconSite(){
+
+  }
+
+
 }
