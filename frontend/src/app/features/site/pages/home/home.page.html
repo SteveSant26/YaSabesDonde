@@ -1,116 +1,119 @@
 @let homeLocal = home();
 @defer (when homeLocal) {
-    @if (homeLocal) {
-        @if (homeLocal.hero) {
-            <header viewTransitionName="card" id="home" class="font-feelin text font-primary-color relative h-[80vh] bg-cover bg-center bg-fixed bg-no-repeat"
-                [style]="`background-image: url('${homeLocal.hero.image.url}');`">
-                <div class="absolute inset-0 bg-black opacity-50 z-0"></div>
-                    <div class="relative flex items-center justify-center h-full">
-                    <div class="text-center text-white px-4">
-                        <h1 class="text-5xl md:text-6xl font-bold mb-4">{{homeLocal.hero.title}}</h1>
-                        <h2 class="text-2xl md:text-4xl mb-8">{{homeLocal.hero.description}}</h2>
-                        <a href="#gallary" class="bg-secondary-color hover:bg-orange-500 text-white py-3 px-6 rounded-full transition">
-                            {{homeLocal.hero.btnText}}
-                        </a>
-                    </div>
-                </div>
-            </header>
-        } @else {
-            <div>
-                <h1>Error</h1>
-            </div>
-        }
-    }
+@if (homeLocal) {
+@if (homeLocal.hero) {
+<app-hero [hero]="homeLocal.hero"></app-hero>
+} @else {
+<div>
+    <h1>Error</h1>
+</div>
+}
+}
 } @placeholder {
-    <header id="home" class="relative h-[80vh] bg-cover bg-center bg-fixed bg-no-repeat"
-                style="background-image: url('https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png');">
-            <div class="absolute inset-0 bg-black opacity-50"></div>
-                <div class="relative flex items-center justify-center h-full">
-                <div class="text-center text-white px-4">
-                   
-                </div>
-            </div>
-        </header>
+<header id="home" class="relative h-[80vh] bg-cover bg-center bg-fixed bg-no-repeat"
+    style="background-image: url('https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png');">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="relative flex items-center justify-center h-full">
+        <div class="text-center text-white px-4">
+
+        </div>
+    </div>
+</header>
 }
 
 @let aboutUsLocal = aboutUs();
 @defer (when aboutUsLocal) {
-    @if (aboutUsLocal) {
-        @if (aboutUsLocal.hero) {
-            <section id="about" class=" bg-primary-color">
-                <div class="mx-auto flex flex-col md:flex-row text-white">
-                    <!-- Imagen a la izquierda -->
-                    <div class="md:w-1/2 bg-cover bg-center min-h-[60vh]"
-                    [style]="`background-image: url('${aboutUsLocal.hero.image.url}');`">
-                        <!-- Opcional: agregar contenido superpuesto o dejar solo imagen -->
-                    </div>
-                    <!-- Texto a la derecha -->
-                    <div class="md:w-1/2 flex items-center p-2 md:p-10 ">
-                        <div class="p-8">
-                            <h2 class="text-3xl font-bold mb-4">{{aboutUsLocal.hero.title}}</h2>
-                            <p class="mb-4">
-                                {{aboutUsLocal.hero.description}}
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        }
-    } @else {
-        <div>
-            <h1>Error</h1>
+@if (aboutUsLocal) {
+@if (aboutUsLocal.hero) {
+<section id="about" class=" bg-primary-color">
+    <div class="mx-auto flex flex-col md:flex-row text-white">
+        <!-- Imagen a la izquierda -->
+        <div class="md:w-1/2 bg-cover bg-center min-h-[60vh]"
+            [style]="`background-image: url('${aboutUsLocal.hero.image.url}');`">
+            <!-- Opcional: agregar contenido superpuesto o dejar solo imagen -->
         </div>
-    }
-} @placeholder {
-    <div>
-        <h1>Error</h1>
-    </div>
-}
-
-
-
-@let productsLocal = products();   
-@defer (when productsLocal) {
-    @if (productsLocal) {
-        @if (productsLocal.data.length > 0) {
-            <section id="gallary" class="py-16 bg-primary-color text-white text-center">
-                <h2 class="text-3xl font-bold mb-8">OUR MENU</h2>
-                <div class="container mx-auto px-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-                    @for (product of productsLocal.data; track product.id) {
-                        <app-gallary-image-product-card [product]="product"></app-gallary-image-product-card>
-                    }
-                </div>
-            </section>
-        } @else {
-            <div>
-                <h1>Error</h1>
+        <!-- Texto a la derecha -->
+        <div class="md:w-1/2 flex items-center p-2 md:p-10 ">
+            <div class="p-8">
+                <h2 class="text-3xl font-bold mb-4">{{aboutUsLocal.hero.title}}</h2>
+                <p class="mb-4">
+                    {{aboutUsLocal.hero.description}}
+                </p>
             </div>
-        }
-    }
+        </div>
+    </div>
+</section>
 }
+} @else {
+<div>
+    <h1>Error</h1>
+</div>
+}
+} @placeholder {
+<div>
+    <h1>Error</h1>
+</div>
+}
+
+
+
+@let productsLocal = products();
+@defer (when productsLocal) {
+@if (productsLocal) {
+@if (productsLocal.data.length > 0) {
+<section id="gallary" class="py-16 bg-primary-color text-white text-center">
+    <h2 class="text-3xl font-bold mb-8">OUR MENU</h2>
+    <div class="container mx-auto px-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+        @for (product of productsLocal.data; track product.id) {
+        <app-gallary-image-product-card [product]="product"></app-gallary-image-product-card>
+        }
+    </div>
+</section>
+} @else {
+<div>
+    <h1>Error</h1>
+</div>
+}
+}
+}
+
+@let video = home()?.video;
+@defer (when video) {
+@if (video) {
+<section id="video" class="py-16 bg-primary-color text-white">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold py-5 mb-10">{{video.name}}</h2>
+        <div class="flex justify-center items-center overflow-hidden h-[600px] w-full relative">
+            <video src="{{video.url}}" controls autoplay muted loop class="max-w-full h-auto">
+            </video>
+        </div>
+    </div>
+</section>
+}
+}
+
 
 
 @let categoryProductsLocal = categoryProducts();
 @defer (when categoryProductsLocal) {
-    @if (categoryProductsLocal) {
-        @if (categoryProductsLocal.data.length > 0) {
-            <section id="blog" class="py-16 bg-primary-color text-white">
-                <div class="container mx-auto px-4 text-center">
-                    <h2 class="text-3xl font-bold py-5 mb-10">Category Products</h2>
-            
-                    <!-- Contenido de Tabs tab-content-f-->
-                    <div id="oods" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                        @for (categoryProducts of categoryProductsLocal.data; track categoryProducts.id) {
-                            <app-card-cartegory-products [categoryProducts]="categoryProducts"></app-card-cartegory-products>
-                        }
-                    </div>
-                </div>
-            </section>
-        } @else {
-            <div>
-                <h1>Error</h1>
-            </div>
-        }
-    }
-}
+@if (categoryProductsLocal) {
+@if (categoryProductsLocal.data.length > 0) {
+<section id="blog" class="py-16 bg-primary-color text-white">
+    <div class="container mx-auto px-4 text-center">
+        <h2 class="text-3xl font-bold py-5 mb-10">Category Products</h2>
 
+        <!-- Contenido de Tabs tab-content-f-->
+        <div id="oods" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            @for (categoryProducts of categoryProductsLocal.data; track categoryProducts.id) {
+            <app-card-cartegory-products [categoryProducts]="categoryProducts"></app-card-cartegory-products>
+            }
+        </div>
+    </div>
+</section>
+} @else {
+<div>
+    <h1>Error</h1>
+</div>
+}
+}
+}

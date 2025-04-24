@@ -4,10 +4,11 @@ import { CardProductsComponent } from "../../../product/components";
 import { MenuResponse } from '../../models';
 import { separateProductsByCategory } from '@features/category-products/utils';
 import { ShowNameCategoryComponent } from "../../../category-products/components/show-name-category/show-name-category.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-content-menu',
-  imports: [CardProductsComponent, ShowNameCategoryComponent],
+  imports: [CardProductsComponent, ShowNameCategoryComponent, RouterLink],
   templateUrl: './content-menu.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
