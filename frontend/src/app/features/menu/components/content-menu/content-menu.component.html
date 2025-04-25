@@ -3,8 +3,8 @@
 @defer (when menuLocal) {
 @if (menuLocal) {
 @if (menuLocal.data.length > 0) {
-@for (menu of menuLocal.data; track menu.id) {
-<!-- <section class=" bg-cover bg-center py-16" style="background-image: url('ruta/a/tu-imagen.jpg')">
+<!-- @for (menu of menuLocal.data; track menu.id) {
+<section class=" bg-cover bg-center py-16" style="background-image: url('ruta/a/tu-imagen.jpg')">
   <div class="container mx-auto px-4 flex flex-col items-center justify-center gap-3">
     <div class="bg-secondary-color p-4 md:p-10 rounded-lg shadow-md w-full">
       <div style="background: url(assets/wave-haikei.svg);" class="bg-cover bg-center h-[50px]">
@@ -37,7 +37,7 @@
 
 <section id="video" class="py-16 bg-primary-color text-white">
   <div class="container mx-auto px-4 text-center">
-    <h2 class="text-3xl font-extrabold py-5 mb-10">{{menu.name}}</h2>
+    <h2 class="text-3xl font-extrabold py-5 mb-10">{{menuLocal.data[0].name}}</h2>
     <div>
       @defer (when categoriesLocal) {
       @for (category of categoriesLocal; track $index) {
@@ -98,7 +98,6 @@
 
 
 
-}
 }
 }
 } @placeholder {
