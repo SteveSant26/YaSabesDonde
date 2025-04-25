@@ -1,7 +1,7 @@
 import { imageAdapter } from "@shared/adapters";
-import { CategoryProducts, CategoryProductsResponse } from "../models";
+import { CategoryProduct, CategoryProductsResponse } from "../models";
 
-export const categoryProductsAdapter = (dataClient: any): CategoryProducts => {
+export const categoryProductAdapter = (dataClient: any): CategoryProduct => {
     const data = dataClient.data || dataClient;
     return {
         id: data.id,
@@ -17,9 +17,8 @@ export const categoryProductsAdapter = (dataClient: any): CategoryProducts => {
 };
 
 export const categoryProductsAdapterArray = (dataClient: any): CategoryProductsResponse => {
-    console.log("dataClient", dataClient);
     return {
-        data: dataClient.data.map(categoryProductsAdapter),
+        data: dataClient.data.map(categoryProductAdapter),
         meta: dataClient.meta,
     }
 };

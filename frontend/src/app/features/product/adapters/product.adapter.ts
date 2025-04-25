@@ -1,6 +1,7 @@
-import { categoryProductsAdapter } from "@features/category-products/adapters";
+import { categoryProductAdapter } from "@features/category-products/adapters";
 import { imageAdapter } from "@shared/adapters";
 import { Product, ProductResponse } from "../models";
+import { ApiResponse } from "@shared/types";
 
 export const productAdapter = (dataClient: any): Product => {
     const data = dataClient.data || dataClient;
@@ -14,12 +15,11 @@ export const productAdapter = (dataClient: any): Product => {
         createdAt: data.created_at,
         updatedAt: data.updated_at,
         publishedAt: data.published_at,
-        categoryProducts:  data.category && categoryProductsAdapter(data.category)
+        categoryProducts:  data.category && categoryProductAdapter(data.category)
     };
 };
 
-export const productResponseAdapter = (dataClient: any): ProductResponse => {
-    console.log("dataClient", dataClient);
+export const productResponseAdapter = (dataClient: any): ApiResponse<Product[]> => {
     return {
         data: dataClient.data.map(productAdapter),
         meta: dataClient.meta

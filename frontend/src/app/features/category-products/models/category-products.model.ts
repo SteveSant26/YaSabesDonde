@@ -1,7 +1,7 @@
 import { Image, InfoBasicEntity, Meta } from "@shared/models";
 import { Product } from "@features/product/models";
 
-export interface CategoryProducts extends InfoBasicEntity {
+export interface CategoryProduct extends InfoBasicEntity {
     name: string;
     description: string;
     products?: Product[];
@@ -9,6 +9,6 @@ export interface CategoryProducts extends InfoBasicEntity {
 }
 
 export interface CategoryProductsResponse {
-    data: CategoryProducts[];
+    data: CategoryProduct[];
     meta: Meta;
 }

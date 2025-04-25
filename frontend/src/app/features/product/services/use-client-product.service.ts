@@ -4,6 +4,7 @@ import { GlobalClientGetService } from '@shared/services';
 import { productAdapter, productResponseAdapter } from '../adapters';
 import { createPopulate } from '@shared/utils/img-url';
 import { createPagination } from '@shared/utils/img-url/create-pagination.util';
+import { ApiResponse } from '@shared/types';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class UseClientProductService {
   private url = "/api/products"
   private globalClientGetService = inject(GlobalClientGetService);
   getProducts() {
-    return this.globalClientGetService.getDataClient<ProductResponse>(`${this.url}?${createPopulate(['images'])}`, productResponseAdapter);
+    return this.globalClientGetService.getDataClient<ApiResponse<Product[]>>(`${this.url}?${createPopulate(['images'])}`, productResponseAdapter);
   }
 
   getProduct(documentId: string) {
@@ -20,8 +21,7 @@ export class UseClientProductService {
   }
 
   getFavoriteProducts() {
-    console.log("this.url", this.url);
-    return this.globalClientGetService.getDataClient<ProductResponse>(`${this.url}?${createPagination({
+    return this.globalClientGetService.getDataClient<ApiResponse<Product[]>>(`${this.url}?${createPagination({
       pageSize: 12,
       page: 1
     })}&${createPopulate(['images'])}`, productResponseAdapter);
