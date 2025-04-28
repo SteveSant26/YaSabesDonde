@@ -1,0 +1,1 @@
+export { authRoutesConfig} from './auth.routes.config';

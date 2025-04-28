@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { siteRoutesConfig } from '@features/site';
@@ -13,9 +13,12 @@ import { branchRoutesConfig } from '@features/branch/config';
 import { menuRoutesConfig } from '@features/menu/config';
 import { ViewLocationComponent } from "../../../features/profile/components/view-location/view-location.component";
 import { FormsModule } from '@angular/forms';
+import { ButtonIsLoggedComponent } from "./button-is-logged/button-is-logged.component";
+import { authRoutesConfig } from '@features/auth';
+import { UserService } from '@features/auth/services';
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, FormsModule, MatIconModule, ViewLocationComponent],
+  imports: [RouterLink, FormsModule, MatIconModule, ViewLocationComponent, ButtonIsLoggedComponent],
   templateUrl: './navbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
@@ -38,6 +41,10 @@ import { FormsModule } from '@angular/forms';
 export class NavBarComponent {
   readonly siteRouteConfig = siteRoutesConfig;
   readonly branchRouteConfig = branchRoutesConfig;
+  protected authRoutesConfig = authRoutesConfig;
+  private useServive = inject(UserService);
+  isAuthenticated = this.useServive.isAuthenticated();
+
 
   readonly narBarLinks = [
     { 'label': siteRoutesConfig.base.label, 'href': siteRoutesConfig.base.url },

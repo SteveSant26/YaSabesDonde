@@ -1,0 +1,14 @@
+<div class="h-screen flex justify-center items-center flex-col gap-4">
+  <!-- @if (errorMessage) {
+  <app-alert [text]="errorMessage" type="error" />
+  } -->
+
+  <app-auth-form [formGroup]="registerForm" [inputFields]="registerInputFields" title="Register"
+    btnSubmitLabel="Create an account" (formSubmit)="register()">
+
+  </app-auth-form>
+
+
+
+  <a [routerLink]="[authRoutesConfig.children.login.url]" class="link">Already have an account? Log in</a>
+</div>

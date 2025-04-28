@@ -1,0 +1,14 @@
+
+@if (isAuthenticated()){
+
+<app-avatar-navbar [authRoutesConfig]="authRoutesConfig()"></app-avatar-navbar>
+}
+@else {
+
+
+<!-- Puse el ng container solo para evitar ese error por ahora -->
+<ng-container class="flex gap-1">
+    <a class="btn btn-outline" [routerLink]="[authRoutesConfig().children.login.url]">Login</a>
+    <a class="btn hover:btn-neutral" [routerLink]="[authRoutesConfig().children.register.url]">Register</a>
+</ng-container>
+}

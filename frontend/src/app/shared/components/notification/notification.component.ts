@@ -6,8 +6,8 @@ import {
   signal,
 } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import { NotificationsService } from '@app/shared/services/notifications.service';
-import { NotificationType } from '@app/shared/types';
+import { NotificationsService } from '@shared/services';
+import { NotificationType } from '@shared/types';
 
 @Component({
   selector: 'app-notification',

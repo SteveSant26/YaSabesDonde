@@ -4,5 +4,13 @@ import { branchRoutes } from '@features/branch';
 import { NotFoundPage } from '@shared/pages/not-found.page';
 import { productRoutes } from '@features/product';
 import { menuRoutes } from '@features/menu';
+import { authRoutes } from '@features/auth';
 
-export const routes: Routes = [...siteRoutes, ...branchRoutes, ...productRoutes, ...menuRoutes, { path: '**', component: NotFoundPage }];
+export const routes: Routes = [
+  ...siteRoutes,
+  ...branchRoutes,
+  ...productRoutes,
+  ...menuRoutes,
+  ...authRoutes,
+  { path: '**', component: NotFoundPage },
+];

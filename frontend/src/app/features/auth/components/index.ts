@@ -1,0 +1,1 @@
+export {AuthFormComponent} from './auth-form/auth-form.component'

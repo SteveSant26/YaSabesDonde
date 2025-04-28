@@ -1,0 +1,1 @@
+export {userAdapter} from "./user.apdater"
