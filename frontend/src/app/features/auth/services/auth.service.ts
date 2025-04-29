@@ -5,7 +5,7 @@ import { map, catchError, Observable, throwError } from 'rxjs';
 import { userAdapter } from '../adapters';
 import { Router } from '@angular/router';
 import { UserService } from './user.service';
-import { authRoutesConfig } from '../config';
+import { profileRoutesConfig } from '@features/profile/config';
 
 import { environment } from '@environment/environment.development';
 import { siteRoutesConfig } from '@features/site';
@@ -126,7 +126,7 @@ export class AuthService {
         map((user) => {
           const userUpdated = userAdapter({ user: user, jwt });
           this.userService.saveUser(userUpdated);
-          this.router.navigate([authRoutesConfig.children.me.url]);
+          this.router.navigate([profileRoutesConfig.children.me.url]);
           return userUpdated;
         }),
         catchError((error) => {

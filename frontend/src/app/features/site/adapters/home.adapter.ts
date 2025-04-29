@@ -13,8 +13,9 @@ export const homeAdapter = (dataClient: any): Home => {
             title: data.hero.title,
             description: data.hero.description,
             image: imageAdapter(data.hero.image),
-            btnText: data.hero.btnText
+            btnText: data.hero.btnText,
+            poster: imageAdapter(data.hero.poster),
         },
-        video: VideoAdapter(data.video)
+        video: VideoAdapter(data.video),
     }
 }

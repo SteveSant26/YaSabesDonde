@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, HostListener, inject } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostListener,
+  inject,
+} from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { siteRoutesConfig } from '@features/site';
@@ -11,24 +16,36 @@ import {
 } from '@angular/animations';
 import { branchRoutesConfig } from '@features/branch/config';
 import { menuRoutesConfig } from '@features/menu/config';
-import { ViewLocationComponent } from "../../../features/profile/components/view-location/view-location.component";
+import { ViewLocationComponent } from '@features/profile/components';
 import { FormsModule } from '@angular/forms';
-import { ButtonIsLoggedComponent } from "./button-is-logged/button-is-logged.component";
+import { ButtonIsLoggedComponent } from '@features/auth/components';
 import { authRoutesConfig } from '@features/auth';
 import { UserService } from '@features/auth/services';
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink, FormsModule, MatIconModule, ViewLocationComponent, ButtonIsLoggedComponent],
+  imports: [
+    RouterLink,
+    FormsModule,
+    MatIconModule,
+    ViewLocationComponent,
+    ButtonIsLoggedComponent,
+  ],
   templateUrl: './navbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
     trigger('menuAnimation', [
       transition(':enter', [
         style({ opacity: 0, transform: 'translateY(-10%)' }),
-        animate('200ms ease-out', style({ opacity: 1, transform: 'translateY(0)' })),
+        animate(
+          '200ms ease-out',
+          style({ opacity: 1, transform: 'translateY(0)' })
+        ),
       ]),
       transition(':leave', [
-        animate('200ms ease-in', style({ opacity: 0, transform: 'translateY(-10%)' })),
+        animate(
+          '200ms ease-in',
+          style({ opacity: 0, transform: 'translateY(-10%)' })
+        ),
       ]),
     ]),
     trigger('toggleIcon', [
@@ -45,22 +62,19 @@ export class NavBarComponent {
   private useServive = inject(UserService);
   isAuthenticated = this.useServive.isAuthenticated();
 
-
   readonly narBarLinks = [
-    { 'label': siteRoutesConfig.base.label, 'href': siteRoutesConfig.base.url },
-    { 'label': menuRoutesConfig.base.label, 'href': menuRoutesConfig.base.url },
-    { 'label': branchRoutesConfig.base.label, 'href': branchRoutesConfig.base.url },
-    { 'label': 'Reviews', 'href': '#testmonial' },
-    { 'label': 'Contact Us', 'href': '#contact' }
+    { label: siteRoutesConfig.base.label, href: siteRoutesConfig.base.url },
+    { label: menuRoutesConfig.base.label, href: menuRoutesConfig.base.url },
+    { label: branchRoutesConfig.base.label, href: branchRoutesConfig.base.url },
+    { label: 'Reviews', href: '#testmonial' },
+    { label: 'Contact Us', href: '#contact' },
   ];
-
 
   menuOpen = false;
 
   toggleMenu() {
-    console.log(this.menuOpen)
+    console.log(this.menuOpen);
     this.menuOpen = !this.menuOpen;
-
   }
 
   get toggleIconState(): string {
@@ -74,5 +88,4 @@ export class NavBarComponent {
       this.menuOpen = false;
     }
   }
-
 }

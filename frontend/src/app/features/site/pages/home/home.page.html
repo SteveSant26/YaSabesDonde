@@ -47,7 +47,7 @@
 
               <!-- Imagen sobrepuesta: controlada por class.hidden -->
               <img
-                src="{{aboutUsLocal.hero.poster.url}}"
+                src="{{aboutUsLocal.hero.poster?.url}}"
                 alt="Vista previa del video"
                 class="absolute inset-0 w-full h-full object-cover cursor-pointer transition-opacity duration-300"
                 [class.hidden]="isAboutUsVideoPlaying"

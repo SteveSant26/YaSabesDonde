@@ -1,10 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { AuthService, UserService } from '../../services';
+import { AuthService, UserService } from '@features/auth/services';
 
 import { RouterLink } from '@angular/router';
-import { User } from '../../models';
-import { authRoutesConfig } from '../../config';
+import { User } from '@features/auth/models';
+import { authRoutesConfig } from '@features/auth/config';
 
 @Component({
   selector: 'me-page',

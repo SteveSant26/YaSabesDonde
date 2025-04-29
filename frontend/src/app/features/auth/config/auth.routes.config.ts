@@ -17,15 +17,5 @@ export const authRoutesConfig = {
       url: '/auth/register',
       label: 'Register'
     },
-    me: {
-      path: 'me',
-      url: '/auth/me',
-      label: 'Me'
-    },
-    edit: {
-      path: 'edit',
-      url: '/auth/me/edit',
-      label: 'Edit'
-    },
   }
 };

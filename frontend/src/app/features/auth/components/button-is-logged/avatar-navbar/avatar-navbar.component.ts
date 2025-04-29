@@ -1,10 +1,12 @@
-import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  input,
+} from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { UserService } from '@features/auth/services';
-import { AvatarComponent } from '../../../avatar/avatar.component';
-
-
-
+import { AvatarComponent } from '@features/auth/components';
 
 @Component({
   selector: 'app-avatar-navbar',
@@ -15,7 +17,7 @@ import { AvatarComponent } from '../../../avatar/avatar.component';
 export class AvatarNavbarComponent {
   private userService = inject(UserService);
 
-  authRoutesConfig = input.required<any>()
+  profileRoutesConfig = input.required<any>();
 
   logout() {
     this.userService.logout();

@@ -13,7 +13,8 @@ export const aboutUsAdapter = (dataClient: any): AboutUs => {
             title: data.hero.title,
             description: data.hero.description,
             image: imageAdapter(data.hero.image),
-            btnText: data.hero.btnText
+            btnText: data.hero.btnText,
+            poster: imageAdapter(data.hero.poster),
         }
     }
 }

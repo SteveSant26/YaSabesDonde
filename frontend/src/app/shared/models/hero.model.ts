@@ -5,4 +5,5 @@ export interface Hero  {
     image: Image;
     description?: string;
     btnText?: string;
+    poster?: Image;
 }
