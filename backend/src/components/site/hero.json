@@ -2,18 +2,20 @@
   "collectionName": "components_site_heroes",
   "info": {
     "displayName": "Hero",
-    "icon": "monitor"
+    "icon": "monitor",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "image": {
-      "allowedTypes": [
-        "files",
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ]
     },
     "title": {
       "type": "string",
@@ -24,6 +26,15 @@
     },
     "btnText": {
       "type": "string"
+    },
+    "poster": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images",
+        "files"
+      ]
     }
   }
 }

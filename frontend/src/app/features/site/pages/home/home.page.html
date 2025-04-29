@@ -1,119 +1,153 @@
 @let homeLocal = home();
 @defer (when homeLocal) {
-@if (homeLocal) {
-@if (homeLocal.hero) {
-<app-hero [hero]="homeLocal.hero"></app-hero>
-} @else {
-<div>
-    <h1>Error</h1>
-</div>
-}
-}
+  @if (homeLocal) {
+    @if (homeLocal.hero) {
+      <app-hero [hero]="homeLocal.hero"></app-hero>
+    } @else {
+      <div>
+        <h1>Error</h1>
+      </div>
+    }
+  }
 } @placeholder {
-<header id="home" class="relative h-[80vh] bg-cover bg-center bg-fixed bg-no-repeat"
+  <header id="home" class="relative h-screen bg-cover bg-center bg-fixed bg-no-repeat"
     style="background-image: url('https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png');">
-    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="absolute inset-0 bg-black opacity-60"></div>
     <div class="relative flex items-center justify-center h-full">
-        <div class="text-center text-white px-4">
-
-        </div>
+      <div class="text-center text-white px-6 max-w-4xl">
+        <h1 class="text-5xl font-bold mb-4 animate__animated animate__fadeInDown">Deliciosas Hamburguesas Gourmet</h1>
+        <p class="text-xl mb-8 animate__animated animate__fadeInUp">Disfruta de la mejor experiencia gastronómica con nuestros sabores únicos</p>
+        <a href="#about" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+          Descubrir más
+        </a>
+      </div>
     </div>
-</header>
+  </header>
 }
 
 @let aboutUsLocal = aboutUs();
 @defer (when aboutUsLocal) {
-@if (aboutUsLocal) {
-@if (aboutUsLocal.hero) {
-<section id="about" class=" bg-primary-color">
-    <div class="mx-auto flex flex-col md:flex-row text-white">
-        <!-- Imagen a la izquierda -->
-        <div class="md:w-1/2 bg-cover bg-center min-h-[60vh]"
-            [style]="`background-image: url('${aboutUsLocal.hero.image.url}');`">
-            <!-- Opcional: agregar contenido superpuesto o dejar solo imagen -->
-        </div>
-        <!-- Texto a la derecha -->
-        <div class="md:w-1/2 flex items-center p-2 md:p-10 ">
+  @if (aboutUsLocal) {
+    @if (aboutUsLocal.hero) {
+      <section id="about" class="bg-primary-color py-20">
+        <div class="mx-auto flex flex-col md:flex-row text-white shadow-2xl overflow-hidden rounded-lg max-w-7xl">
+          
+          <!-- Video o Imagen a la izquierda -->
+          <div class="md:w-1/2 min-h-[60vh] flex justify-center items-center overflow-hidden relative">
+            @if (aboutUsLocal.hero.image.url.includes('.mp4') || aboutUsLocal.hero.image.url.includes('.webm')) {
+              
+              <!-- Video: empieza pausado, se controla con click -->
+              <video #aboutUsVideo
+                     src="{{aboutUsLocal.hero.image.url}}"
+                     muted
+                     loop
+                     class="w-full h-full object-cover transform hover:scale-105 transition duration-500 cursor-pointer"
+                     (click)="playAboutUsVideo(aboutUsVideo)">
+              </video>
+
+              <!-- Imagen sobrepuesta: controlada por class.hidden -->
+              <img
+                src="{{aboutUsLocal.hero.poster.url}}"
+                alt="Vista previa del video"
+                class="absolute inset-0 w-full h-full object-cover cursor-pointer transition-opacity duration-300"
+                [class.hidden]="isAboutUsVideoPlaying"
+                (click)="playAboutUsVideo(aboutUsVideo)">
+              
+            } @else {
+              <!-- Si es imagen normal -->
+              <div class="w-full h-full bg-cover bg-center transform hover:scale-105 transition duration-500"
+                   [style]="`background-image: url('${aboutUsLocal.hero.image.url}');`">
+              </div>
+            }
+          </div>
+
+          <!-- Texto a la derecha -->
+          <div class="md:w-1/2 flex items-center p-4 md:p-12">
             <div class="p-8">
-                <h2 class="text-3xl font-bold mb-4">{{aboutUsLocal.hero.title}}</h2>
-                <p class="mb-4">
-                    {{aboutUsLocal.hero.description}}
-                </p>
+              <h2 class="text-4xl font-bold mb-6 border-b border-yellow-500 pb-4">{{aboutUsLocal.hero.title}}</h2>
+              <p class="mb-6 text-lg leading-relaxed">
+                {{aboutUsLocal.hero.description}}
+              </p>
+              <a href="#gallary" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-full transition duration-300">
+                Nuestro Menú
+              </a>
             </div>
+          </div>
+
         </div>
+      </section>
+    }
+  } @else {
+    <div>
+      <h1>Error</h1>
     </div>
-</section>
-}
-} @else {
-<div>
-    <h1>Error</h1>
-</div>
-}
+  }
 } @placeholder {
-<div>
+  <div>
     <h1>Error</h1>
-</div>
+  </div>
 }
 
 
 
 @let productsLocal = products();
 @defer (when productsLocal) {
-@if (productsLocal) {
-@if (productsLocal.data.length > 0) {
-<section id="gallary" class="py-16 bg-primary-color text-white text-center">
-    <h2 class="text-3xl font-bold mb-8">OUR MENU</h2>
-    <div class="container mx-auto px-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-        @for (product of productsLocal.data; track product.id) {
-        <app-gallary-image-product-card [product]="product"></app-gallary-image-product-card>
-        }
-    </div>
-</section>
-} @else {
-<div>
-    <h1>Error</h1>
-</div>
-}
-}
+  @if (productsLocal) {
+    @if (productsLocal.data.length > 0) {
+      <section id="gallary" class="py-24 bg-primary-color text-white">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-4xl font-bold mb-2">NUESTRO MENÚ</h2>
+          <div class="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            @for (product of productsLocal.data; track product.id) {
+              <app-gallary-image-product-card [product]="product" class="transform hover:scale-105 transition duration-300"></app-gallary-image-product-card>
+            }
+          </div>
+        </div>
+      </section>
+    } @else {
+      <div>
+        <h1>Error</h1>
+      </div>
+    }
+  }
 }
 
 @let video = home()?.video;
 @defer (when video) {
-@if (video) {
-<section id="video" class="py-16 bg-primary-color text-white">
-    <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold py-5 mb-10">{{video.name}}</h2>
-        <div class="flex justify-center items-center overflow-hidden h-[600px] w-full relative">
-            <video src="{{video.url}}" controls autoplay muted loop class="max-w-full h-auto">
-            </video>
+  @if (video) {
+    <section id="video" class="py-24 bg-primary-color text-white">
+      <div class="container mx-auto px-4 text-center">
+        <h2 class="text-4xl font-bold mb-2">{{video.name}}</h2>
+        <div class="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
+        <div class="flex justify-center items-center overflow-hidden rounded-xl shadow-2xl max-w-4xl mx-auto">
+          <video src="{{video.url}}" controls autoplay muted loop class="w-full h-auto max-h-[450px]">
+          </video>
         </div>
-    </div>
-</section>
+      </div>
+    </section>
+  }
 }
-}
-
-
 
 @let categoryProductsLocal = categoryProducts();
 @defer (when categoryProductsLocal) {
-@if (categoryProductsLocal) {
-@if (categoryProductsLocal.data.length > 0) {
-<section id="blog" class="py-16 bg-primary-color text-white">
-    <div class="container mx-auto px-4 text-center">
-        <h2 class="text-3xl font-bold py-5 mb-10">Category Products</h2>
-
-        <!-- Contenido de Tabs tab-content-f-->
-        <div id="oods" class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  @if (categoryProductsLocal) {
+    @if (categoryProductsLocal.data.length > 0) {
+      <section id="blog" class="py-24 bg-primary-color text-white">
+        <div class="container mx-auto px-4 text-center">
+          <h2 class="text-4xl font-bold mb-2">Categorías de Productos</h2>
+          <div class="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
             @for (categoryProducts of categoryProductsLocal.data; track categoryProducts.id) {
-            <app-card-cartegory-products [categoryProducts]="categoryProducts"></app-card-cartegory-products>
+              <app-card-cartegory-products [categoryProducts]="categoryProducts" class="transform hover:scale-105 transition duration-300"></app-card-cartegory-products>
             }
+          </div>
         </div>
-    </div>
-</section>
-} @else {
-<div>
-    <h1>Error</h1>
-</div>
-}
-}
+      </section>
+    } @else {
+      <div>
+        <h1>Error</h1>
+      </div>
+    }
+  }
 }
