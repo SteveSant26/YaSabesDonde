@@ -1,153 +1,160 @@
 @let homeLocal = home();
 @defer (when homeLocal) {
-  @if (homeLocal) {
-    @if (homeLocal.hero) {
-      <app-hero [hero]="homeLocal.hero"></app-hero>
-    } @else {
-      <div>
-        <h1>Error</h1>
-      </div>
-    }
-  }
+@if (homeLocal){
+@if (homeLocal.hero) {
+<app-hero [hero]="homeLocal.hero"></app-hero>
+} @else {
+<div class="py-8 text-center">
+  <h1 class="text-2xl font-semibold text-red-500">Error al cargar la sección principal</h1>
+  <p class="text-gray-600">Por favor, intenta recargar la página.</p>
+</div>
+}
+}
 } @placeholder {
-  <header id="home" class="relative h-screen bg-cover bg-center bg-fixed bg-no-repeat"
-    style="background-image: url('https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png');">
-    <div class="absolute inset-0 bg-black opacity-60"></div>
-    <div class="relative flex items-center justify-center h-full">
-      <div class="text-center text-white px-6 max-w-4xl">
-        <h1 class="text-5xl font-bold mb-4 animate__animated animate__fadeInDown">Deliciosas Hamburguesas Gourmet</h1>
-        <p class="text-xl mb-8 animate__animated animate__fadeInUp">Disfruta de la mejor experiencia gastronómica con nuestros sabores únicos</p>
-        <a href="#about" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
-          Descubrir más
-        </a>
-      </div>
+<header id="home" class="relative h-screen bg-cover bg-center bg-fixed bg-no-repeat"
+  style="background-image: url('https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png');">
+  <div class="absolute inset-0 bg-black opacity-60"></div>
+  <div class="relative flex items-center justify-center h-full">
+    <div class="text-center text-white px-6 max-w-4xl">
+      <h1 class="text-5xl font-bold mb-4 animate__animated animate__fadeInDown">Saborea Hamburguesas Gourmet
+        Excepcionales</h1>
+      <p class="text-xl mb-8 animate__animated animate__fadeInUp">Descubre una explosión de sabor en cada bocado. ¡Tu
+        experiencia culinaria comienza aquí!</p>
+      <a href="#about"
+        class="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105">
+        Explorar más
+      </a>
     </div>
-  </header>
+  </div>
+</header>
 }
 
 @let aboutUsLocal = aboutUs();
 @defer (when aboutUsLocal) {
-  @if (aboutUsLocal) {
-    @if (aboutUsLocal.hero) {
-      <section id="about" class="bg-primary-color py-20">
-        <div class="mx-auto flex flex-col md:flex-row text-white shadow-2xl overflow-hidden rounded-lg max-w-7xl">
-          
-          <!-- Video o Imagen a la izquierda -->
-          <div class="md:w-1/2 min-h-[60vh] flex justify-center items-center overflow-hidden relative">
-            @if (aboutUsLocal.hero.image.url.includes('.mp4') || aboutUsLocal.hero.image.url.includes('.webm')) {
-              
-              <!-- Video: empieza pausado, se controla con click -->
-              <video #aboutUsVideo
-                     src="{{aboutUsLocal.hero.image.url}}"
-                     muted
-                     loop
-                     class="w-full h-full object-cover transform hover:scale-105 transition duration-500 cursor-pointer"
-                     (click)="playAboutUsVideo(aboutUsVideo)">
-              </video>
 
-              <!-- Imagen sobrepuesta: controlada por class.hidden -->
-              <img
-                src="{{aboutUsLocal.hero.poster?.url}}"
-                alt="Vista previa del video"
-                class="absolute inset-0 w-full h-full object-cover cursor-pointer transition-opacity duration-300"
-                [class.hidden]="isAboutUsVideoPlaying"
-                (click)="playAboutUsVideo(aboutUsVideo)">
-              
-            } @else {
-              <!-- Si es imagen normal -->
-              <div class="w-full h-full bg-cover bg-center transform hover:scale-105 transition duration-500"
-                   [style]="`background-image: url('${aboutUsLocal.hero.image.url}');`">
-              </div>
-            }
-          </div>
+@if (aboutUsLocal) {
+@if (aboutUsLocal?.hero) {
+<section id="about" class="bg-primary-color py-20">
+  <div class="mx-auto flex flex-col md:flex-row text-white shadow-2xl overflow-hidden rounded-lg max-w-7xl">
 
-          <!-- Texto a la derecha -->
-          <div class="md:w-1/2 flex items-center p-4 md:p-12">
-            <div class="p-8">
-              <h2 class="text-4xl font-bold mb-6 border-b border-yellow-500 pb-4">{{aboutUsLocal.hero.title}}</h2>
-              <p class="mb-6 text-lg leading-relaxed">
-                {{aboutUsLocal.hero.description}}
-              </p>
-              <a href="#gallary" class="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-full transition duration-300">
-                Nuestro Menú
-              </a>
-            </div>
-          </div>
+    <div class="md:w-1/2 min-h-[60vh] flex justify-center items-center overflow-hidden relative">
+      @if (aboutUsLocal.hero.image.url.includes('.mp4') || aboutUsLocal.hero.image.url.includes('.webm')) {
 
-        </div>
-      </section>
-    }
-  } @else {
-    <div>
-      <h1>Error</h1>
+      <video #aboutUsVideo src="{{aboutUsLocal.hero.image.url}}" muted loop
+        class="w-full h-full object-cover transform hover:scale-105 transition duration-500 cursor-pointer"
+        (click)="playAboutUsVideo(aboutUsVideo)">
+      </video>
+
+      <img src="{{aboutUsLocal.hero.poster?.url}}" alt="Vista previa del video"
+        class="absolute inset-0 w-full h-full object-cover cursor-pointer transition-opacity duration-300"
+        [class.hidden]="isAboutUsVideoPlaying" (click)="playAboutUsVideo(aboutUsVideo)">
+
+      } @else {
+      <div class="w-full h-full bg-cover bg-center transform hover:scale-105 transition duration-500"
+        [style]="`background-image: url('${aboutUsLocal.hero.image.url}');`">
+      </div>
+      }
     </div>
-  }
-} @placeholder {
-  <div>
-    <h1>Error</h1>
-  </div>
-}
 
+    <div class="md:w-1/2 flex items-center p-4 md:p-12">
+      <div class="py-8 px-6">
+        <h2 class="text-4xl font-bold mb-6 border-b-2 border-yellow-500 pb-4">{{aboutUsLocal.hero.title}}</h2>
+        <p class="mb-6 text-lg leading-relaxed">
+          {{aboutUsLocal.hero.description}}
+        </p>
+        <a href="#gallary"
+          class="inline-block bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-8 rounded-full transition duration-300">
+          Ver Nuestro Menú
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+} @else {
+<div class="py-8 text-center">
+  <h1 class="text-2xl font-semibold text-red-500">Error al cargar la sección "Sobre Nosotros"</h1>
+  <p class="text-gray-600">La información no está disponible en este momento.</p>
+</div>
+}}
+} @placeholder {
+<div class="py-16 text-center bg-primary-color">
+  <p class="text-white text-lg animate-pulse">Cargando información sobre nosotros...</p>
+</div>
+}
 
 
 @let productsLocal = products();
 @defer (when productsLocal) {
-  @if (productsLocal) {
-    @if (productsLocal.data.length > 0) {
-      <section id="gallary" class="py-24 bg-primary-color text-white">
-        <div class="container mx-auto px-4 text-center">
-          <h2 class="text-4xl font-bold mb-2">NUESTRO MENÚ</h2>
-          <div class="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            @for (product of productsLocal.data; track product.id) {
-              <app-gallary-image-product-card [product]="product" class="transform hover:scale-105 transition duration-300"></app-gallary-image-product-card>
-            }
-          </div>
-        </div>
-      </section>
-    } @else {
-      <div>
-        <h1>Error</h1>
-      </div>
-    }
-  }
+@if (productsLocal) {
+@if (productsLocal.data.length > 0) {
+<section id="gallary" class="py-24 bg-primary-color text-white">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold mb-6">Descubre Nuestro Exquisito Menú</h2>
+    <div class="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+      @for (product of productsLocal.data; track product.id) {
+      <app-gallary-image-product-card [product]="product"
+        class="transform hover:scale-105 transition duration-300"></app-gallary-image-product-card>
+      }
+    </div>
+  </div>
+</section>
+} @else {
+<div class="py-8 text-center bg-primary-color">
+  <h1 class="text-2xl font-semibold text-red-500">Nuestro Menú no está disponible</h1>
+  <p class="text-gray-300">Estamos trabajando para actualizar nuestro menú. ¡Vuelve pronto!</p>
+</div>
+}}
+} @placeholder {
+<div class="py-16 text-center bg-primary-color">
+  <p class="text-white text-lg animate-pulse">Cargando nuestro delicioso menú...</p>
+</div>
 }
 
-@let video = home()?.video;
-@defer (when video) {
-  @if (video) {
-    <section id="video" class="py-24 bg-primary-color text-white">
-      <div class="container mx-auto px-4 text-center">
-        <h2 class="text-4xl font-bold mb-2">{{video.name}}</h2>
-        <div class="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
-        <div class="flex justify-center items-center overflow-hidden rounded-xl shadow-2xl max-w-4xl mx-auto">
-          <video src="{{video.url}}" controls autoplay muted loop class="w-full h-auto max-h-[450px]">
-          </video>
-        </div>
-      </div>
-    </section>
-  }
+@let videoLocal = home()?.video;
+@defer (when videoLocal) {
+@if (videoLocal) {
+<section id="video" class="py-24 bg-primary-color text-white">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold mb-6">{{videoLocal.name}}</h2>
+    <div class="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
+    <div class="flex justify-center items-center overflow-hidden rounded-xl shadow-2xl max-w-4xl mx-auto">
+      <video src="{{videoLocal.url}}" controls autoplay muted loop class="w-full h-auto max-h-[450px]"></video>
+    </div>
+  </div>
+</section>
+}
+} @placeholder {
+<div class="py-16 text-center bg-primary-color">
+  <p class="text-white text-lg animate-pulse">Cargando video destacado...</p>
+</div>
 }
 
 @let categoryProductsLocal = categoryProducts();
 @defer (when categoryProductsLocal) {
-  @if (categoryProductsLocal) {
-    @if (categoryProductsLocal.data.length > 0) {
-      <section id="blog" class="py-24 bg-primary-color text-white">
-        <div class="container mx-auto px-4 text-center">
-          <h2 class="text-4xl font-bold mb-2">Categorías de Productos</h2>
-          <div class="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            @for (categoryProducts of categoryProductsLocal.data; track categoryProducts.id) {
-              <app-card-cartegory-products [categoryProducts]="categoryProducts" class="transform hover:scale-105 transition duration-300"></app-card-cartegory-products>
-            }
-          </div>
-        </div>
-      </section>
-    } @else {
-      <div>
-        <h1>Error</h1>
-      </div>
-    }
-  }
+@if (categoryProductsLocal) {
+@if (categoryProductsLocal.data.length > 0) {
+<section id="blog" class="py-24 bg-primary-color text-white">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-4xl font-bold mb-6">Explora Nuestras Categorías de Productos</h2>
+    <div class="w-24 h-1 bg-yellow-500 mx-auto mb-12"></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      @for (categoryProducts of categoryProductsLocal.data; track categoryProducts.id) {
+      <app-card-cartegory-products [categoryProducts]="categoryProducts"
+        class="transform hover:scale-105 transition duration-300"></app-card-cartegory-products>
+      }
+    </div>
+  </div>
+</section>
+} @else {
+<div class="py-8 text-center bg-primary-color">
+  <h1 class="text-2xl font-semibold text-red-500 ">No hay categorías de productos disponibles</h1>
+  <p class="text-gray-300">Estamos trabajando en la organización de nuestros productos.</p>
+</div>
+}}
+} @placeholder {
+<div class="py-16 text-center bg-primary-color">
+  <p class="text-white text-lg animate-pulse">Cargando categorías de productos...</p>
+</div>
 }

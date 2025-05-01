@@ -10,7 +10,10 @@ export const productRoutes: Routes = [
         children: [
             {
                 path: productRoutesConfig.children.detail.path,
-                component: ProductPage
+                component: ProductPage,
+                data : {
+                    renderMode : 'server'
+                }
             }
         ]
     }

@@ -3,7 +3,7 @@ import { menuRoutesConfig } from "./config";
 import { MenuLayout } from "./menu.layout";
 import { ListMenusPage, MenuPage } from "./pages";
 
-export const menuRoutes : Routes= [
+export const menuRoutes: Routes = [
     {
         path: menuRoutesConfig.base.path,
         component: MenuLayout,
@@ -14,7 +14,10 @@ export const menuRoutes : Routes= [
             },
             {
                 path: menuRoutesConfig.children.detail.path,
-                component: MenuPage
+                component: MenuPage,
+                data: {
+                    renderMode: 'server'
+                }
             }
         ]
     }

@@ -14,7 +14,10 @@ export const branchRoutes: Routes = [
             },
             {
                 path: branchRoutesConfig.children.detail.path,
-                component: BranchPage
+                component: BranchPage,
+                data : {
+                    renderMode : 'server'
+                }
             }
         ]
     }
