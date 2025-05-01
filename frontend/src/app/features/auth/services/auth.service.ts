@@ -45,17 +45,16 @@ export class AuthService {
   }
 
   me(user: User): Observable<User> {
-    const jwt = user.jwt;
     const url = `${this.baseApiUrl}/api/users/me`;
     return this.http
       .get<User>(url, {
         headers: {
-          Authorization: `Bearer ${jwt}`,
+          Authorization: this.userService.useTokenClient(),
         },
       })
       .pipe(
         map((user) => {
-          return userAdapter({ user: user, jwt });
+          return userAdapter({ user: user, jwt: this.userService.getToken() });
         }),
         catchError((error) => {
           return throwError(() => new Error(error.message || 'Me failed'));
@@ -96,45 +95,5 @@ export class AuthService {
       );
   }
 
-  edit({
-    username,
-    email,
-  }: {
-    username: string;
-    email: string;
-  }): Observable<User> {
-    const _user = this.userService.getUser();
-    if (!_user) {
-      return throwError(() => new Error('No user found'));
-    }
-    const jwt = _user?.jwt;
-    if (!jwt) {
-      return throwError(() => new Error('No JWT token available'));
-    }
-    const url = `${this.baseApiUrl}/api/users/${_user.id}`;
-    return this.http
-      .put<User>(
-        url,
-        { username, email },
-        {
-          headers: {
-            Authorization: `Bearer ${jwt}`,
-          },
-        }
-      )
-      .pipe(
-        map((user) => {
-          const userUpdated = userAdapter({ user: user, jwt });
-          this.userService.saveUser(userUpdated);
-          this.router.navigate([profileRoutesConfig.children.me.url]);
-          return userUpdated;
-        }),
-        catchError((error) => {
-          console.error(error);
-          return throwError(
-            () => new Error(error.error.error.message || 'Me failed')
-          );
-        })
-      );
-  }
+  
 }

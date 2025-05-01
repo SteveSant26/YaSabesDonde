@@ -32,28 +32,6 @@ import { UserService } from '@features/auth/services';
   ],
   templateUrl: './navbar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [
-    trigger('menuAnimation', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(-10%)' }),
-        animate(
-          '200ms ease-out',
-          style({ opacity: 1, transform: 'translateY(0)' })
-        ),
-      ]),
-      transition(':leave', [
-        animate(
-          '200ms ease-in',
-          style({ opacity: 0, transform: 'translateY(-10%)' })
-        ),
-      ]),
-    ]),
-    trigger('toggleIcon', [
-      state('menu', style({ transform: 'rotate(0deg)' })),
-      state('close', style({ transform: 'rotate(180deg)' })),
-      transition('menu <=> close', animate('200ms ease-in-out')),
-    ]),
-  ],
 })
 export class NavBarComponent {
   readonly siteRouteConfig = siteRoutesConfig;

@@ -1,23 +1,29 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  inject,
   input,
   signal,
 } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { CommonModule } from '@angular/common';
-import { AvatarNavbarComponent } from './avatar-navbar/avatar-navbar.component';
-import { profileRoutesConfig } from '@features/profile/config';
 import { authRoutesConfig } from '@features/auth/config';
+import { AvatarComponent } from "../avatar/avatar.component";
+import { profileRoutesConfig } from '@features/profile/config';
+import { UserService } from '@features/auth/services';
 
 @Component({
   selector: 'app-button-is-logged',
-  imports: [CommonModule, RouterLink, AvatarNavbarComponent],
+  imports: [RouterLink, AvatarComponent],
   templateUrl: './button-is-logged.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ButtonIsLoggedComponent {
-  authRoutesConfig = signal(authRoutesConfig);
+  private userService = inject(UserService);
+
+  logout() {
+    this.userService.logout();
+  }
   profileRoutesConfig = signal(profileRoutesConfig);
-  isAuthenticated = input.required<Boolean>();
+  authRoutesConfig = signal(authRoutesConfig);
+  isAuthenticated = input.required<boolean>();
 }

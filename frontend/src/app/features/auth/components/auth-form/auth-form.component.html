@@ -1,8 +1,8 @@
-<form [formGroup]="formGroup" (ngSubmit)="OnSubmit()"
+<form [formGroup]="formGroup()" (ngSubmit)="OnSubmit()"
     class="fieldset w-xs bg-base-200 border border-base-300 p-4 rounded-box">
-    <legend class="fieldset-legend">{{title}}</legend>
+    <legend class="fieldset-legend">{{title()}}</legend>
 
-    <div *ngFor="let field of inputFields">
+    <div *ngFor="let field of inputFields()">
         <div>
 
             <label class="fieldset-label">{{field.label}}</label>
@@ -11,17 +11,11 @@
                 <input [formControlName]="field.name"
                     [type]="field.type === 'password' && showPassword ? 'text' : field.type"
                     [placeholder]="field.placeholder"
-                    [ngClass]="{'input-secondary': formGroup.controls[field.name].invalid && formGroup.controls[field.name].touched}"
+                    [ngClass]="{'input-secondary': formGroup().controls[field.name].invalid && formGroup().controls[field.name].touched}"
                     [autocomplete]="field.autocomplete" class="input" />
 
 
                 @if (field.type === 'password') {
-
-
-                <!-- 
-                <button type="button" (click)="togglePasswordVisibility()" class="absolute right-3 top-3">
-                    <mat-icon>{{passwordVisibilityIcon}}</mat-icon>
-                </button> -->
 
                 <label class="swap absolute right-3 top-3">
                     <input type="checkbox" [value]="showPassword" (change)="togglePasswordVisibility()" />
@@ -38,10 +32,8 @@
         </small>
     </div>
 
-    <button class="btn btn-neutral mt-4" type="submit" [disabled]="formGroup.invalid">
-        {{btnSubmitLabel}}
+    <button class="btn btn-neutral mt-4" type="submit" [disabled]="formGroup().invalid">
+        {{btnSubmitLabel()}}
     </button>
-
-
 
 </form>

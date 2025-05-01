@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { AuthService, UserService } from '../../services';
+import { AuthService, UserService } from '@features/auth/services';
 
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { onFileSelected } from '@shared/utils';
@@ -12,7 +12,6 @@ import { onFileSelected } from '@shared/utils';
 
 })
 export class EditPage implements OnInit {
-  private authService = inject(AuthService);
   private userService = inject(UserService);
   errorMessage = '';
 
@@ -36,17 +35,7 @@ export class EditPage implements OnInit {
     }
     const formValue = this.editForm.value;
 
-    this.authService.edit({
-      username: formValue.username as string,
-      email: formValue.email as string,
-    }).subscribe({
-      next: () => {
-        this.errorMessage = '';
-      },
-      error: (error) => {
-        this.errorMessage = error.message || 'Edit failed';
-      },
-    });
+    console.log(formValue);
   }
 
   ngOnInit(): void {

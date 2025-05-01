@@ -8,8 +8,9 @@
             email: {{ user$()?.email }}
             <br />
             created at: {{ user$()?.createdAt }}
+            {{ user$()?.jwt }}
           </p>
-          <a [routerLink]="[authRoutesConfig.children.edit.url]" class="btn btn-primary">Edit</a>
+          <a [routerLink]="[profileRoutesConfig.children.edit.url]" class="btn btn-primary">Edit</a>
         </div>
       </div>
     </div>

@@ -1,14 +1,25 @@
-
 @if (isAuthenticated()){
+<ul class="menu menu-horizontal">
+    <li>
+        <details>
+            <summary>
+                <app-avatar></app-avatar>
+            </summary>
+            <ul class="p-2">
+                <li><a [routerLink]="[profileRoutesConfig().children.me.url]">Mi cuenta</a></li>
+                <li>
+                    <p (click)="logout()">Logout</p>
+                </li>
+            </ul>
+        </details>
+    </li>
+</ul>
 
-<app-avatar-navbar [profileRoutesConfig]="profileRoutesConfig()"></app-avatar-navbar>
-}
-@else {
 
-<!-- Puse el ng container solo para evitar ese error por ahora -->
-<ng-container class="flex gap-1">
+} @else {
+
+<div class="flex gap-1">
     <a class="btn btn-outline" [routerLink]="[authRoutesConfig().children.login.url]">Login</a>
     <a class="btn hover:btn-neutral" [routerLink]="[authRoutesConfig().children.register.url]">Register</a>
-</ng-container>
+</div>
 }
-

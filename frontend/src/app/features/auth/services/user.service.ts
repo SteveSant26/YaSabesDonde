@@ -47,4 +47,8 @@ export class UserService {
   useTokenClient(): string {
     return 'Bearer ' + this.getUser()?.jwt;
   }
+
+  getToken(): string {
+    return this.getUser()?.jwt || '';
+  }
 }

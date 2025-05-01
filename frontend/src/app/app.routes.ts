@@ -5,6 +5,7 @@ import { NotFoundPage } from '@shared/pages/not-found.page';
 import { productRoutes } from '@features/product';
 import { menuRoutes } from '@features/menu';
 import { authRoutes } from '@features/auth';
+import { profileRoutes } from '@features/profile';
 
 export const routes: Routes = [
   ...siteRoutes,
@@ -12,5 +13,6 @@ export const routes: Routes = [
   ...productRoutes,
   ...menuRoutes,
   ...authRoutes,
+  ...profileRoutes,
   { path: '**', component: NotFoundPage },
 ];

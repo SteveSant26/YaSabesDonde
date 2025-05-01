@@ -4,7 +4,7 @@ import { AuthService, UserService } from '@features/auth/services';
 
 import { RouterLink } from '@angular/router';
 import { User } from '@features/auth/models';
-import { authRoutesConfig } from '@features/auth/config';
+import { profileRoutesConfig } from '@features/profile/config';
 
 @Component({
   selector: 'me-page',
@@ -14,7 +14,7 @@ import { authRoutesConfig } from '@features/auth/config';
 export class MePage {
   private authService = inject(AuthService);
   private userService = inject(UserService);
-  authRoutesConfig = authRoutesConfig;
+  profileRoutesConfig = profileRoutesConfig; 
   protected user$ = toSignal(
     this.authService.me(this.userService.getUser() as User)
   );

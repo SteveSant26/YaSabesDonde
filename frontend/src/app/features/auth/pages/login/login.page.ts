@@ -60,6 +60,7 @@ export class LoginPage {
   }
 
   login() {
+    console.log(this.loginForm.invalid);
     if (!this.loginForm.valid) {
       this.errorMessage = 'Please fill in the form';
       this.notificationsService.showAlert(
@@ -70,7 +71,8 @@ export class LoginPage {
     }
     const { identifier, password } = this.loginForm.value;
     this.authSevice.login(identifier, password).subscribe({
-      next: () => {
+      next: (data) => {
+        console.log(data);
         this.errorMessage = '';
         this.notificationsService.showAlert(
           'Login succesful',
