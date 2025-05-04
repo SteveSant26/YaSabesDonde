@@ -70,6 +70,12 @@
       "relation": "oneToOne",
       "target": "api::profile.profile",
       "mappedBy": "user"
+    },
+    "orders": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::order.order",
+      "mappedBy": "users_permissions_user"
     }
   }
 }

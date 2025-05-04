@@ -1,0 +1,43 @@
+<div mat-dialog-container>
+
+  <h1 mat-dialog-title class="relative mb-4">
+    Carrito de compras
+    <hr>
+    <button mat-dialog-close class="absolute top-0 right-0 hover:scale-115 cursor-pointer">
+      <mat-icon class="text-gray-500 hover:text-gray-700">close</mat-icon>
+    </button>
+  </h1>
+
+  <!-- Usa flex-grow aquí -->
+  <div mat-dialog-content class="mb-4 overflow-auto flex-1 ">
+    @for (item of cartItems();track item.id){
+    <ul class="list rounded-box">
+      <app-product-card-small-detail [product]="item"></app-product-card-small-detail>
+    </ul>
+    }
+    @empty {
+    <h1>No has agregado nada a tu carrito de compras</h1>
+    }
+  </div>
+ @if (cartItems().length){
+
+   <div mat-dialog-actions class="flex justify-end space-x-2 text-black">
+     <h2 class="mr-auto">El total es: {{shoppingCartService.getTotal() | currency:'USD'}}</h2>
+     
+     <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 flex items-center gap-2">
+       Comprar
+       <mat-icon>lunch_dining</mat-icon>
+      </button>
+      
+      <button (click)="openDeleteConfirmationDialog()"
+      class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 flex items-center gap-2 cursor-pointer">
+      Cancelar
+      <mat-icon>cancel</mat-icon>
+    </button>
+  </div>
+}
+
+</div>
+
+
+

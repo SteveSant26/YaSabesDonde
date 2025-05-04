@@ -1,0 +1,11 @@
+<li class="list-row">
+    <div><img [src]="product().images[0].url" alt="Blog 1" class="object-cover h-15 w-15" /></div>
+    <div>
+        <p class="text-secondary-color font-bold font-primary">{{ product().name }}</p>
+        <h6 class="text-sm text-gray-600 font-bold">{{ product().price || 0 | currency:'USD' }}</h6>
+        <h6 class="font-light items-center">x{{product().quantity || 0}} = {{totalPrice | currency:'USD' }}
+        </h6>
+    </div>
+    <app-add-remove-form [product]="product()"></app-add-remove-form>
+
+</li>

@@ -550,13 +550,13 @@ export interface ApiMenuMenu extends Struct.CollectionTypeSchema {
   };
 }
 
-export interface ApiPricePrice extends Struct.CollectionTypeSchema {
-  collectionName: 'prices';
+export interface ApiOrderOrder extends Struct.CollectionTypeSchema {
+  collectionName: 'orders';
   info: {
     description: '';
-    displayName: 'Price';
-    pluralName: 'prices';
-    singularName: 'price';
+    displayName: 'Order';
+    pluralName: 'orders';
+    singularName: 'order';
   };
   options: {
     draftAndPublish: true;
@@ -565,25 +565,19 @@ export interface ApiPricePrice extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    items: Schema.Attribute.Component<'order.order-item', false>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<'oneToMany', 'api::price.price'> &
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::order.order'> &
       Schema.Attribute.Private;
-    name: Schema.Attribute.String & Schema.Attribute.Required;
-    price: Schema.Attribute.Decimal &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetMinMax<
-        {
-          max: 100;
-          min: 0.1;
-        },
-        number
-      > &
-      Schema.Attribute.DefaultTo<1>;
-    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
+    state: Schema.Attribute.Enumeration<['pending', 'prepared', 'delivered']>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    users_permissions_user: Schema.Attribute.Relation<
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
   };
 }
 
@@ -613,7 +607,7 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
       Schema.Attribute.Private;
     menu: Schema.Attribute.Relation<'manyToOne', 'api::menu.menu'>;
     name: Schema.Attribute.String & Schema.Attribute.Required;
-    price: Schema.Attribute.Relation<'manyToOne', 'api::price.price'>;
+    price: Schema.Attribute.Decimal;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1133,6 +1127,7 @@ export interface PluginUsersPermissionsUser
       'plugin::users-permissions.user'
     > &
       Schema.Attribute.Private;
+    orders: Schema.Attribute.Relation<'oneToMany', 'api::order.order'>;
     password: Schema.Attribute.Password &
       Schema.Attribute.Private &
       Schema.Attribute.SetMinMaxLength<{
@@ -1174,7 +1169,7 @@ declare module '@strapi/strapi' {
       'api::global.global': ApiGlobalGlobal;
       'api::home.home': ApiHomeHome;
       'api::menu.menu': ApiMenuMenu;
-      'api::price.price': ApiPricePrice;
+      'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
       'api::profile.profile': ApiProfileProfile;
       'plugin::content-releases.release': PluginContentReleasesRelease;

@@ -28,12 +28,6 @@
         "images"
       ]
     },
-    "price": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::price.price",
-      "inversedBy": "products"
-    },
     "category": {
       "type": "relation",
       "relation": "manyToOne",
@@ -45,6 +39,9 @@
       "relation": "manyToOne",
       "target": "api::menu.menu",
       "inversedBy": "products"
+    },
+    "price": {
+      "type": "decimal"
     }
   }
 }

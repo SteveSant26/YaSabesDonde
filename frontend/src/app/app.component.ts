@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { NavBarComponent } from './shared/components/navbar/navbar.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { AppInformationService } from '@shared/services/appInformation.service';
+import { ShoppingCartSlideComponent } from "./features/orders/components/shopping-cart-slide/shopping-cart-slide.component";
 
 @Component({
   selector: 'app-root',

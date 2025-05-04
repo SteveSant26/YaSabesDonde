@@ -18,6 +18,6 @@ export class UseClientMenuService {
   getMenuByBranch(branchId: number) {
     return this.globalClientGetService.getDataClient<MenuResponse>(`${this.url}?${createFilterId(
       { id: branchId, name: "branch" }
-    )}&${createPopulate(['products'])}&populate[products][populate]=price&populate[products][populate]=category&populate[products][populate]=images`, menuResponseAdapter);
+    )}&${createPopulate(['products'])}&populate[products][populate]=category&populate[products][populate]=images`, menuResponseAdapter);
   }
 }

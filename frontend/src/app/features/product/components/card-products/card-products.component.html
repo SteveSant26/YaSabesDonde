@@ -1,16 +1,27 @@
 @let productLocal = product();
-<div class="my-2">
-  <a [routerLink]="[productRouteConfig.children.detail.url, productLocal?.documentId]"
-    class="block border-b border-gray-300 pb-3 px-4 text-gray-800 hover:text-red-500 transition">
+<div class="my-2 hover:bg-amber-50">
+  <div class="block border-b border-gray-300 pb-3 px-4 text-gray-800 hover:text-red-500 transition">
     <div class="flex justify-between gap-4">
-      <img [src]="productLocal?.images?.[0]?.url" alt="Blog 1" class=" object-cover h-20 w-20">
-      <div class="flex justify-between flex-1">
-        <div>
-          <p class=" text-secondary-color font-bold font-primary">{{ product()?.name }}</p>
-          <p class="text-sm text-gray-600 mt-1">{{ product()?.description }}</p>
-        </div>
-        <h6 class="font-bold">${{ product()?.price?.price }}</h6>
-      </div>
+      <a [routerLink]="[productRouteConfig.children.detail.url, productLocal?.documentId]"
+        class="flex justify-between gap-4 flex-1">
+        <img [src]="productLocal?.images?.[0]?.url" alt="Blog 1" class="object-cover h-20 w-20" />
+        <div class="flex justify-between flex-1">
+          <div>
+            <p class="text-secondary-color font-bold font-primary">{{ productLocal?.name }}</p>
+            <p class="text-sm text-gray-600 mt-1">{{ productLocal?.description }}</p>
+          </div>
+          <div class="flex flex-col justify-center items-center">
+            <h6 class="font-bold">{{ productLocal?.price ?? 0 | currency:'USD' }}</h6>
+              <button
+                class="h-10 px-6 font-semibold rounded-full border border-black-800 text-black cursor-pointer hover:scale-105 hover:text-red-500 "
+                type="button" (click)="addToCart($event, productLocal)">
+                <mat-icon>add_shopping_cart</mat-icon>
+              </button>
+              
+            </div>
+          </div>
+        </a>
+
     </div>
-  </a>
+  </div>
 </div>

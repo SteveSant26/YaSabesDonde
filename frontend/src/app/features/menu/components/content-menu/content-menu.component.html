@@ -3,92 +3,91 @@
 
 @defer (when menuLocal && categoriesLocal) {
 @if (menuLocal && menuLocal.data.length > 0) {
-  @for (menu of menuLocal.data; track menu.id) {
-    <section class="bg-cover bg-center py-16" style="background-image: url('a')">
-      <div class="container mx-auto px-4 flex flex-col items-center justify-center gap-3">
-        <div class="bg-secondary-color p-4 md:p-10 rounded-lg shadow-md w-full">
-          <div style="background: url('assets/wave-haikei.svg');" class="bg-cover bg-center h-[50px]"></div>
+@for (menu of menuLocal.data; track menu.id) {
+<section class="bg-cover bg-center py-16">
+  <div class="container mx-auto px-4 flex flex-col items-center justify-center gap-3">
+    <div class="bg-secondary-color p-4 md:p-10 rounded-lg shadow-md w-full">
+      <div style="background: url('assets/wave-haikei.svg');" class="bg-cover bg-center h-[50px]"></div>
 
-          <div class="pb-10 pt-8 bg-white text-center">
-            <h6 class="text-lg text-gray-700 uppercase tracking-wider">{{ menu.description }}</h6>
-            <h3 class="text-3xl md:text-4xl font-bold mb-12 text-gray-900">{{ menu.name }}</h3>
+      <div class="pb-10 pt-8 bg-white text-center">
+        <h6 class="text-lg text-gray-700 uppercase tracking-wider">{{ menu.description }}</h6>
+        <h3 class="text-3xl md:text-4xl font-bold mb-12 text-gray-900">{{ menu.name }}</h3>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-              @for (category of categoriesLocal; track $index) {
-                <div class="p-4 md:p-10 w-full">
-                  <app-show-name-category [categoryName]="category[0]"></app-show-name-category>
-                  <div class="h-10"></div>
-                  @for (item of category[1]; track item.id) {
-                    <app-card-products [product]="item"></app-card-products>
-                  }
-                </div>
-              }
-            </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+          @for (category of categoriesLocal; track $index) {
+          <div class="p-4 md:p-10 w-full">
+            <app-show-name-category [categoryName]="category[0]"></app-show-name-category>
+            <div class="h-10"></div>
+            @for (item of category[1]; track item.id) {
+            <app-card-products [product]="item"></app-card-products>
+            }
           </div>
-
-          <div style="background: url('assets/wave-haikei.svg');" class="bg-cover bg-center h-[50px] rotate-180"></div>
+          }
         </div>
       </div>
-    </section>
-  }
 
-  <section id="video" class="py-16 bg-primary-color text-white">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl font-extrabold py-5 mb-10">{{ menuLocal.data[0].name }}</h2>
-
-      <div>
-        @for (category of categoriesLocal; track $index) {
-          <div class="p-4 md:p-10 w-full">
-            <h4 class="text-white text-2xl font-extrabold text-left"># {{ category[0] }}</h4>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
-              @for (item of category[1]; track item.id) {
-                <article
-                  class="max-w-[300px] mx-auto mb-4 p-6 rounded-xl bg-primary-color hover:scale-105 transition-transform border-secondary-color flex flex-col bg-clip-border w-full shadow mt-1">
-                  <a [routerLink]="['/product', item.documentId]">
-                    <h2 class="text-lg font-extrabold dark:text-white">{{ item.name }}</h2>
-                    <div class="py-4">
-                      <img [src]="item.images[0].url" alt="" 
-                        [style]="'view-transition-name: img-product;'"
-                        class="h-[200px] object-cover transition duration-500 group-hover:scale-105 sm:h-[250px] w-full" />
-                    </div>
-                    <p class="dark:text-slate-200">{{ item?.price?.price }}</p>
-                  </a>
-
-                  <div class="py-4">
-                    <p class="inline-flex items-center">
-                      <span class="mr-2 text-rose-600 dark:text-rose-400">
-                        <span class="material-icons">favorite</span>
-                      </span>
-                      <span class="text-lg font-bold">34</span>
-                    </p>
-                    <p>
-                      <span class="mr-2 text-rose-600 dark:text-rose-400">Pedir</span>
-                    </p>
-                  </div>
-
-                  <a [routerLink]="['/product', item.documentId]">
-                    <div class="relative">
-                      <input
-                        class="pt-2 pb-2 pl-3 w-full h-11 bg-slate-100 dark:bg-slate-600 rounded-lg placeholder:text-slate-600 dark:placeholder:text-slate-300 font-medium pr-20"
-                        type="text" placeholder="Write a comment" />
-                      <span class="flex absolute right-3 top-2/4 -mt-3 items-center">
-                        <span class="material-icons mr-2 text-gray-500 dark:text-gray-300">mood</span>
-                        <span class="material-icons text-blue-500 dark:text-white">send</span>
-                      </span>
-                    </div>
-                  </a>
-                </article>
-              }
-            </div>
-          </div>
-        }
-      </div>
+      <div style="background: url('assets/wave-haikei.svg');" class="bg-cover bg-center h-[50px] rotate-180"></div>
     </div>
-  </section>
-}
-} @placeholder {
-  <div class="flex justify-center items-center py-10">
-    <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary-color"></div>
   </div>
+</section>
+}}}
+
+@placeholder {
+<div class="flex justify-center items-center py-10">
+  <div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-primary-color"></div>
+</div>
 }
+<!-- 
+<section id="video" class="py-16 bg-primary-color text-white">
+  <div class="container mx-auto px-4 text-center">
+    <h2 class="text-3xl font-extrabold py-5 mb-10">{{ menuLocal.data[0].name }}</h2>
+
+    <div>
+      @for (category of categoriesLocal; track $index) {
+      <div class="p-4 md:p-10 w-full">
+        <h4 class="text-white text-2xl font-extrabold text-left"># {{ category[0] }}</h4>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
+          @for (item of category[1]; track item.id) {
+          <article
+            class="max-w-[300px] mx-auto mb-4 p-6 rounded-xl bg-primary-color hover:scale-105 transition-transform border-secondary-color flex flex-col bg-clip-border w-full shadow mt-1">
+            <a [routerLink]="['/product', item.documentId]">
+              <h2 class="text-lg font-extrabold dark:text-white">{{ item.name }}</h2>
+              <div class="py-4">
+                <img [src]="item.images[0].url" alt="" [style]="'view-transition-name: img-product;'"
+                  class="h-[200px] object-cover transition duration-500 group-hover:scale-105 sm:h-[250px] w-full" />
+              </div>
+              <p class="dark:text-slate-200">{{ item?.price?.price }}</p>
+            </a>
+
+            <div class="py-4">
+              <p class="inline-flex items-center">
+                <span class="mr-2 text-rose-600 dark:text-rose-400">
+                  <span class="material-icons">favorite</span>
+                </span>
+                <span class="text-lg font-bold">34</span>
+              </p>
+              <p>
+                <span class="mr-2 text-rose-600 dark:text-rose-400">Pedir</span>
+              </p>
+            </div>
+
+            <a [routerLink]="['/product', item.documentId]">
+              <div class="relative">
+                <input
+                  class="pt-2 pb-2 pl-3 w-full h-11 bg-slate-100 dark:bg-slate-600 rounded-lg placeholder:text-slate-600 dark:placeholder:text-slate-300 font-medium pr-20"
+                  type="text" placeholder="Write a comment" />
+                <span class="flex absolute right-3 top-2/4 -mt-3 items-center">
+                  <span class="material-icons mr-2 text-gray-500 dark:text-gray-300">mood</span>
+                  <span class="material-icons text-blue-500 dark:text-white">send</span>
+                </span>
+              </div>
+            </a>
+          </article>
+          }
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</section> -->

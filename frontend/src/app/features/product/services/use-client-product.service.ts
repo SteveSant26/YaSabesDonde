@@ -19,7 +19,7 @@ export class UseClientProductService {
     );
   }
 
-  getProduct(documentId: string) {
+  getProductByDocumentId(documentId: string) {
     return this.globalClientGetService.getDataClient<Product>(
       `${this.url}/${documentId}?${createPopulate(['images'])}`,
       productAdapter

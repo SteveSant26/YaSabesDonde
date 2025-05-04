@@ -1,5 +1,24 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface OrderOrderItem extends Struct.ComponentSchema {
+  collectionName: 'components_order_order_items';
+  info: {
+    displayName: 'order-item';
+  };
+  attributes: {
+    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
+    quantity: Schema.Attribute.Integer;
+  };
+}
+
+export interface ProductAmountProducts extends Struct.ComponentSchema {
+  collectionName: 'components_product_amount_products';
+  info: {
+    displayName: 'products';
+  };
+  attributes: {};
+}
+
 export interface SiteHero extends Struct.ComponentSchema {
   collectionName: 'components_site_heroes';
   info: {
@@ -21,6 +40,8 @@ export interface SiteHero extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'order.order-item': OrderOrderItem;
+      'product-amount.products': ProductAmountProducts;
       'site.hero': SiteHero;
     }
   }

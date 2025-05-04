@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-content-menu',
-  imports: [ShowNameCategoryComponent, CardProductsComponent, RouterLink],
+  imports: [ShowNameCategoryComponent, CardProductsComponent],
   templateUrl: './content-menu.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
