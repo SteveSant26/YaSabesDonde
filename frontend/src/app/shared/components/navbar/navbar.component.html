@@ -37,6 +37,10 @@
       </li>
       }
     </ul>
+    <a class="cursor-pointer" [routerLink]="ordersRouteConfig.children.checkout.url">
+
+      <mat-icon>shopping-cart</mat-icon>
+    </a>
   </div>
   <div class="navbar-end">
     <app-button-is-logged [isAuthenticated]="isAuthenticated()"></app-button-is-logged>

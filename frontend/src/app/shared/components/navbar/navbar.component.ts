@@ -16,6 +16,7 @@ import { ButtonIsLoggedComponent } from '@features/auth/components';
 import { authRoutesConfig } from '@features/auth';
 import { UserService } from '@features/auth/services';
 import { AppInformationService } from '@shared/services';
+import { ordersRoutesConfig } from '@features/orders/config';
 @Component({
   selector: 'app-navbar',
   imports: [
@@ -31,7 +32,9 @@ import { AppInformationService } from '@shared/services';
 export class NavBarComponent {
   readonly siteRouteConfig = siteRoutesConfig;
   readonly branchRouteConfig = branchRoutesConfig;
+  readonly ordersRouteConfig = ordersRoutesConfig
   protected authRoutesConfig = authRoutesConfig;
+  
   private useServive = inject(UserService);
   private appInformationService = inject(AppInformationService)
   isAuthenticated = this.useServive.isAuthenticated();
