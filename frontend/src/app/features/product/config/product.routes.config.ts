@@ -10,10 +10,6 @@ export const productRoutesConfig = {
             path : 'product',
             label : 'Product List'
         },
-        detail : {
-            url : '/product',
-            path : ':documentId',
-            label : 'Product Detail'
-        }
+
     }
 }

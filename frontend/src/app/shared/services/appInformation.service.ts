@@ -1,8 +1,9 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { Inject, inject, Injectable, signal } from '@angular/core';
 import { Meta, Title } from '@angular/platform-browser';
 import { throwError } from 'rxjs';
 import { GlobalDataService } from './globalData.service';
 import { GlobalData } from '@shared/types/globalData.type';
+import { DOCUMENT } from '@angular/common';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +15,7 @@ export class AppInformationService {
 
   appInformation = signal<GlobalData | null>(null);
 
-  constructor() {
+  constructor(@Inject(DOCUMENT) private document: Document) {
     this.loadGlobalData();
   }
 
@@ -25,8 +26,7 @@ export class AppInformationService {
         this.appInformation.set(globalData);
       },
       error: (error) => {
-        console.error('Error loading global data', error);
-        return throwError(() => new Error(error.error.error.message || 'Couldt load app info'))
+        return throwError(() => new Error(error.error.error.message || 'Couldnt load app info'))
       },
     });
   }
@@ -44,9 +44,25 @@ export class AppInformationService {
     this.metaService.updateTag({ name, content });
   }
 
-  getIconSite(){
-
+  getFavicon() {
+    return this.appInformation()?.favicon
+  }
+  updateFavicon() {
+    const iconUrl = this.getFavicon()?.url || ''
+    let link: HTMLLinkElement | null = this.document.querySelector("link[rel*='icon']") as HTMLLinkElement;
+    if (link) {
+      link.href = iconUrl;
+    } else {
+      link = this.document.createElement('link');
+      link.rel = 'icon';
+      link.type = 'image/x-icon';
+      link.href = iconUrl;
+      this.document.head.appendChild(link);
+    }
   }
 
+  getLogoSite() {
+    return this.appInformation()?.logoSite
+  }
 
 }

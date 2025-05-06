@@ -18,7 +18,7 @@
     "description": {
       "type": "text"
     },
-    "iconSite": {
+    "favicon": {
       "type": "media",
       "multiple": false,
       "required": false,

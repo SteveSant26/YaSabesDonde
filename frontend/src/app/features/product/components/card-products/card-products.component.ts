@@ -1,16 +1,15 @@
 import { ChangeDetectionStrategy, Component, inject, input } from '@angular/core';
 import { Product } from '../../models';
-import { RouterLink } from '@angular/router';
 import { productRoutesConfig } from '@features/product/config';
 import { MatIconModule } from '@angular/material/icon';
 import { ShoppingCartService } from '@features/orders/services/shopping-cart.service';
 import { CommonModule } from '@angular/common';
-import { ShoppingCartSlideComponent } from "../../../orders/components/shopping-cart-slide/shopping-cart-slide.component";
 import { MatDialog } from '@angular/material/dialog';
+import { ShoppingCartSlideComponent } from '@features/orders/components/shopping-cart-slide/shopping-cart-slide.component';
 
 @Component({
   selector: 'app-card-products',
-  imports: [RouterLink, MatIconModule, CommonModule],
+  imports: [MatIconModule, CommonModule],
   templateUrl: './card-products.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })

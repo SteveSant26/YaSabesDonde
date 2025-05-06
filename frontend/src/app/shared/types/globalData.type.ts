@@ -2,7 +2,7 @@ import { Image } from "@shared/models";
 
 export interface GlobalData {
     siteName: string;
-    iconSite?: Image;
+    favicon?: Image;
     logoSite?: Image;
     description: string;
     defaultSeo?: {

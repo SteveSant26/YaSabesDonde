@@ -7,13 +7,7 @@ import {
 import { MatIconModule } from '@angular/material/icon';
 import { RouterLink } from '@angular/router';
 import { siteRoutesConfig } from '@features/site';
-import {
-  trigger,
-  transition,
-  style,
-  animate,
-  state,
-} from '@angular/animations';
+
 import { branchRoutesConfig } from '@features/branch/config';
 import { menuRoutesConfig } from '@features/menu/config';
 import { ViewLocationComponent } from '@features/profile/components';
@@ -21,6 +15,7 @@ import { FormsModule } from '@angular/forms';
 import { ButtonIsLoggedComponent } from '@features/auth/components';
 import { authRoutesConfig } from '@features/auth';
 import { UserService } from '@features/auth/services';
+import { AppInformationService } from '@shared/services';
 @Component({
   selector: 'app-navbar',
   imports: [
@@ -38,6 +33,7 @@ export class NavBarComponent {
   readonly branchRouteConfig = branchRoutesConfig;
   protected authRoutesConfig = authRoutesConfig;
   private useServive = inject(UserService);
+  appInformationService = inject(AppInformationService)
   isAuthenticated = this.useServive.isAuthenticated();
 
   readonly narBarLinks = [
@@ -51,7 +47,6 @@ export class NavBarComponent {
   menuOpen = false;
 
   toggleMenu() {
-    console.log(this.menuOpen);
     this.menuOpen = !this.menuOpen;
   }
 
@@ -65,5 +60,12 @@ export class NavBarComponent {
     if (!clickedInside) {
       this.menuOpen = false;
     }
+  }
+
+  get logoSite(){
+    return this.appInformationService.getLogoSite()
+  }
+  get appName(){
+    return this.appInformationService.getTittle()
   }
 }
