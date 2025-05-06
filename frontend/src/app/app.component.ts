@@ -23,5 +23,6 @@ export class AppComponent {
 
   ngOnInit() {
     this.appInformationService.setTitle()
+    this.appInformationService.updateFavicon()
   }
 }
