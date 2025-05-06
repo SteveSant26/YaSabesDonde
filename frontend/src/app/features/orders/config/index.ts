@@ -1,1 +1,1 @@
-export * from './product.routes.config'
+export * from './orders.routes.config'

@@ -7,7 +7,7 @@ export const ordersRoutesConfig = {
     children : {
         checkout : {
             label : 'Checkout',
-            url : '/checkout',
+            url : 'orders/checkout',
             path : 'checkout',
         },
 

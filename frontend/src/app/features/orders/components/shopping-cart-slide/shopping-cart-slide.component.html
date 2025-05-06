@@ -19,25 +19,23 @@
     <h1>No has agregado nada a tu carrito de compras</h1>
     }
   </div>
- @if (cartItems().length){
+  @if (cartItems().length){
 
-   <div mat-dialog-actions class="flex justify-end space-x-2 text-black">
-     <h2 class="mr-auto">El total es: {{shoppingCartService.getTotal() | currency:'USD'}}</h2>
-     
-     <button class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 flex items-center gap-2">
-       Comprar
-       <mat-icon>lunch_dining</mat-icon>
-      </button>
-      
-      <button (click)="openDeleteConfirmationDialog()"
-      class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 flex items-center gap-2 cursor-pointer">
+  <div mat-dialog-actions class="flex justify-end space-x-2 text-black">
+    <h2 class="mr-auto">El total es: {{shoppingCartService.getTotal() | currency:'USD'}}</h2>
+
+    <a class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 flex items-center gap-2 hover:scale-105 cursor-pointer"
+      (click)="redirectToCheckOut()" [routerLink]="ordersRoutesConfig.children.checkout.url">
+      Comprar
+      <mat-icon>lunch_dining</mat-icon>
+    </a>
+
+    <button (click)="openDeleteConfirmationDialog()"
+      class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 flex items-center gap-2 cursor-pointer hover:scale-105">
       Cancelar
       <mat-icon>cancel</mat-icon>
     </button>
   </div>
-}
+  }
 
 </div>
-
-
-

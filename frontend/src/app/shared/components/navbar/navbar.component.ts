@@ -33,14 +33,13 @@ export class NavBarComponent {
   readonly branchRouteConfig = branchRoutesConfig;
   protected authRoutesConfig = authRoutesConfig;
   private useServive = inject(UserService);
-  appInformationService = inject(AppInformationService)
+  private appInformationService = inject(AppInformationService)
   isAuthenticated = this.useServive.isAuthenticated();
 
   readonly narBarLinks = [
     { label: siteRoutesConfig.base.label, href: siteRoutesConfig.base.url },
     { label: menuRoutesConfig.base.label, href: menuRoutesConfig.base.url },
     { label: branchRoutesConfig.base.label, href: branchRoutesConfig.base.url },
-    { label: 'Reviews', href: '#testmonial' },
     { label: 'Contact Us', href: '#contact' },
   ];
 
@@ -62,10 +61,10 @@ export class NavBarComponent {
     }
   }
 
-  get logoSite(){
+  get logoSite() {
     return this.appInformationService.getLogoSite()
   }
-  get appName(){
+  get appName() {
     return this.appInformationService.getTittle()
   }
 }

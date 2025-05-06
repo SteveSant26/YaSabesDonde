@@ -9,19 +9,23 @@ export class ShoppingCartService {
   public cartItems = this.cartItemsSignal.asReadonly();
 
   constructor() {
-    const storedCart = localStorage.getItem('shoppingCart');
-    try {
-      const parsedCart = storedCart ? JSON.parse(storedCart) : [];
-      if (Array.isArray(parsedCart)) {
-        this.cartItemsSignal.set(parsedCart);
-      } else {
-        throw new Error('El carrito no es un arreglo');
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const storedCart = localStorage.getItem('shoppingCart');
+      try {
+        const parsedCart = storedCart ? JSON.parse(storedCart) : [];
+        if (Array.isArray(parsedCart)) {
+          this.cartItemsSignal.set(parsedCart);
+        } else {
+          throw new Error('El carrito no es un arreglo');
+        }
+      } catch (error) {
+        this.cartItemsSignal.set([]);
       }
-    } catch (error) {
+    } else {
       this.cartItemsSignal.set([]);
     }
-
   }
+  
 
   getCartItems() {
     return this.cartItems;
@@ -60,6 +64,9 @@ export class ShoppingCartService {
   }
 
   private updateLocalStorage() {
-    localStorage.setItem('shoppingCart', JSON.stringify(this.cartItemsSignal()));
+    if (typeof window !== 'undefined' && window.localStorage) {
+      localStorage.setItem('shoppingCart', JSON.stringify(this.cartItemsSignal()));
+    }
   }
+  
 }

@@ -9,11 +9,13 @@ import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { ShoppingCartService } from '@features/orders/services/shopping-cart.service';
 import { ProductCardSmallDetailComponent } from "../../../product/components/product-card-small-detail/product-card-small-detail.component";
 import { ConfirmDeleteCartComponent } from "./confirm-delete-shopping-cart/confirm-delete-shopping-cart.component";
+import { RouterLink } from '@angular/router';
+import { ordersRoutesConfig } from '@features/orders/config';
 
 
 @Component({
   selector: 'app-shopping-cart-slide',
-  imports: [CommonModule,
+  imports: [CommonModule, RouterLink,
     MatFormFieldModule,
     MatInputModule, FormsModule, MatDialogModule, MatIconModule, ProductCardSmallDetailComponent],
   templateUrl: './shopping-cart-slide.component.html',
@@ -27,8 +29,10 @@ export class ShoppingCartSlideComponent {
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) { }
 
-  shoppingCartService = inject(ShoppingCartService)
   private dialog = inject(MatDialog)
+  readonly ordersRoutesConfig = ordersRoutesConfig
+
+  shoppingCartService = inject(ShoppingCartService)
 
 
   get cartItems() {
@@ -48,6 +52,9 @@ export class ShoppingCartSlideComponent {
     });
   }
 
+  redirectToCheckOut() {
+    this.dialog.closeAll()
+  }
 
 
 
