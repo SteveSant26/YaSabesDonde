@@ -15,20 +15,36 @@ export class CheckoutComponent {
   shoppingCartService = inject(ShoppingCartService)
   dialog = inject(MatDialog)
 
-  get cartItems(){
+  get cartItems() {
     return this.shoppingCartService.getCartItems()
   }
 
   openDeleteConfirmationDialog(): void {
-      const dialogRef = this.dialog.open(ConfirmDeleteCartComponent, {
-        width: '400px',
-      });
-  
-      dialogRef.afterClosed().subscribe(result => {
-        if (result) {
-          this.shoppingCartService.clearCart()
-        }
-      });
-    }
+    const dialogRef = this.dialog.open(ConfirmDeleteCartComponent, {
+      width: '400px',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.shoppingCartService.clearCart()
+      }
+    });
+  }
+
+  sendByWhatsapp() {
+    let message = 'Hola, quiero pedir los siguientes productos:\n';
+
+    this.cartItems().forEach(p => {
+      message += `- ${p.name} (x${p.quantity})\n`;
+    });
+
+    message+=`_____________________________\n El total es: $${this.shoppingCartService.getTotal()}`
+
+
+    const numero = '593978696206';
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, '_blank');
+  }
 
 }
