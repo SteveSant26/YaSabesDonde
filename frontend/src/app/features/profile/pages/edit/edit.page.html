@@ -1,22 +1,63 @@
-<div
-      class="min-h-screen flex justify-center items-center flex-col gap-4 w-full"
-    >
-      <!-- @if (errorMessage) {
-      <app-alert [text]="errorMessage" type="error" />
-      } -->
-      <form
-        (submit)="edit($event)"
-        [formGroup]="editForm"
-        class="fieldset w-xs bg-base-200 border border-base-300 p-4 rounded-box"
-      >
-        <legend class="fieldset-legend">Edit</legend>
+<!-- src/app/features/profile/pages/edit/edit.page.html -->
+<div class="min-h-screen flex justify-center items-center bg-base-200 px-4 py-8">
+  <form
+    (submit)="edit($event)"
+    [formGroup]="editForm"
+    class="w-full max-w-md bg-base-100 p-6 rounded-xl shadow-lg space-y-6"
+  >
+    <h2 class="text-2xl font-primary text-primary">Editar perfil</h2>
 
-        <label class="fieldset-label">Email</label>
-        <input formControlName="email" type="email" class="input" />
-
-        <label class="fieldset-label">Username</label>
-        <input formControlName="username" type="text" class="input" />
-
-        <button class="btn btn-neutral mt-4" type="submit">Edit</button>
-      </form>
+    <!-- Avatar Preview -->
+    <div class="flex flex-col items-center">
+      <div class="w-24 h-24 rounded-full overflow-hidden mb-2 bg-secondary">
+        <!-- previewUrl si existe, sino placeholder con inicial -->
+        <img
+          *ngIf="previewUrl; else initials"
+          [src]="previewUrl"
+          alt="Vista previa avatar"
+          class="w-full h-full object-cover"
+        />
+        <ng-template #initials>
+          <div class="w-full h-full flex items-center justify-center text-2xl text-base-100">
+            {{ editForm.value.username?.charAt(0)?.toUpperCase() }}
+          </div>
+        </ng-template>
+      </div>
+      <label class="btn btn-outline btn-sm">
+        📁 Subir foto
+        <input type="file" accept="image/*" (change)="onFileSelected($event)" class="hidden" />
+      </label>
     </div>
+
+    <!-- Email -->
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text font-semibold">Correo electrónico</span>
+      </label>
+      <input
+        formControlName="email"
+        type="email"
+        class="input input-bordered"
+        placeholder="ejemplo@correo.com"
+      />
+    </div>
+
+    <!-- Username -->
+    <div class="form-control">
+      <label class="label">
+        <span class="label-text font-semibold">Nombre de usuario</span>
+      </label>
+      <input
+        formControlName="username"
+        type="text"
+        class="input input-bordered"
+        placeholder="Tu nombre de usuario"
+      />
+    </div>
+
+    <!-- Botón de envío -->
+    <button type="submit" class="btn btn-primary w-full">
+      💾 Guardar cambios
+    </button>
+  </form>
+</div>
