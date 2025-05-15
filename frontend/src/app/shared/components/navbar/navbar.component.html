@@ -1,4 +1,5 @@
-<div class="navbar shadow-sm sticky top-0 z-50 backdrop-blur-lg bg-white/70 dark:bg-black/50 transition-colors duration-300 px-4 py-2">
+<div
+  class="navbar shadow-sm sticky top-0 z-50 backdrop-blur-lg bg-white/70 dark:bg-black/50 transition-colors duration-300 px-4 py-2">
   <!-- Left: Logo & Mobile Menu -->
   <div class="navbar-start flex items-center gap-4 flex-1">
 
@@ -23,9 +24,9 @@
     <!-- Logo + App Name -->
     <a class="flex items-center gap-2" [routerLink]="['']">
       @if (logoSite) {
-        <img class="h-10 w-auto" alt="Logo site" [src]="logoSite.url">
+      <img class="h-10 w-auto" alt="Logo site" [src]="logoSite.url">
       }
-      <h1 class="text-xl font-bold text-secondary-color">{{appName}}</h1>
+      <h1 class="hidden sm:block text-xl font-bold text-secondary-color">{{appName}}</h1>
     </a>
   </div>
 

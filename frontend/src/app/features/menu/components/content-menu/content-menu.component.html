@@ -6,14 +6,13 @@
 @for (menu of menuLocal.data; track menu.id) {
 <section class="bg-cover bg-center py-16">
   <div class="container mx-auto px-4 flex flex-col items-center justify-center gap-3">
-    <div class=" p-4 md:p-10 rounded-lg shadow-md w-full">
-      <div style="background: url('assets/wave-haikei.wep');" class="bg-cover bg-center h-[50px]"></div>
+    <div class=" rounded-lg shadow-md w-full">
 
       <div class="pb-10 pt-8 text-center">
         <h6 class="text-lg text-gray-700 uppercase tracking-wider">{{ menu.description }}</h6>
         <h3 class="text-3xl md:text-4xl font-bold mb-12 text-gray-900">{{ menu.name }}</h3>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-left">
           @for (category of categoriesLocal; track $index) {
           <div class="p-4 md:p-10 w-full">
             <app-show-name-category [categoryName]="category[0]"></app-show-name-category>
@@ -26,7 +25,6 @@
         </div>
       </div>
 
-      <div style="background: url('assets/wave-haikei.wep');" class="bg-cover bg-center h-[50px] rotate-180"></div>
     </div>
   </div>
 </section>
