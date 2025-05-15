@@ -12,7 +12,7 @@ import { HeroComponent } from "../../../../shared/components/hero/hero.component
 @Component({
     selector: "home-page",
     templateUrl: "./home.page.html",
-    imports: [GallaryImageProductCardComponent, CardCartegoryProductsComponent, HeroComponent],
+    imports: [HeroComponent],
 })
 export class HomePage {
     private useClientSiteService = inject(UseClientSiteService);

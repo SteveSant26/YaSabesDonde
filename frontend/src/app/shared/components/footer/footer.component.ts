@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { AppInformationService } from '@shared/services';
 
 @Component({
   selector: 'app-footer',
@@ -9,5 +10,15 @@ import { MatIconModule } from '@angular/material/icon';
 })
 export class FooterComponent {
   currentYear = new Date().getFullYear();
+  private appInformationService = inject(AppInformationService)
 
+
+
+
+  get logoSite() {
+    return this.appInformationService.getLogoSite()
+  }
+  get appName() {
+    return this.appInformationService.getTittle()
+  }
 }
