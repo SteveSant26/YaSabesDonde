@@ -4,7 +4,7 @@
 @if (homeLocal) {
   @if (homeLocal.hero) {
     <!-- Ahora delegamos todo el layout del Hero al componente -->
-    <app-hero [hero]="homeLocal.hero"></app-hero>
+    <app-hero [hero]="homeLocal.hero" [link]="menuRoutesConfig.base.url"></app-hero>
   } @else {
     <div class="py-8 text-center">
       <h1 class="text-2xl font-semibold text-red-500">Error al cargar la sección principal</h1>
