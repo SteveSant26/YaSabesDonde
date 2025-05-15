@@ -1,3 +1,3 @@
 export const environment = {
-  baseApiUrl: 'https://strapi-znwe.onrender.com',
+  baseApiUrl: 'http://localhost:1337',
 };
