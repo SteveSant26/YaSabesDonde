@@ -1,11 +1,18 @@
-// src/app/features/profile/me.page.ts
+// src/app/features/profile/pages/me/me.page.ts
 import { Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { RouterLink } from '@angular/router';
 import { AuthService } from '@features/auth/services';
 import { UserService } from '@features/auth/services';
-import { RouterLink } from '@angular/router';
 import { User } from '@features/auth/models';
 import { profileRoutesConfig } from '@features/profile/config';
+
+/**
+ * Extiende User para incluir avatarUrl opcional.
+ */
+interface ProfileUser extends User {
+  avatarUrl?: string;
+}
 
 @Component({
   selector: 'me-page',
@@ -17,21 +24,28 @@ export class MePage {
   private authService = inject(AuthService);
   private userService = inject(UserService);
 
+  /** Config de rutas para el perfil */
   profileRoutesConfig = profileRoutesConfig;
-  protected user$ = toSignal(
-    this.authService.me(this.userService.getUser() as User)
+
+  /** Señal que emite los datos del usuario logueado */
+  user$ = toSignal(
+    this.authService.me(this.userService.getUser() as ProfileUser)
   );
 
-  /** Formatea la fecha a "día de mes de año" en español */
+  /**
+   * Formatea una fecha (string o Date) a "día de mes de año" en español.
+   * Si no hay fecha, devuelve cadena vacía.
+   */
   createdAtFormatted(dateInput: string | Date | undefined): string {
     if (!dateInput) {
       return '';
     }
-    const date = typeof dateInput === 'string' ? new Date(dateInput) : dateInput;
+    const date =
+      typeof dateInput === 'string' ? new Date(dateInput) : dateInput;
     return date.toLocaleDateString('es-ES', {
-      year: 'numeric',
-      month: 'long',
       day: 'numeric',
+      month: 'long',
+      year: 'numeric',
     });
   }
 }
