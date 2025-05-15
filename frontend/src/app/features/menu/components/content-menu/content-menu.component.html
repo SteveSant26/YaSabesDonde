@@ -14,7 +14,7 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 text-left">
           @for (category of categoriesLocal; track $index) {
-          <div class="p-4 md:p-10 w-full">
+          <div class=" md:p-10 w-full">
             <app-show-name-category [categoryName]="category[0]"></app-show-name-category>
             <div class="h-10"></div>
             @for (item of category[1]; track item.id) {
