@@ -25,10 +25,6 @@ export class HomePage {
     
     isAboutUsVideoPlaying = false; //  Controlamos si el video ya se reprodujo o no
 
-    ngOnInit(){
-      console.log(this.categoryProducts()?.data)
-    }
-
     playAboutUsVideo(video: HTMLVideoElement) {
       if (video.paused) {
         video.play();
