@@ -5,7 +5,7 @@ import { RouterOutlet } from "@angular/router";
     selector: 'app-menu-layout',
     imports: [RouterOutlet],
     template: `
-    <div class="min-h-screen bg-primary-color">
+    <div class="min-h-screen bg-white">
         <router-outlet></router-outlet>
     </div>
 `,
