@@ -43,7 +43,7 @@
 
 
       <!-- Información de pago -->
-      <div class="mt-10 text-black">
+      <!-- <div class="mt-10 text-black">
         <h3 class="text-2xl font-bold text-gray-800 mb-6">Información de Pago</h3>
 
         <div class="space-y-4">
@@ -61,7 +61,27 @@
               class="w-1/2 px-4 py-3 border rounded-md focus:ring-2 focus:ring-blue-500" />
           </div>
         </div>
-      </div>
+      </div> -->
+      <!-- Información de pago -->
+<div class="mt-10 text-black">
+  <h3 class="text-2xl font-bold text-gray-800 mb-6">Información de Pago</h3>
+
+  <div class="space-y-4 bg-gray-100 p-6 rounded-lg">
+    <p class="text-lg">Por favor, realice el pago a la siguiente cuenta:</p>
+    
+   <div class="text-xl font-semibold">
+  <span class="text-secondary-color">Banco:</span>Banco Pichincha<br />
+  <span class="text-secondary-color">Número de cuenta:</span> 1234567890123456<br />
+  <span class="text-secondary-color">Titular:</span> Diogo<br />
+  <span class="text-secondary-color">Tipo de cuenta:</span> Corriente
+</div>
+
+    <p class="text-sm text-gray-600 mt-4">
+      Una vez realizado el pago, por favor envíe el comprobante al nUMERO <strong>NUMERO</strong>.
+    </p>
+  </div>
+</div>
+
     </section>
 
     <!-- Resumen de Orden -->
@@ -75,7 +95,7 @@
         </div>
         <div class="flex justify-between text-gray-600 text-sm">
           <span>Envío</span>
-          <span>USD 5.00</span>
+          <span>USD 0.00</span>
         </div>
       </div>
 
@@ -90,7 +110,7 @@
       <button
         class="mt-6 w-full bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-md text-lg font-semibold cursor-pointer"
         (click)="sendByWhatsapp()">
-        Pagar Ahora
+        Ordenar ahora
       </button>
       <button class="mt-6 w-full bg-red-600 hover:bg-red-700 text-white py-3 rounded-md text-lg font-semibold"
         (click)="openDeleteConfirmationDialog()">

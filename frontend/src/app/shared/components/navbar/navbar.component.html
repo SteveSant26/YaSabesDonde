@@ -1,15 +1,18 @@
-<div class="navbar  shadow-sm sticky top-0 z-50 backdrop-blur-2xl bg-transparent flex flex-wrap items-center justify-between">
-  <div class="navbar-start flex-1">
-    <div class="dropdown" (click)="toggleMenu()">
+<div class="navbar shadow-sm sticky top-0 z-50 backdrop-blur-lg bg-white/70 dark:bg-black/50 transition-colors duration-300 px-4 py-2">
+  <!-- Left: Logo & Mobile Menu -->
+  <div class="navbar-start flex items-center gap-4 flex-1">
 
-      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden z-50">
-        <mat-icon>{{toggleIconState}}</mat-icon>
+    <!-- Mobile Menu Button -->
+    <div class="dropdown lg:hidden" (click)="toggleMenu()">
+      <div tabindex="0" role="button" class="btn btn-ghost">
+        <mat-icon class="text-secondary-color">{{toggleIconState}}</mat-icon>
       </div>
 
-      <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+      <!-- Dropdown Content -->
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 z-50">
         @for (nar of narBarLinks; track $index) {
         <li>
-          <a [routerLink]="[nar.href]">
+          <a class="text-secondary-color font-bold hover:underline" [routerLink]="[nar.href]">
             {{nar.label}}
           </a>
         </li>
@@ -17,32 +20,35 @@
       </ul>
     </div>
 
-    <a class="pl-5 p-2 text-xl flex items-center flex-1" [routerLink]="['']">
+    <!-- Logo + App Name -->
+    <a class="flex items-center gap-2" [routerLink]="['']">
       @if (logoSite) {
-      <img class="h-10 w-auto mr-2" alt="Logo site" [src]="logoSite.url">
+        <img class="h-10 w-auto" alt="Logo site" [src]="logoSite.url">
       }
-      <h1 class="font-bold">
-        {{appName}}
-      </h1>
+      <h1 class="text-xl font-bold text-secondary-color">{{appName}}</h1>
     </a>
-
   </div>
-  <div class="navbar-center hidden lg:flex flex-1">
-    <ul class="menu menu-horizontal px-1">
+
+  <!-- Center: Desktop Nav + Cart -->
+  <div class="navbar-center hidden lg:flex flex-1 justify-center">
+    <ul class="menu menu-horizontal px-1 font-bold text-secondary-color space-x-4">
       @for (nar of narBarLinks; track $index) {
       <li>
-        <a [routerLink]="[nar.href]">
+        <a class="hover:underline" [routerLink]="[nar.href]">
           {{nar.label}}
         </a>
       </li>
       }
     </ul>
-    <a class="cursor-pointer" [routerLink]="ordersRouteConfig.children.checkout.url">
 
-      <mat-icon>shopping-cart</mat-icon>
+    <!-- Carrito de compras -->
+    <a class="relative cursor-pointer ml-6" [routerLink]="ordersRouteConfig.children.checkout.url">
+      <mat-icon class="text-secondary-color">shopping_cart</mat-icon>
     </a>
   </div>
-  <div class="navbar-end w-10">
+
+  <!-- Right: Login & Location -->
+  <div class="navbar-end flex items-center gap-4">
     <app-button-is-logged [isAuthenticated]="isAuthenticated()"></app-button-is-logged>
     <app-view-location class="hidden lg:block"></app-view-location>
   </div>

@@ -1,13 +1,15 @@
 // src/app/features/profile/pages/edit/edit.page.ts
+import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { UserService } from '@features/auth/services';
 import { onFileSelected } from '@shared/utils';
 
+
 @Component({
   selector: 'edit-page',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './edit.page.html',
 })
 export class EditPage implements OnInit {
