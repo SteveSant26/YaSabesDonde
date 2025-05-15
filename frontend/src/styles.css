@@ -29,8 +29,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 @theme {
-    /* --color-primary-color: #1d1d1d; */
-    --color-primary-color: #ffffff;
+    --color-primary-color: #1d1d1d;
+    
     --color-secondary-color: #eca500;
     --color-footer-text: #ffffff;
     --color-footer-text-secondary: #aaaaaa;
