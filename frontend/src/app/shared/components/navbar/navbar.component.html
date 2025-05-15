@@ -1,5 +1,5 @@
-<div class="navbar  shadow-sm sticky top-0 z-50 backdrop-blur-2xl bg-transparent">
-  <div class="navbar-start">
+<div class="navbar  shadow-sm sticky top-0 z-50 backdrop-blur-2xl bg-transparent flex flex-wrap items-center justify-between">
+  <div class="navbar-start flex-1">
     <div class="dropdown" (click)="toggleMenu()">
 
       <div tabindex="0" role="button" class="btn btn-ghost lg:hidden z-50">
@@ -17,7 +17,7 @@
       </ul>
     </div>
 
-    <a class="pl-5 p-2 text-xl flex items-center" [routerLink]="['']">
+    <a class="pl-5 p-2 text-xl flex items-center flex-1" [routerLink]="['']">
       @if (logoSite) {
       <img class="h-10 w-auto mr-2" alt="Logo site" [src]="logoSite.url">
       }
@@ -27,7 +27,7 @@
     </a>
 
   </div>
-  <div class="navbar-center hidden lg:flex">
+  <div class="navbar-center hidden lg:flex flex-1">
     <ul class="menu menu-horizontal px-1">
       @for (nar of narBarLinks; track $index) {
       <li>
@@ -42,8 +42,8 @@
       <mat-icon>shopping-cart</mat-icon>
     </a>
   </div>
-  <div class="navbar-end">
+  <div class="navbar-end w-10">
     <app-button-is-logged [isAuthenticated]="isAuthenticated()"></app-button-is-logged>
-    <app-view-location></app-view-location>
+    <app-view-location class="hidden lg:block"></app-view-location>
   </div>
 </div>
