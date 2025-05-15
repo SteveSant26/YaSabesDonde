@@ -1,34 +1,39 @@
-<!-- src/app/features/profile/me.page.html -->
+<!-- src/app/features/profile/pages/me/me.page.html -->
 <div class="min-h-screen flex items-center justify-center bg-base-200 px-4 py-8">
   @defer (when user$()) {
-    <div class="w-full max-w-2xl bg-base-100 rounded-2xl shadow-lg p-8">
-      <!-- Placeholder de avatar con inicial -->
-      <div class="flex items-center mb-6">
-        <div class="w-20 h-20 rounded-full bg-secondary flex items-center justify-center text-2xl text-base-100 mr-4">
+    <div class="w-full max-w-md bg-base-100 rounded-2xl shadow-lg p-6 space-y-6">
+
+      <!-- Placeholder de Avatar con Inicial -->
+      <div class="flex items-center space-x-4">
+        <div class="w-16 h-16 rounded-full bg-secondary flex items-center justify-center text-2xl text-base-100">
           {{ user$()?.username?.charAt(0)?.toUpperCase() }}
         </div>
-        <h1 class="text-4xl font-primary mb-0 text-primary">
+        <h1 class="text-2xl font-primary text-primary">
           {{ user$()?.username }}
         </h1>
       </div>
 
-      <!-- Datos -->
-      <div class="space-y-3 text-base-content">
-        <p><span class="font-semibold">Email:</span> {{ user$()?.email }}</p>
+      <!-- Datos del Usuario -->
+      <div class="space-y-2 text-base-content">
+        <p>
+          <span class="font-semibold">Correo:</span>
+          {{ user$()?.email }}
+        </p>
         <p>
           <span class="font-semibold">Cuenta creada:</span>
           {{ createdAtFormatted(user$()?.createdAt) }}
         </p>
-        <p class="text-sm text-muted">
-          <span class="font-semibold">JWT:</span> {{ user$()?.jwt }}
+        <p class="text-sm text-muted break-all">
+          <span class="font-semibold">JWT:</span>
+          {{ user$()?.jwt }}
         </p>
       </div>
 
-      <!-- Botón de edición -->
-      <div class="mt-8">
+      <!-- Botón Editar -->
+      <div class="pt-4 border-t border-base-300">
         <a
           [routerLink]="[profileRoutesConfig.children.edit.url]"
-          class="btn btn-primary w-full sm:w-auto"
+          class="btn btn-primary w-full"
         >
           ✏️ Editar perfil
         </a>
