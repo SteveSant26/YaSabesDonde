@@ -1,7 +1,7 @@
 @let productLocal = product();
 <div class="my-2 hover:bg-amber-50">
   <div class="block border-b border-gray-300 pb-3 px-4 text-gray-800 hover:text-red-500 transition">
-    <div class="flex justify-between gap-4 flex-1 flex-wrap">
+    <div class="flex justify-between gap-4 flex-1 flex-wrap flex-col sm:flex-row">
 
       <div class="flex justify-between flex-col flex-1">
         <div>
@@ -10,12 +10,15 @@
         </div>
         <h6 class="font-bold">{{ productLocal?.price ?? 0 | currency:'USD' }}</h6>
       </div>
-      <div class="relative">
-        <img [src]="productLocal?.images?.[0]?.url" alt="Blog 1" class="object-cover h-40 w-40 rounded-2xl" />
-        <button class="h-10 bg-white absolute top-[20px] right-[20px] rounded-full p-2  hover:text-red-500"
-          type="button" (click)="addToCart($event, productLocal)">
-          <mat-icon>add_shopping_cart</mat-icon>
-        </button>
+      <div class=" flex justify-center items-center">
+        <div class="relative">
+
+          <img [src]="productLocal?.images?.[0]?.url" alt="Blog 1" class="object-cover h-40 w-40 rounded-2xl" />
+          <button class="h-10 bg-white absolute top-[20px] right-[20px] rounded-full p-2  hover:text-red-500"
+            type="button" (click)="addToCart($event, productLocal)">
+            <mat-icon>add_shopping_cart</mat-icon>
+          </button>
+        </div>
       </div>
 
     </div>
