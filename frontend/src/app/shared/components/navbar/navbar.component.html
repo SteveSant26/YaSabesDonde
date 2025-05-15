@@ -1,5 +1,5 @@
 <div
-  class="navbar shadow-sm sticky top-0 z-50 backdrop-blur-lg bg-white/70 dark:bg-black/50 transition-colors duration-300 px-4 py-2">
+  class="navbar shadow-sm sticky top-0 z-50 backdrop-blur-lg bg-white/70 dark:bg-black/50 transition-colors duration-300 px-4 py-2 flex justify-between">
   <!-- Left: Logo & Mobile Menu -->
   <div class="navbar-start flex items-center gap-4 flex-1">
 
@@ -49,7 +49,7 @@
   </div>
 
   <!-- Right: Login & Location -->
-  <div class="navbar-end flex items-center gap-4">
+  <div class="navbar-end flex items-center gap-4 sm:max-w-[25%]">
     <app-button-is-logged [isAuthenticated]="isAuthenticated()"></app-button-is-logged>
     <app-view-location class="hidden lg:block"></app-view-location>
   </div>
