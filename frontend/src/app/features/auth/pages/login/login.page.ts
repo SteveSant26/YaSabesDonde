@@ -44,16 +44,16 @@ export class LoginPage {
     this.loginFormInputFields = [
       {
         name: 'identifier',
-        label: 'Email or username',
+        label: 'Correo electrónico o usuario',
         type: 'text',
-        placeholder: 'Enter your email or username',
+        placeholder: 'Ingresa tu correo electrónico o usuario',
         autocomplete: 'email',
       },
       {
         name: 'password',
-        label: 'Password',
+        label: 'Contraseña',
         type: 'password',
-        placeholder: 'Enter your password',
+        placeholder: 'Ingresa tu contraseña',
         autocomplete: 'current-password',
       },
     ];

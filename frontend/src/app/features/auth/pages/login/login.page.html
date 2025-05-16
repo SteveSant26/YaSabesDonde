@@ -3,10 +3,10 @@
   <app-alert [text]="errorMessage" type="error" />
   } -->
 
-  <app-auth-form [formGroup]="loginForm" [inputFields]="loginFormInputFields" title="Login"
-    btnSubmitLabel="Log in with your account" (formSubmit)="login()">
+  <app-auth-form [formGroup]="loginForm" [inputFields]="loginFormInputFields" title="Inicio de sesion"
+    btnSubmitLabel="Inicia sesión" (formSubmit)="login()">
 
   </app-auth-form>
 
-  <a [routerLink]="[authRoutesConfig.children.register.url]" class="link">Don't have an account? Sign up</a>
+  <a [routerLink]="[authRoutesConfig.children.register.url]" class="link">¿No tienes una cuenta? Crea una cuenta</a>
 </div>
