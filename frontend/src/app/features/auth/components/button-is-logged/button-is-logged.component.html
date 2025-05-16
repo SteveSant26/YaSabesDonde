@@ -8,7 +8,7 @@
             <ul class="p-2">
                 <li><a [routerLink]="[profileRoutesConfig().children.me.url]">Mi cuenta</a></li>
                 <li>
-                    <p (click)="logout()">Logout</p>
+                    <p (click)="logout()">Cerrar sesión</p>
                 </li>
             </ul>
         </details>
@@ -19,7 +19,7 @@
 } @else {
 
 <div class="flex gap-1">
-    <a class="btn btn-outline" [routerLink]="[authRoutesConfig().children.login.url]">Login</a>
-    <a class="hidden sm:flex btn hover:btn-neutral " [routerLink]="[authRoutesConfig().children.register.url]">Register</a>
+    <a class="btn btn-outline" [routerLink]="[authRoutesConfig().children.login.url]">Iniciar sesión</a>
+    <a class="hidden sm:flex btn hover:btn-neutral " [routerLink]="[authRoutesConfig().children.register.url]">Crear cuenta</a>
 </div>
 }

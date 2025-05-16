@@ -29,10 +29,8 @@ import { CardBrachComponent } from "./card-brach/card-brach.component";
     `
   ]
 })
-export class ContentBranchesComponent implements OnInit {
+export class ContentBranchesComponent {
   private useClientBranch = inject(UseClientBranchService);
   protected branches = toSignal(this.useClientBranch.getBranches());
-  ngOnInit(): void {
-    console.log(this.branches());
-  }
+
 }

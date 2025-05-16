@@ -43,6 +43,8 @@ export class NavBarComponent {
     { label: siteRoutesConfig.base.label, href: siteRoutesConfig.base.url },
     { label: menuRoutesConfig.base.label, href: menuRoutesConfig.base.url },
     { label: branchRoutesConfig.base.label, href: branchRoutesConfig.base.url },
+    { label: "Carrito de compras", href: ordersRoutesConfig.children.checkout.url },
+
   ];
 
   menuOpen = false;

@@ -1,11 +1,18 @@
-<li class="list-row">
-    <div><img [src]="product().images[0].url" alt="Blog 1" class="object-cover h-15 w-15" /></div>
-    <div>
-        <p class="text-secondary-color font-bold font-primary">{{ product().name }}</p>
-        <h6 class="text-sm text-gray-600 font-bold">{{ product().price || 0 | currency:'USD' }}</h6>
-        <h6 class="font-light items-center">x{{product().quantity || 0}} = {{totalPrice | currency:'USD' }}
+<li class="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 p-2">
+    <div class="mx-auto sm:mx-0">
+        <img [src]="product().images[0].url" alt="Producto" class="object-cover h-20 w-20 rounded" />
+    </div>
+
+    <div class="flex-1 text-center sm:text-left">
+        <p class="text-secondary-color font-bold font-primary text-sm sm:text-base">{{ product().name }}</p>
+        <h6 class="text-xs sm:text-sm text-gray-600 font-bold">
+            {{ product().price || 0 | currency:'USD' }}
+        </h6>
+        <h6 class="text-xs sm:text-sm font-light">
+            x{{product().quantity || 0}} = {{totalPrice | currency:'USD' }}
         </h6>
     </div>
+
     <app-add-remove-form [product]="product()"></app-add-remove-form>
 
 </li>

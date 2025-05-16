@@ -1,22 +1,23 @@
-<form class="flex items-center justify-end space-x-2 w-auto sm:w-36 md:w-44 lg:w-52">
+<form class="flex items-center justify-end gap-1 sm:gap-2 w-full max-w-[200px] text-xs sm:text-sm">
     <button
-        class="h-8 w-8 rounded-full border border-gray-400 text-gray-600 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500 hover:bg-gray-100 active:scale-95 transition-transform duration-75"
+        class="h-7 w-7 sm:h-8 sm:w-8 rounded-full border border-gray-400 text-gray-600 hover:bg-gray-100 active:scale-95 transition-transform"
         (click)="product().quantity = (product().quantity ?? 0) > 0 ? (product().quantity ?? 0) - 1 : 0">
         <mat-icon class="scale-75">remove</mat-icon>
     </button>
+
     <input type="number" name="quantity" [(ngModel)]="product().quantity"
-        class="w-16 text-center border border-gray-300 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
+        class="w-8 text-center border border-gray-300 rounded-md shadow-sm focus:ring-primary-500 focus:border-primary-500 text-xs"
         min="0" />
 
     <button
-        class="h-8 w-8 rounded-full border border-gray-400 text-gray-600 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500 hover:bg-gray-100 active:scale-95 transition-transform duration-75"
+        class="h-7 w-7 sm:h-8 sm:w-8 rounded-full border border-gray-400 text-gray-600 hover:bg-gray-100 active:scale-95 transition-transform"
         (click)="product().quantity = (product().quantity ?? 0)+1">
         <mat-icon class="scale-75">add</mat-icon>
     </button>
 
     <button
-        class="h-8 w-8 rounded-full border border-gray-400 text-gray-600 cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary-500 hover:bg-gray-100 active:scale-95 transition-transform duration-75"
+        class="h-7 w-7 sm:h-8 sm:w-8 rounded-full border border-gray-400 text-gray-600 hover:bg-gray-100 active:scale-95 transition-transform"
         (click)="shoppingCartService.removeItem(product().id||-1)">
-        <mat-icon>delete</mat-icon>
+        <mat-icon class="scale-75">delete</mat-icon>
     </button>
 </form>
