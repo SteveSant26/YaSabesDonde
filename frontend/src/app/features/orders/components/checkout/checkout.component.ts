@@ -31,20 +31,21 @@ export class CheckoutComponent {
     });
   }
 
-  sendByWhatsapp() {
-    let message = 'Hola, quiero pedir los siguientes productos:\n';
+sendByWhatsapp() {
+  let message = 'Hola, quiero pedir los siguientes productos:\n';
 
-    this.cartItems().forEach(p => {
-      message += `- ${p.name} (x${p.quantity})\n`;
-    });
+  this.cartItems().forEach(p => {
+    message += `- ${p.name} (x${p.quantity})\n`;
+  });
 
-    message+=`_____________________________\n El total es: $${this.shoppingCartService.getTotal()}`
+  message += `_____________________________\nEl total es: $${this.shoppingCartService.getTotal()}`;
 
+  const numero = '593986382929';
+  const encodedMessage = encodeURIComponent(message.trim()); // trim() por si acaso
+  const url = `https://wa.me/${numero}?text=${encodedMessage}`;
 
-    const numero = '593978696206';
-    const url = `https://wa.me/${numero}?text=${encodeURIComponent(message)}`;
+  window.open(url, '_blank');
+}
 
-    window.open(url, '_blank');
-  }
 
 }
