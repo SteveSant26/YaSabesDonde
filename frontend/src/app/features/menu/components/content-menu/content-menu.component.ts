@@ -21,7 +21,6 @@ export class ContentMenuComponent implements OnInit {
     this.useClientMenu.getMenuByBranch(this.branchId() as number).subscribe({
       next: (menu: MenuResponse) => {
         this.menu.set(menu);
-        console.log("menu", this.categories());
       }
     });
   }

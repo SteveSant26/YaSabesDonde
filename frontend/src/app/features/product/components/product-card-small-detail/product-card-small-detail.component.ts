@@ -13,9 +13,13 @@ import { AddRemoveFormComponent } from "./add-remove-form/add-remove-form.compon
 export class ProductCardSmallDetailComponent {
   product = input.required<Product>()
 
+  
+
   get totalPrice() {
     return (this.product().price ?? 0) * (this.product().quantity ?? 0)
   }
+
+
 
 
 }
