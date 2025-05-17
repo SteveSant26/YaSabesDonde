@@ -19,7 +19,6 @@ import { ordersRoutesConfig } from '@features/orders/config';
     MatFormFieldModule,
     MatInputModule, FormsModule, MatDialogModule, MatIconModule, ProductCardSmallDetailComponent],
   templateUrl: './shopping-cart-slide.component.html',
-  styleUrl: './shopping-cart-slide.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShoppingCartSlideComponent {

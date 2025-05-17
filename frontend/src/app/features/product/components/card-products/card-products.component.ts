@@ -28,7 +28,8 @@ export class CardProductsComponent {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(ShoppingCartSlideComponent)
+    const dialogRef = this.dialog.open(ShoppingCartSlideComponent, {
+    })
 
     dialogRef.afterClosed().subscribe();
   }

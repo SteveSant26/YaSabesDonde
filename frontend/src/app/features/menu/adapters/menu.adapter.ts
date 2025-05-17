@@ -17,7 +17,6 @@ export const menuAdapter = (dataClient: any): Menu => {
 
 
 export const menuResponseAdapter = (dataClient: any): MenuResponse => {
-    console.log(dataClient);
     return {
         data: dataClient.data.map(menuAdapter),
         meta: dataClient.meta,

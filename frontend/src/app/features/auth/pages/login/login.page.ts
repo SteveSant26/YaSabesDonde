@@ -44,23 +44,22 @@ export class LoginPage {
     this.loginFormInputFields = [
       {
         name: 'identifier',
-        label: 'Email or username',
+        label: 'Correo electrónico o usuario',
         type: 'text',
-        placeholder: 'Enter your email or username',
+        placeholder: 'Ingresa tu correo electrónico o usuario',
         autocomplete: 'email',
       },
       {
         name: 'password',
-        label: 'Password',
+        label: 'Contraseña',
         type: 'password',
-        placeholder: 'Enter your password',
+        placeholder: 'Ingresa tu contraseña',
         autocomplete: 'current-password',
       },
     ];
   }
 
   login() {
-    console.log(this.loginForm.invalid);
     if (!this.loginForm.valid) {
       this.errorMessage = 'Please fill in the form';
       this.notificationsService.showAlert(
@@ -72,7 +71,6 @@ export class LoginPage {
     const { identifier, password } = this.loginForm.value;
     this.authSevice.login(identifier, password).subscribe({
       next: (data) => {
-        console.log(data);
         this.errorMessage = '';
         this.notificationsService.showAlert(
           'Login succesful',

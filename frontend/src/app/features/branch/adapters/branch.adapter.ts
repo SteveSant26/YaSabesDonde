@@ -18,7 +18,6 @@ export const branchAdapter = (dataClient: any): Branch => {
 }   
 
 export const branchesAdapter = (dataClient: any): Branches => {
-    console.log("dataClient", dataClient);
     return {
         data: dataClient.data.map((data: any) => branchAdapter(data)),
         meta: dataClient.meta
