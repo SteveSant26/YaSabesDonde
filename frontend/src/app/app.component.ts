@@ -22,6 +22,8 @@ export class AppComponent {
   private appInformationService = inject(AppInformationService)
 
   ngOnInit() {
+    console.log('app component')
+    console.log(this.appInformationService.appInformation())
     this.appInformationService.setTitle()
     this.appInformationService.updateFavicon()
   }
