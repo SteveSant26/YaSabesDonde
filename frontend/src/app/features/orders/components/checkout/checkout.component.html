@@ -63,6 +63,7 @@
         </div>
       </div> -->
 
+
       <!-- Información de pago -->
       <div class="mt-10 text-black ">
         <h3 class="text-2xl font-bold text-gray-800 mb-6">Información de Pago</h3>
@@ -70,31 +71,25 @@
         <div class="space-y-4 bg-gray-100 p-6 rounded-lg">
           <p class="text-lg">Por favor, realice el pago a la siguiente cuenta:</p>
 
-          <div class="text-xl font-semibold">
-            <span class="text-secondary-color">Banco:</span>Banco Pichincha<br />
-            <span class="text-secondary-color">Número de cuenta:</span> 1234567890123456<br />
-            <span class="text-secondary-color">Titular:</span> Diogo<br />
-            <span class="text-secondary-color">Tipo de cuenta:</span> Corriente
-          </div>
 
-          <div class="text-xl font-semibold">
-            <span class="text-secondary-color">Banco:</span>Guayaquil <br />
-            <span class="text-secondary-color">Número de cuenta:</span> 50643714<br />
-            <span class="text-secondary-color">Titular:</span> Diogo García <br />
-            <span class="text-secondary-color">Tipo de cuenta:</span> Ahorro transaccional
-            <span class="text-secondary-color">RUC/Identificación:</span> 1315847481
-          </div>
+          <mat-tab-group>
+            @for (account of bankAccounts;track $index){
 
-          <div class="text-xl font-semibold">
-            <span class="text-secondary-color">Banco:</span>Produbanco <br />
-            <span class="text-secondary-color">Número de cuenta:</span> 27059101054<br />
-            <span class="text-secondary-color">Titular:</span> Yasabesdonde S.a.s. <br />
-            <span class="text-secondary-color">Tipo de cuenta:</span> Cuenta Pro Pyme
-            <span class="text-secondary-color">RUC/Identificación:</span> 1391937744001
-          </div>
-
+            <mat-tab [label]="account.label">
+              <div class="text-xl font-semibold">
+                <span [class]="account.color">Banco:</span>{{account.bank}}<br />
+                <span [class]="account.color">Número de cuenta:</span> {{account.accountNumber}}
+                <br />
+                <span [class]="account.color">Titular:</span> {{account.holder}}
+                <br />
+                <span [class]="account.color">Tipo de cuenta:</span> {{account.accountType}} <br />
+                <span [class]="account.color">RUC/Identificación:</span> {{account.identification}} <br />
+              </div>
+            </mat-tab>
+            }
+          </mat-tab-group>
           <p class="text-sm text-gray-600 mt-4">
-            Una vez realizado el pago, por favor envíe el comprobante al nUMERO <strong>NUMERO</strong>.
+            Una vez realizado el pago, por favor haga click en el boton de ordenar pago y envie el comprobante alli
           </p>
         </div>
       </div>
