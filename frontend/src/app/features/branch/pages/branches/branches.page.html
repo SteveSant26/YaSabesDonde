@@ -1,14 +1,50 @@
-<div class="bg-primary-color min-h-screen">
-    <header viewTransitionName="card" id="home" class="relative h-[30vh] bg-cover bg-center bg-fixed bg-no-repeat"
-    style="background-image: url('https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png');">
-    <div class="absolute inset-0 bg-black opacity-50"></div>
-    <div class="relative flex items-center justify-center h-full">
-        <div class="text-center text-white px-4">
-            <h1 class="text-5xl md:text-6xl font-bold mb-4 ">Nuestras Sucursales</h1>
-        </div>
+<div class="bg-primary-color min-h-screen text-white">
+  <!-- Hero -->
+  <header
+    viewTransitionName="card"
+    id="home"
+    class="relative h-[40vh] sm:h-[50vh] bg-cover bg-center bg-no-repeat"
+    style="background-image: url('https://www.beloleum.com/wp-content/uploads/2023/11/hamburguesas-caseras-gourmet.png');"
+  >
+    <div class="absolute inset-0 bg-black/60"></div>
+    <div class="relative flex items-center justify-center h-full z-10">
+      <h1 class="text-4xl sm:text-5xl font-extrabold text-white drop-shadow-md">
+        Nuestros Locales
+      </h1>
     </div>
-</header>
-<div class="container mx-auto px-4 py-10">
-    <app-content-branches></app-content-branches>
-</div>
+  </header>
+
+  <!-- Lista de sucursales -->
+  <div class="container mx-auto px-4 py-12">
+    <div class="grid gap-6">
+      <!-- Sucursal -->
+      <div class="bg-white text-black rounded-2xl shadow-lg flex flex-col sm:flex-row overflow-hidden">
+        <!-- Imagen -->
+        <img
+          src="https://via.placeholder.com/150"
+          alt="Sucursal"
+          class="w-full sm:w-40 h-40 sm:h-auto object-cover"
+        />
+        <!-- Contenido -->
+        <div class="flex-1 p-4 sm:p-6 flex flex-col justify-between">
+          <div>
+            <h2 class="text-lg font-bold">Ya Sabes Donde</h2>
+            <p class="text-sm text-gray-700">AV23</p>
+            <div class="flex items-center gap-2 mt-2">
+              <span class="h-2 w-2 bg-green-500 rounded-full"></span>
+              <span class="text-xs text-gray-600">Abierto desde las 5pm - Cierra: 3 AM</span>
+            </div>
+          </div>
+          <div class="mt-4">
+            <button
+              class="bg-secondary-color text-white text-sm px-4 py-2 rounded-full hover:bg-orange-600 transition">
+              Más información
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Rep para cada sucursal -->
+    </div>
+  </div>
 </div>
